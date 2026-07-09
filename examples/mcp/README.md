@@ -9,7 +9,7 @@ Practical, scoped examples for connecting loops to real tools via MCP (or equiva
 If you want to try the MCP server without cloning the repo, use the published package:
 
 ```bash
-LOOP_PROJECT_ROOT=. npx @cobusgreyling/loop-mcp-server
+LOOP_PROJECT_ROOT=. npx @kevinzhangnothing/loop-mcp-server
 ```
 
 Copy the example MCP configuration:

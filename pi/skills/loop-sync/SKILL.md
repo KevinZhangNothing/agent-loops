@@ -2,7 +2,7 @@
 name: loop-sync
 description: >
   Detect drift between Loop configuration files (STATE.md, LOOP.md, AGENTS.md)
-  and the skills directory. Wraps the @cobusgreyling/loop-sync CLI; never
+  and the skills directory. Wraps the @kevinzhangnothing/loop-sync CLI; never
   auto-mutates without an explicit human gate.
 user_invocable: true
 ---
@@ -18,10 +18,10 @@ suggest the smallest fix the human can review.
 - Before the **first** loop run after a config edit.
 - Whenever a new pattern is added or removed in `LOOP.md`.
 - Whenever a new skill lands in `skills/` (or `.grok/skills/`, `.claude/skills/`,
-  `.codex/skills/` — `@cobusgreyling/loop-sync` scans all four).
+  `.codex/skills/` — `@kevinzhangnothing/loop-sync` scans all four).
 - After upgrading any loop-engineering tool.
 
-## What `@cobusgreyling/loop-sync` actually checks
+## What `@kevinzhangnothing/loop-sync` actually checks
 
 The CLI (see `tools/loop-sync/src/sync.ts`) produces a `DriftReport` with four
 issue types:
@@ -40,16 +40,16 @@ Severity → score: `error` −20, `warning` −10, `info` −1. Score 0–100 m
 
 ```bash
 # Default: human-readable report, exit 0 even with issues
-npx @cobusgreyling/loop-sync .
+npx @kevinzhangnothing/loop-sync .
 
 # JSON for CI / STATE.md append
-npx @cobusgreyling/loop-sync . --json > sync-report.json
+npx @kevinzhangnothing/loop-sync . --json > sync-report.json
 
 # Dry-run preview of auto-fix (still does not write)
-npx @cobusgreyling/loop-sync . --auto-fix --dry-run
+npx @kevinzhangnothing/loop-sync . --auto-fix --dry-run
 
 # Verbose: also surface the top 3 heading mismatches between STATE.md and LOOP.md
-npx @cobusgreyling/loop-sync . --verbose
+npx @kevinzhangnothing/loop-sync . --verbose
 ```
 
 **Never** run `--auto-fix` without `--dry-run` first and a human review of the
@@ -70,7 +70,7 @@ List** depending on severity):
 
 ### Suggested actions
 - Add STATE.md to the state files list in LOOP.md
-- Run `npx @cobusgreyling/loop-init . --pattern daily-triage` if STATE.md is missing
+- Run `npx @kevinzhangnothing/loop-init . --pattern daily-triage` if STATE.md is missing
 ```
 
 ## Rules

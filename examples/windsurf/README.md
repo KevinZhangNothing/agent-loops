@@ -11,5 +11,5 @@ No `loop-init --tool windsurf` yet — copy `SKILL.md` + `STATE.md` from any sta
 
 Audit after copying:
 ```bash
-npx @cobusgreyling/loop-audit . --suggest
+npx @kevinzhangnothing/loop-audit . --suggest
 ```

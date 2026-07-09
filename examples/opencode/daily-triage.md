@@ -55,7 +55,7 @@ The verifier sees only the diff; the implementer works only inside the worktree.
 
 ## Goal Mode Alternative
 
-For a one-shot "get main green" session, drive opencode with the [Goal Engineering](https://github.com/cobusgreyling/goal-engineering) `/goal` skill. opencode is goal-friendly: hand it the goal, the stop condition, and the verifier prompt and let the verifier decide when to stop.
+For a one-shot "get main green" session, drive opencode with the [Goal Engineering](https://github.com/KevinZhangNothing/goal-engineering) `/goal` skill. opencode is goal-friendly: hand it the goal, the stop condition, and the verifier prompt and let the verifier decide when to stop.
 
 ```bash
 opencode run "Goal: all tests on main pass and lint is clean. Stop when tests pass and write the evidence."
@@ -126,7 +126,7 @@ opencode export <sessionID> > loop-session.json
 
 Pause: disable the cron/systemd timer or set `loop-pause-all` in `STATE.md` and teach the skill to stop acting.
 
-Audit readiness: `npx @cobusgreyling/loop-audit . --suggest`.
+Audit readiness: `npx @kevinzhangnothing/loop-audit . --suggest`.
 
 ## When to pick opencode over a TUI agent
 

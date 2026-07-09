@@ -6,8 +6,8 @@ Loop engineering runs unattended automation against your codebase. Treat loops l
 
 Report security issues **privately** — do not open public issues for exploitable vulnerabilities.
 
-- **Preferred:** [GitHub private vulnerability reporting](https://github.com/cobusgreyling/loop-engineering/security/advisories/new)
-- **Email:** security@cobusgreyling.me (PGP on request)
+- **Preferred:** [GitHub private vulnerability reporting](https://github.com/KevinZhangNothing/loop-engineering/security/advisories/new)
+- **Email:** security@kevinzhangnothing.com (PGP on request)
 
 For general loop safety guidance, see [docs/safety.md](docs/safety.md).
 
@@ -33,6 +33,6 @@ For general loop safety guidance, see [docs/safety.md](docs/safety.md).
 
 | Package | Supported |
 |---------|-----------|
-| `@cobusgreyling/loop-audit` | Latest release on npm |
-| `@cobusgreyling/loop-init` | Latest release on npm |
+| `@kevinzhangnothing/loop-audit` | Latest release on npm |
+| `@kevinzhangnothing/loop-init` | Latest release on npm |
 | Reference repo `main` | Current HEAD |

@@ -105,7 +105,7 @@ Use `/goal` for focused "get green" sessions; use scheduled sweeper for ongoing 
 **Cadence**: 5m–15m · **Tier**: very-high · **Suggested daily cap**: 1M tokens · **Early exit required**
 
 ```bash
-npx @cobusgreyling/loop-cost --pattern ci-sweeper --cadence 15m --level L2
+npx @kevinzhangnothing/loop-cost --pattern ci-sweeper --cadence 15m --level L2
 ```
 
 At 15m cadence without early-exit, worst-case spend exceeds 5M tokens/day. Never run full action paths on every tick.

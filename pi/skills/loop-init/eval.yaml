@@ -22,7 +22,7 @@ test_cases:
     description: 使用默认参数创建脚手架
     input: "为当前项目初始化 Loop"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-init ."
+      - run_command: "npx @kevinzhangnothing/loop-init ."
     expected_output:
       contains:
         - "Created:"
@@ -32,7 +32,7 @@ test_cases:
     description: 指定 pattern 进行初始化
     input: "使用 daily-triage 模式初始化"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-init . --pattern daily-triage"
+      - run_command: "npx @kevinzhangnothing/loop-init . --pattern daily-triage"
     expected_output:
       contains:
         - "STATE.md"
@@ -42,13 +42,13 @@ test_cases:
     description: 指定 tool 进行初始化
     input: "为 Claude 项目初始化 Loop"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-init . --tool claude"
+      - run_command: "npx @kevinzhangnothing/loop-init . --tool claude"
 
   - name: Opencode 项目
     description: 为 Opencode 项目初始化
     input: "为 Opencode 项目搭建 Loop"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-init . --tool opencode"
+      - run_command: "npx @kevinzhangnothing/loop-init . --tool opencode"
     expected_output:
       contains:
         - "opencode.json"
@@ -58,13 +58,13 @@ test_cases:
     description: 预览变更但不实际执行
     input: "预览初始化会创建哪些文件"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-init . --dry-run"
+      - run_command: "npx @kevinzhangnothing/loop-init . --dry-run"
 
   - name: L2 模式带熔断器
     description: CI Sweeper 等 L2 模式会配置熔断器
     input: "初始化 CI Sweeper 模式"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-init . --pattern ci-sweeper"
+      - run_command: "npx @kevinzhangnothing/loop-init . --pattern ci-sweeper"
     expected_output:
       contains:
         - "loop-guard"

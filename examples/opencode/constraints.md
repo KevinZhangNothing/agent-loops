@@ -30,7 +30,7 @@ opencode run "Run skills/loop-constraints/SKILL.md. Then run skills/loop-triage/
 ## Scaffold automatically
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern daily-triage --tool opencode
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool opencode
 ```
 
 `loop-init` copies `loop-constraints.md` and `skills/loop-constraints/SKILL.md` into the repo root layout opencode expects.

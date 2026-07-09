@@ -6,9 +6,9 @@ labels:
 body:
   - type: markdown
     value: |
-      Share how you run loops from this repo (or an adaptation). We'll add your project to [docs/adopters.md](https://github.com/cobusgreyling/loop-engineering/blob/main/docs/adopters.md) and the [showcase adopters wall](https://cobusgreyling.github.io/loop-engineering/#adopters).
+      Share how you run loops from this repo (or an adaptation). We'll add your project to [docs/adopters.md](https://github.com/KevinZhangNothing/loop-engineering/blob/main/docs/adopters.md) and the [showcase adopters wall](https://KevinZhangNothing.github.io/loop-engineering/#adopters).
 
-      **Optional:** paste your Loop Ready badge from `npx @cobusgreyling/loop-audit . --badge`.
+      **Optional:** paste your Loop Ready badge from `npx __NPM_SCOPE__/loop-audit . --badge`.
 
   - type: input
     id: project
@@ -67,6 +67,6 @@ body:
     id: badge
     attributes:
       label: Loop Ready badge (optional)
-      description: Output of `npx @cobusgreyling/loop-audit . --badge`
+      description: Output of `npx __NPM_SCOPE__/loop-audit . --badge`
       render: text
       placeholder: "[![Loop Ready L2 (58/100)](...)](...)"

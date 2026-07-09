@@ -40,8 +40,8 @@ Examples:
   loop-audit .
   loop-audit . --suggest
   loop-audit . --badge >> README.md
-  npx @cobusgreyling/loop-audit . --json
-  npx @cobusgreyling/loop-audit starters/minimal-loop --suggest
+  npx @kevinzhangnothing/loop-audit . --json
+  npx @kevinzhangnothing/loop-audit starters/minimal-loop --suggest
   bash scripts/before-after-demo.sh
 `);
   process.exit(0);
@@ -68,7 +68,7 @@ try {
     console.log('  cp -r starters/minimal-loop-codex/.codex/skills/loop-triage .codex/skills/');
     console.log('  cp starters/minimal-loop-codex/.codex/agents/verifier.toml .codex/agents/');
     console.log('  # Opencode:');
-    console.log('  npx @cobusgreyling/loop-init . --pattern daily-triage --tool opencode');
+    console.log('  npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool opencode');
     console.log('  # or: cp starters/minimal-loop-opencode/opencode.json.example opencode.json');
     console.log('  # All tools:');
     console.log('  cp starters/minimal-loop/STATE.md.example STATE.md   # or -claude / -codex variant');
@@ -88,8 +88,8 @@ try {
     console.log('  # Then run:  loop-audit . --suggest   (again after changes)');
     console.log('');
     console.log('  # Or scaffold automatically:');
-    console.log('  npx @cobusgreyling/loop-init . --pattern daily-triage --tool grok');
-    console.log('  npx @cobusgreyling/loop-cost --pattern daily-triage --level L1');
+    console.log('  npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok');
+    console.log('  npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1');
     console.log('');
     console.log('  # IMPORTANT (v1.4): After scaffolding, actually RUN a loop (report-only) and commit the updated STATE.md.');
     console.log('  # This creates the "loopActivity" evidence that pushes you toward real L2/L3 scores.');

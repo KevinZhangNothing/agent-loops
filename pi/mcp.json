@@ -4,7 +4,7 @@
   "mcpServers": {
     "LoopEngineering": {
       "command": "npx",
-      "args": ["-y", "@cobusgreyling/loop-mcp-server"],
+      "args": ["-y", "@kevinzhangnothing/loop-mcp-server"],
       "env": {
         "LOOP_PROJECT_ROOT": "${LOOP_PROJECT_ROOT:-.}"
       },
@@ -31,7 +31,7 @@
     },
     "LoopAudit": {
       "command": "npx",
-      "args": ["-y", "@cobusgreyling/loop-audit"],
+      "args": ["-y", "@kevinzhangnothing/loop-audit"],
       "description": "Loop Readiness Score 审计工具",
       "tools": [
         "audit",
@@ -41,7 +41,7 @@
     },
     "LoopInit": {
       "command": "npx",
-      "args": ["-y", "@cobusgreyling/loop-init"],
+      "args": ["-y", "@kevinzhangnothing/loop-init"],
       "description": "Loop 脚手架生成器",
       "tools": [
         "init",
@@ -50,7 +50,7 @@
     },
     "LoopCost": {
       "command": "npx",
-      "args": ["-y", "@cobusgreyling/loop-cost"],
+      "args": ["-y", "@kevinzhangnothing/loop-cost"],
       "description": "Token 花费估算器",
       "tools": [
         "estimate",
@@ -61,19 +61,19 @@
   "shortcuts": {
     "+loop-score": {
       "description": "运行 loop-audit 审计当前项目",
-      "command": "npx @cobusgreyling/loop-audit ."
+      "command": "npx @kevinzhangnothing/loop-audit ."
     },
     "+loop-score-suggest": {
       "description": "运行 loop-audit 并获取改进建议",
-      "command": "npx @cobusgreyling/loop-audit . --suggest"
+      "command": "npx @kevinzhangnothing/loop-audit . --suggest"
     },
     "+loop-init": {
       "description": "初始化 Loop 脚手架",
-      "command": "npx @cobusgreyling/loop-init . --pattern daily-triage --tool claude"
+      "command": "npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool claude"
     },
     "+loop-cost": {
       "description": "估算 Loop token 花费",
-      "command": "npx @cobusgreyling/loop-cost --pattern daily-triage --level L1"
+      "command": "npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1"
     },
     "+loop-state": {
       "description": "查看当前 STATE.md 内容",

@@ -14,12 +14,12 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const OUT = path.join(ROOT, 'CONTRIBUTORS.md');
-const REPO = 'cobusgreyling/loop-engineering';
-const MAINTAINER = 'cobusgreyling';
+const REPO = 'KevinZhangNothing/loop-engineering';
+const MAINTAINER = 'KevinZhangNothing';
 const BOTS = new Set(['github-actions[bot]', 'dependabot[bot]', 'dependabot']);
 
 const CONTRIBUTOR_QUICKSTART =
-  'https://github.com/cobusgreyling/loop-engineering/discussions/123';
+  'https://github.com/KevinZhangNothing/loop-engineering/discussions/123';
 
 function ghJson(args) {
   return JSON.parse(execFileSync('gh', args, { encoding: 'utf8', cwd: ROOT }));

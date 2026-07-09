@@ -27,7 +27,7 @@ cp /path/to/loop-engineering/pi/ .
   "mcpServers": {
     "LoopEngineering": {
       "command": "npx",
-      "args": ["-y", "@cobusgreyling/loop-mcp-server"],
+      "args": ["-y", "@kevinzhangnothing/loop-mcp-server"],
       "env": {
         "LOOP_PROJECT_ROOT": "/path/to/your/project"
       }
@@ -54,7 +54,7 @@ ls ~/.pi/agent/skills/
 +loop-score
 
 # 或手动运行
-npx @cobusgreyling/loop-audit .
+npx @kevinzhangnothing/loop-audit .
 ```
 
 ---
@@ -70,16 +70,16 @@ npx @cobusgreyling/loop-audit .
 **用法**:
 ```bash
 # 基础审计
-npx @cobusgreyling/loop-audit .
+npx @kevinzhangnothing/loop-audit .
 
 # 获取改进建议
-npx @cobusgreyling/loop-audit . --suggest
+npx @kevinzhangnothing/loop-audit . --suggest
 
 # JSON 输出
-npx @cobusgreyling/loop-audit . --json
+npx @kevinzhangnothing/loop-audit . --json
 
 # 生成 README 徽章
-npx @cobusgreyling/loop-audit . --badge
+npx @kevinzhangnothing/loop-audit . --badge
 ```
 
 **输出示例**:
@@ -105,13 +105,13 @@ Findings:
 **用法**:
 ```bash
 # 默认初始化 (Daily Triage + Grok)
-npx @cobusgreyling/loop-init .
+npx @kevinzhangnothing/loop-init .
 
 # 指定模式和工具
-npx @cobusgreyling/loop-init . --pattern daily-triage --tool claude
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool claude
 
 # 预览变更
-npx @cobusgreyling/loop-init . --dry-run
+npx @kevinzhangnothing/loop-init . --dry-run
 ```
 
 **生成的文件**:
@@ -170,13 +170,13 @@ project/
 **用法**:
 ```bash
 # 估算 Daily Triage L1 花费
-npx @cobusgreyling/loop-cost --pattern daily-triage --level L1
+npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1
 
 # 估算 CI Sweeper (高花费)
-npx @cobusgreyling/loop-cost --pattern ci-sweeper --cadence 15m
+npx @kevinzhangnothing/loop-cost --pattern ci-sweeper --cadence 15m
 
 # JSON 输出
-npx @cobusgreyling/loop-cost --pattern daily-triage --level L1 --json
+npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1 --json
 ```
 
 **输出示例**:
@@ -195,16 +195,80 @@ Early exit required: No
 
 ---
 
+### 完整 Skill 清单（pi 包内 12 个）
+
+| Skill | 等级 | 触发词 | 用途 |
+|-------|------|--------|------|
+| `loop-audit` | L1 | "审计项目", "loop 评分" | Loop Readiness Score 审计 |
+| `loop-init` | L1 | "初始化 loop", "创建脚手架" | 脚手架生成器（7 patterns × 4 tools） |
+| `loop-triage` | L1 | "日常分类", "triage report" | 日常任务分类（CI/Issue/PR） |
+| `loop-cost` | L1 | "token 花费", "预算估算" | Token 花费估算（JSON 输出） |
+| `loop-budget` | L1 | "loop budget", "kill switch" | Token 预算守护（运行前后检查） |
+| `loop-verifier` | L2 | "verify", "maker/checker" | 独立验证器（永远找拒绝理由） |
+| `minimal-fix` | L2 | "fix this", "minimal patch" | 最小修复实现（最小 diff） |
+| `loop-sync` | L1 | "loop drift", "STATE.md LOOP.md" | Drift detection（包装 `loop-sync` CLI） |
+| `loop-guard` | L2 | "circuit breaker", "熔断器" | 电路熔断器（包装 `loop-context --check`） |
+| `ci-triage` | L2 | "CI failure", "flake check" | CI 失败分类（flake/regression/env/config） |
+| `pr-review-triage` | L2 | "PR status", "review queue" | PR 状态分类（CI/reviews/merge） |
+| `rebase-and-clean` | L2 | "rebase PR", "clean commits" | PR rebase 与清理 |
+
+**L1 = 报告/只读**，可被任何 pi 会话调用。
+**L2 = 修复类**，需要人工 gate（merge/force-push 由人类决定）。
+
+### 三个新增 skill 详解（v2）
+
+#### loop-sync
+
+包装 `@kevinzhangnothing/loop-sync` CLI，检测 `STATE.md`/`LOOP.md`/`AGENTS.md` 之间的 drift：
+
+```bash
+# 默认报告
+npx @kevinzhangnothing/loop-sync .
+
+# JSON 供 CI / STATE.md append
+npx @kevinzhangnothing/loop-sync . --json
+
+# 预览 auto-fix（不实际写）
+npx @kevinzhangnothing/loop-sync . --auto-fix --dry-run
+```
+
+Score < 40 (`critical`) → **STOP** + escalate-human。详见 [pi/skills/loop-sync/SKILL.md](../pi/skills/loop-sync/SKILL.md)。
+
+#### loop-guard
+
+电路熔断器，包装 `@kevinzhangnothing/loop-context --check`：
+
+```bash
+# 每个 fix 迭代前
+npx @kevinzhangnothing/loop-context --check --ledger loop-ledger.json --token-budget "$BUDGET"
+# exit 0 = continue, exit 2 = escalate
+```
+
+Token budget 自动从 `loop-cost --pattern <p> --level <L>` 的 `scenarios.realistic.tokensPerRun` 派生。仅对**修复类** pattern 生效（ci-sweeper, pr-babysitter, dependency-sweeper, post-merge-cleanup）。详见 [pi/skills/loop-guard/SKILL.md](../pi/skills/loop-guard/SKILL.md)。
+
+#### rebase-and-clean
+
+PR 看护专用，**强制遵守** `loop-constraints.md`：
+
+- **不允许**对 `main`/`master`/`release/*` force-push
+- **不允许**触碰 denylist 路径（`.env`, `auth/`, `payments/`, `secrets/`）
+- 每次 rebase attempt 必须写入 `loop-ledger.json`（与 `loop-guard` 联动）
+- **不允许**超过 3 次 rebase attempt，否则熔断器跳闸
+
+通过 `npx @kevinzhangnothing/loop-worktree create --run-id <id> --pattern pr-babysitter` 隔离 worktree。详见 [pi/skills/rebase-and-clean/SKILL.md](../pi/skills/rebase-and-clean/SKILL.md)。
+
+---
+
 ## Shortcuts (快捷键)
 
 pi 支持快捷键快速执行常用命令。在 `~/.pi/agent/mcp.json` 中配置：
 
 | 快捷键 | 描述 | 命令 |
 |--------|------|------|
-| `+loop-score` | 审计当前项目 | `npx @cobusgreyling/loop-audit .` |
-| `+loop-score-suggest` | 获取改进建议 | `npx @cobusgreyling/loop-audit . --suggest` |
-| `+loop-init` | 初始化脚手架 | `npx @cobusgreyling/loop-init . -p daily-triage -t claude` |
-| `+loop-cost` | 估算 token 花费 | `npx @cobusgreyling/loop-cost --pattern daily-triage --level L1` |
+| `+loop-score` | 审计当前项目 | `npx @kevinzhangnothing/loop-audit .` |
+| `+loop-score-suggest` | 获取改进建议 | `npx @kevinzhangnothing/loop-audit . --suggest` |
+| `+loop-init` | 初始化脚手架 | `npx @kevinzhangnothing/loop-init . -p daily-triage -t claude` |
+| `+loop-cost` | 估算 token 花费 | `npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1` |
 | `+loop-state` | 查看 STATE.md | `cat STATE.md` |
 | `+loop-log` | 查看运行日志 | `tail -20 loop-run-log.md` |
 
@@ -364,10 +428,10 @@ loop_list_patterns
 loop_get_pattern --id ci-sweeper
 
 # 3. 估算花费
-npx @cobusgreyling/loop-cost --pattern ci-sweeper --level L2
+npx @kevinzhangnothing/loop-cost --pattern ci-sweeper --level L2
 
 # 4. 初始化
-npx @cobusgreyling/loop-init . --pattern ci-sweeper --tool claude
+npx @kevinzhangnothing/loop-init . --pattern ci-sweeper --tool claude
 ```
 
 ---
@@ -430,7 +494,7 @@ Week 3+: L3 for safe patterns only
 which npx
 
 # 手动测试 MCP 服务器
-npx -y @cobusgreyling/loop-mcp-server
+npx -y @kevinzhangnothing/loop-mcp-server
 ```
 
 ### 问题 2: Skills 未加载
@@ -463,7 +527,7 @@ cp -r /path/to/loop-engineering/pi/skills/loop-* ~/.pi/agent/skills/
 ls -la STATE.md
 
 # 手动运行 triage
-npx @cobusgreyling/loop-audit . --suggest
+npx @kevinzhangnothing/loop-audit . --suggest
 ```
 
 ---

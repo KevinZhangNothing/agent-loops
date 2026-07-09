@@ -4,7 +4,7 @@ This repository exists because of public discussion and practice by experienced 
 
 ## Core Definition & Framework
 
-- **Cobus Greyling** — [Loop Engineering](https://cobusgreyling.substack.com/p/loop-engineering) (June 2026)
+- **Kevin Zhang** — [Loop Engineering](https://KevinZhangNothing.substack.com/p/loop-engineering) (June 2026)
   Companion essay for this repository: context engineering vs harness engineering vs loop engineering, the five primitives + memory, Grok mapping, and production realities.
 
 - **Addy Osmani** — [Loop Engineering](https://addyosmani.com/blog/loop-engineering/) (June 2026)

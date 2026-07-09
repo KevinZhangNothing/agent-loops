@@ -5,7 +5,7 @@ Clone-and-run scaffold for the **Changelog Drafter** pattern with opencode. Scan
 ## Quick Start
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern changelog-drafter --tool opencode
+npx @kevinzhangnothing/loop-init . --pattern changelog-drafter --tool opencode
 ```
 
 Or copy manually:

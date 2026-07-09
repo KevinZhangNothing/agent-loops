@@ -92,7 +92,7 @@ openclaw cron edit <job-id> --message "..."
 
 Pause: remove or disable the job (`openclaw cron remove <job-id>`) or set `loop-pause-all` in `STATE.md` and teach the skill to stop acting.
 
-Audit readiness: `npx @cobusgreyling/loop-audit . --suggest`
+Audit readiness: `npx @kevinzhangnothing/loop-audit . --suggest`
 
 ## References
 

@@ -1,6 +1,6 @@
 # eval.yaml — loop-guard 技能评估配置
 #
-# 基于项目实际存在的 @cobusgreyling/loop-context CLI
+# 基于项目实际存在的 @kevinzhangnothing/loop-context CLI
 # （参见 tools/loop-context/README.md 和 src/sync.ts）。
 # 该 CLI 的 exit code 约定：0 = continue, 2 = escalate, 1 = error。
 
@@ -26,7 +26,7 @@ test_cases:
     description: ledger 无异常时 loop-context --check 返回 exit 0
     input: "继续修复 CI 失败"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-context --check --ledger loop-ledger.json --token-budget \"$BUDGET\""
+      - run_command: "npx @kevinzhangnothing/loop-context --check --ledger loop-ledger.json --token-budget \"$BUDGET\""
       - expect_exit_code: 0
     expected_output:
       contains:
@@ -50,7 +50,7 @@ test_cases:
     description: 当 --token-budget 耗尽时升级
     input: "今天的 token 用完了"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-context --check --ledger loop-ledger.json --token-budget 80000"
+      - run_command: "npx @kevinzhangnothing/loop-context --check --ledger loop-ledger.json --token-budget 80000"
       - expect_exit_code: 2
     expected_output:
       contains:
@@ -61,7 +61,7 @@ test_cases:
     description: exit 2 时用 --inject 生成给人类的简洁摘要
     input: "熔断器跳闸后给维护者写一份报告"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-context --inject --ledger loop-ledger.json > escalation.md"
+      - run_command: "npx @kevinzhangnothing/loop-context --inject --ledger loop-ledger.json > escalation.md"
     expected_output:
       contains:
         - "Goal"

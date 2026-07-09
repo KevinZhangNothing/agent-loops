@@ -75,4 +75,4 @@ echo "  Claude Code: cp -r starters/minimal-loop-claude/.claude/skills/loop-tria
 echo "  Codex:       cp -r starters/minimal-loop-codex/.codex/skills/loop-triage .codex/skills/"
 echo "  Opencode:    cp -r starters/minimal-loop-opencode/skills ."
 echo ""
-echo "Audit your project: npx @cobusgreyling/loop-audit . --suggest"
+echo "Audit your project: npx @kevinzhangnothing/loop-audit . --suggest"

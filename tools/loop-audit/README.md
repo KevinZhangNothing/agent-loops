@@ -2,15 +2,15 @@
 
 CLI that scores a project's **Loop Readiness** (0–100) and suggests next steps.
 
-**npx @cobusgreyling/loop-audit . --suggest** works immediately (published package).
+**npx @kevinzhangnothing/loop-audit . --suggest** works immediately (published package).
 
 ## Install & Run
 
 **npm (recommended):**
 
 ```bash
-npx @cobusgreyling/loop-audit .
-npx @cobusgreyling/loop-audit . --suggest
+npx @kevinzhangnothing/loop-audit .
+npx @kevinzhangnothing/loop-audit . --suggest
 ```
 
 **From this repo:**

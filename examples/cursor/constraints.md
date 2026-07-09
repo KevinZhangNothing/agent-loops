@@ -58,7 +58,7 @@ cp templates/loop-constraints.md loop-constraints.md
 Audit after copying:
 
 ```bash
-npx @cobusgreyling/loop-audit . --suggest
+npx @kevinzhangnothing/loop-audit . --suggest
 ```
 
 ## Safety

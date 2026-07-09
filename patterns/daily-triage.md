@@ -114,7 +114,7 @@ After each Daily Triage run, record:
 **Cadence**: 1d–2h · **Tier**: low · **Suggested daily cap**: 100k tokens
 
 ```bash
-npx @cobusgreyling/loop-cost --pattern daily-triage --cadence 1d --level L1
+npx @kevinzhangnothing/loop-cost --pattern daily-triage --cadence 1d --level L1
 ```
 
 Scaffold `loop-budget.md` and `loop-run-log.md` with `loop-init`. See [operating-loops.md](../docs/operating-loops.md).

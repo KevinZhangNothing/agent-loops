@@ -1,6 +1,6 @@
 # eval.yaml — loop-sync 技能评估配置
 #
-# 基于项目实际存在的 @cobusgreyling/loop-sync CLI
+# 基于项目实际存在的 @kevinzhangnothing/loop-sync CLI
 # （参见 tools/loop-sync/src/sync.ts 和 README.md）。
 # 真实检测的 drift 类型：missing / outdated / inconsistent / orphaned。
 # Score: error −20, warning −10, info −1。
@@ -26,7 +26,7 @@ test_cases:
     description: 在项目根目录运行基础 drift 检测
     input: "检查当前项目 Loop 配置文件是否一致"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-sync ."
+      - run_command: "npx @kevinzhangnothing/loop-sync ."
     expected_output:
       contains:
         - "Score:"
@@ -36,8 +36,8 @@ test_cases:
     description: 缺少 STATE.md / LOOP.md / AGENTS.md 时报错
     input: "新项目缺 STATE.md"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-sync ."
-      - suggest: "npx @cobusgreyling/loop-init . --pattern daily-triage"
+      - run_command: "npx @kevinzhangnothing/loop-sync ."
+      - suggest: "npx @kevinzhangnothing/loop-init . --pattern daily-triage"
     expected_output:
       contains:
         - "missing"
@@ -48,7 +48,7 @@ test_cases:
     description: LOOP.md 声明了 pattern 但没引用 STATE.md
     input: "STATE.md 和 LOOP.md 看起来对不上"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-sync . --verbose"
+      - run_command: "npx @kevinzhangnothing/loop-sync . --verbose"
     expected_output:
       contains:
         - "inconsistent"
@@ -58,7 +58,7 @@ test_cases:
     description: 机器可读的 JSON 报告
     input: "以 JSON 格式输出 drift 报告"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-sync . --json"
+      - run_command: "npx @kevinzhangnothing/loop-sync . --json"
     expected_output:
       is_json: true
       contains_keys:
@@ -72,7 +72,7 @@ test_cases:
     description: 预览自动修复但不实际执行
     input: "预览自动修复会做什么"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-sync . --auto-fix --dry-run"
+      - run_command: "npx @kevinzhangnothing/loop-sync . --auto-fix --dry-run"
     expected_output:
       contains:
         - "would"
@@ -94,7 +94,7 @@ test_cases:
 evaluation_criteria:
   - name: CLI 调用正确
     weight: 0.35
-    description: 是否正确调用 npx @cobusgreyling/loop-sync 及 flag
+    description: 是否正确调用 npx @kevinzhangnothing/loop-sync 及 flag
   - name: drift 类型理解
     weight: 0.25
     description: 是否正确区分 missing / outdated / inconsistent / orphaned

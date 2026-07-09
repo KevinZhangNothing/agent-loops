@@ -12,5 +12,5 @@ No `loop-init --tool cursor` yet — copy `SKILL.md` + `STATE.md` from any start
 
 Audit after copying:
 ```bash
-npx @cobusgreyling/loop-audit . --suggest
+npx @kevinzhangnothing/loop-audit . --suggest
 ```

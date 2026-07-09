@@ -45,14 +45,14 @@ Central navigation for all loop-engineering documentation.
 
 | Tool | npm | Description |
 |------|-----|-------------|
-| [loop-audit](../tools/loop-audit/) | `@cobusgreyling/loop-audit` | Loop Readiness Score CLI |
-| [loop-init](../tools/loop-init/) | `@cobusgreyling/loop-init` | Scaffold starters |
-| [loop-cost](../tools/loop-cost/) | `@cobusgreyling/loop-cost` | Token spend estimator |
-| [loop-sync](../tools/loop-sync/) | `@cobusgreyling/loop-sync` | STATE.md ↔ LOOP.md drift detection |
-| [loop-context](../tools/loop-context/) | `@cobusgreyling/loop-context` | Stateful memory + circuit breaker |
-| [loop-mcp-server](../tools/mcp-server/) | `@cobusgreyling/loop-mcp-server` | MCP runtime lookup |
-| [loop-worktree](../tools/loop-worktree/) | `@cobusgreyling/loop-worktree` | Isolated git worktrees per fix |
-| [goal-audit](../tools/goal-audit/) | `@cobusgreyling/goal-audit` | Companion goal engineering |
+| [loop-audit](../tools/loop-audit/) | `@kevinzhangnothing/loop-audit` | Loop Readiness Score CLI |
+| [loop-init](../tools/loop-init/) | `@kevinzhangnothing/loop-init` | Scaffold starters |
+| [loop-cost](../tools/loop-cost/) | `@kevinzhangnothing/loop-cost` | Token spend estimator |
+| [loop-sync](../tools/loop-sync/) | `@kevinzhangnothing/loop-sync` | STATE.md ↔ LOOP.md drift detection |
+| [loop-context](../tools/loop-context/) | `@kevinzhangnothing/loop-context` | Stateful memory + circuit breaker |
+| [loop-mcp-server](../tools/mcp-server/) | `@kevinzhangnothing/loop-mcp-server` | MCP runtime lookup |
+| [loop-worktree](../tools/loop-worktree/) | `@kevinzhangnothing/loop-worktree` | Isolated git worktrees per fix |
+| [goal-audit](../tools/goal-audit/) | `@kevinzhangnothing/goal-audit` | Companion goal engineering |
 
 ## Examples & Starters
 
@@ -94,7 +94,7 @@ Central navigation for all loop-engineering documentation.
 
 ## External
 
-- [Interactive Showcase](https://cobusgreyling.github.io/loop-engineering/) — Pattern picker + visual index
-- [Loop Engineering Essay](https://cobusgreyling.substack.com/p/loop-engineering) — The concept and why
+- [Interactive Showcase](https://KevinZhangNothing.github.io/loop-engineering/) — Pattern picker + visual index
+- [Loop Engineering Essay](https://KevinZhangNothing.substack.com/p/loop-engineering) — The concept and why
 - [Addy Osmani on Loop Engineering](https://addyosmani.com/blog/loop-engineering/) — Guest post
-- [GitHub Discussions](https://github.com/cobusgreyling/loop-engineering/discussions) — Q&A and show-and-tell
+- [GitHub Discussions](https://github.com/KevinZhangNothing/loop-engineering/discussions) — Q&A and show-and-tell

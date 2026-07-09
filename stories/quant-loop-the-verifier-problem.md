@@ -1,6 +1,6 @@
 # Quant Trading Loop — The Verifier Problem
 
-*Contributed by [@50thycal](https://github.com/50thycal) — adapted from [PR #136](https://github.com/cobusgreyling/loop-engineering/pull/136).*
+*Contributed by [@50thycal](https://github.com/50thycal) — adapted from [PR #136](https://github.com/KevinZhangNothing/loop-engineering/pull/136).*
 
 A viral article ("loop engineering for quant trading") proposed running an entire
 hedge fund as an autonomous loop. The architecture was the same five stages this

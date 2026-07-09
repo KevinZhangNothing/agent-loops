@@ -27,7 +27,7 @@ test_cases:
     description: 对指定项目执行基础审计
     input: "审计当前项目的 Loop 就绪度"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-audit ."
+      - run_command: "npx @kevinzhangnothing/loop-audit ."
     expected_output:
       contains:
         - "Score:"
@@ -38,7 +38,7 @@ test_cases:
     description: 获取具体的改进建议和命令
     input: "如何改进项目的 Loop 配置？"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-audit . --suggest"
+      - run_command: "npx @kevinzhangnothing/loop-audit . --suggest"
     expected_output:
       contains:
         - "suggestions"
@@ -48,7 +48,7 @@ test_cases:
     description: 机器可读的 JSON 格式输出
     input: "以 JSON 格式输出审计结果"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-audit . --json"
+      - run_command: "npx @kevinzhangnothing/loop-audit . --json"
     expected_output:
       is_json: true
       contains_keys:
@@ -60,7 +60,7 @@ test_cases:
     description: 生成 README 徽章 markdown
     input: "生成 Loop Ready 徽章"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-audit . --badge"
+      - run_command: "npx @kevinzhangnothing/loop-audit . --badge"
     expected_output:
       contains:
         - "![Loop Readiness"
@@ -70,7 +70,7 @@ test_cases:
     description: 审计指定路径的项目
     input: "审计 /path/to/project 项目"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-audit /path/to/project"
+      - run_command: "npx @kevinzhangnothing/loop-audit /path/to/project"
 
 evaluation_criteria:
   - name: 命令正确性

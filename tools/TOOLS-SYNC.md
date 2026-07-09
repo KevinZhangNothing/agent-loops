@@ -8,14 +8,14 @@ Track npm package versions and release synchronization across all loop-engineeri
 
 | Tool | Package | Version | Last Updated | Status |
 |------|---------|---------|--------------|--------|
-| loop-audit | `@cobusgreyling/loop-audit` | 1.6.0 | Current | ✅ |
-| loop-init | `@cobusgreyling/loop-init` | 1.2.x | Current | ✅ |
-| loop-cost | `@cobusgreyling/loop-cost` | 1.0.x | Current | ✅ |
-| loop-sync | `@cobusgreyling/loop-sync` | 1.0.x | Current | ✅ |
-| loop-context | `@cobusgreyling/loop-context` | 1.0.x | Current | ✅ |
-| loop-mcp-server | `@cobusgreyling/loop-mcp-server` | 1.0.x | Current | ✅ |
-| loop-worktree | `@cobusgreyling/loop-worktree` | 1.0.0 | Current | ✅ |
-| goal-audit | `@cobusgreyling/goal-audit` | Latest | Current | ✅ |
+| loop-audit | `@kevinzhangnothing/loop-audit` | 1.6.0 | Current | ✅ |
+| loop-init | `@kevinzhangnothing/loop-init` | 1.2.x | Current | ✅ |
+| loop-cost | `@kevinzhangnothing/loop-cost` | 1.0.x | Current | ✅ |
+| loop-sync | `@kevinzhangnothing/loop-sync` | 1.0.x | Current | ✅ |
+| loop-context | `@kevinzhangnothing/loop-context` | 1.0.x | Current | ✅ |
+| loop-mcp-server | `@kevinzhangnothing/loop-mcp-server` | 1.0.x | Current | ✅ |
+| loop-worktree | `@kevinzhangnothing/loop-worktree` | 1.0.0 | Current | ✅ |
+| goal-audit | `@kevinzhangnothing/goal-audit` | Latest | Current | ✅ |
 
 ## Test Status
 

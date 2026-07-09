@@ -12,7 +12,7 @@ user_invocable: true
 You keep a fix loop from burning tokens on a problem it cannot solve. You wrap
 every iteration of an action skill (`minimal-fix`, `ci-triage`, `dependency-triage`, …)
 with a deterministic circuit-breaker check powered by
-`@cobusgreyling/loop-context`.
+`@kevinzhangnothing/loop-context`.
 
 The breaker needs no LLM call, so it is cheap enough to run on every iteration.
 
@@ -47,12 +47,12 @@ that is how the breaker detects a repeated (stagnant) failure.
 
 Don't hand-type a token cap — derive it from the pattern's realistic per-run
 cost so the breaker trips on genuine cost blowup, not a made-up number.
-`@cobusgreyling/loop-cost` already computes this; read the loop's `pattern`
+`@kevinzhangnothing/loop-cost` already computes this; read the loop's `pattern`
 and `level` straight from the ledger:
 
 ```bash
 # Substitute the ledger's own pattern/level (here: ci-sweeper / L2).
-BUDGET=$(npx @cobusgreyling/loop-cost --pattern ci-sweeper --level L2 --json \
+BUDGET=$(npx @kevinzhangnothing/loop-cost --pattern ci-sweeper --level L2 --json \
   | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>process.stdout.write(String(JSON.parse(d).scenarios.realistic.tokensPerRun)))')
 ```
 
@@ -65,11 +65,11 @@ wiring, not a code dependency.
 1. Append the previous attempt to `loop-ledger.json`.
 2. Run the breaker with the resolved budget:
    ```bash
-   npx @cobusgreyling/loop-context --check --ledger loop-ledger.json --token-budget "$BUDGET"
+   npx @kevinzhangnothing/loop-context --check --ledger loop-ledger.json --token-budget "$BUDGET"
    ```
 3. Act on the exit code:
    - **0** → continue. Optionally trim the next prompt first:
-     `npx @cobusgreyling/loop-context --inject --ledger loop-ledger.json`
+     `npx @kevinzhangnothing/loop-context --inject --ledger loop-ledger.json`
    - **2** → **STOP.** The breaker tripped — same error N× in a row, too many
      consecutive failures, the token budget, or the iteration cap. Do not retry.
 
@@ -77,7 +77,7 @@ wiring, not a code dependency.
 
 1. Capture a clean, pruned summary for the human:
    ```bash
-   npx @cobusgreyling/loop-context --inject --ledger loop-ledger.json > escalation.md
+   npx @kevinzhangnothing/loop-context --inject --ledger loop-ledger.json > escalation.md
    ```
 2. Write the escalation into STATE.md High Priority (or open an issue).
 3. Exit the loop. A human decides the next step.

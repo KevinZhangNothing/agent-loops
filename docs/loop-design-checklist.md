@@ -54,7 +54,7 @@ Use this before enabling a loop in production. Score honestly — a loop missing
 
 ## 8. Cost & Limits
 
-- [ ] **Token budget** estimated (`npx @cobusgreyling/loop-cost`, [operating-loops.md](./operating-loops.md))
+- [ ] **Token budget** estimated (`npx @kevinzhangnothing/loop-cost`, [operating-loops.md](./operating-loops.md))
 - [ ] **`loop-budget.md`** with daily caps and kill switch
 - [ ] **`loop-run-log.md`** for append-only run history
 - [ ] **`loop-budget` skill** checks spend at start/end of each run

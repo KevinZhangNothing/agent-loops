@@ -46,4 +46,4 @@ Clone this into your project root to run a **report-only daily triage loop** (L1
 - [Loop Design Checklist](../../docs/loop-design-checklist.md)
 - [Daily Triage pattern](../../patterns/daily-triage.md)
 - [Codex example](../../examples/codex/daily-triage.md)
-- Run `npx @cobusgreyling/loop-audit .` for readiness score
+- Run `npx @kevinzhangnothing/loop-audit .` for readiness score

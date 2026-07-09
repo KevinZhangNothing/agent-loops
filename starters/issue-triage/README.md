@@ -6,13 +6,13 @@ Scaffold for the [Issue Triage](../../patterns/issue-triage.md) loop — L1 prop
 
 ```bash
 # Grok
-npx @cobusgreyling/loop-init . --pattern issue-triage --tool grok
+npx @kevinzhangnothing/loop-init . --pattern issue-triage --tool grok
 
 # Claude Code
-npx @cobusgreyling/loop-init . --pattern issue-triage --tool claude
+npx @kevinzhangnothing/loop-init . --pattern issue-triage --tool claude
 
 # Codex
-npx @cobusgreyling/loop-init . --pattern issue-triage --tool codex
+npx @kevinzhangnothing/loop-init . --pattern issue-triage --tool codex
 ```
 
 Start (Grok, week one):

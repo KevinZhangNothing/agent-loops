@@ -218,7 +218,7 @@ export async function runSync(options: SyncOptions): Promise<DriftReport> {
         file,
         message: `${file} is missing`,
         severity: 'error',
-        suggestion: `Run 'npx @cobusgreyling/loop-init . --pattern daily-triage' to scaffold required files`,
+        suggestion: `Run 'npx @kevinzhangnothing/loop-init . --pattern daily-triage' to scaffold required files`,
       });
     }
   }

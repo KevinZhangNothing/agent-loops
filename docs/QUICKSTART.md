@@ -4,13 +4,13 @@
 
 Watch the score climb: [loop-audit-demo.gif](../assets/visuals/loop-audit-demo.gif) (10 → 70 → 100 in ~15s).
 
-Landed from [X](https://x.com), the [showcase](https://cobusgreyling.github.io/loop-engineering/), or a friend's README? This is the shortest path from zero to a running loop.
+Landed from [X](https://x.com), the [showcase](https://KevinZhangNothing.github.io/loop-engineering/), or a friend's README? This is the shortest path from zero to a running loop.
 
 **Week one rule:** report only. No auto-fix, no auto-merge. Read what the loop writes before you let it act.
 
 ## 1. Pick your pain (30 seconds)
 
-Not sure which loop? Use the [interactive pattern picker](https://cobusgreyling.github.io/loop-engineering/#interactive) on the showcase — it recommends a pattern, scaffold command, first `/loop` line, and a token estimate.
+Not sure which loop? Use the [interactive pattern picker](https://KevinZhangNothing.github.io/loop-engineering/#interactive) on the showcase — it recommends a pattern, scaffold command, first `/loop` line, and a token estimate.
 
 Or start with **Daily Triage** if you just want to learn loop discipline with low risk.
 
@@ -19,13 +19,13 @@ Or start with **Daily Triage** if you just want to learn loop discipline with lo
 Run this in the root of any git project (no clone required):
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern daily-triage --tool grok
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok
 ```
 
 Swap `--pattern` for any pattern from [patterns/registry.yaml](../patterns/registry.yaml). List all patterns:
 
 ```bash
-npx @cobusgreyling/loop-init --help
+npx @kevinzhangnothing/loop-init --help
 ```
 
 ### Which `--tool` values work?
@@ -45,7 +45,7 @@ npx @cobusgreyling/loop-init --help
 ## 3. Check cost before you schedule (30 seconds)
 
 ```bash
-npx @cobusgreyling/loop-cost --pattern daily-triage --level L1 --cadence 1d
+npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1 --cadence 1d
 ```
 
 Adjust `--pattern`, `--level` (L1 → L2 → L3), and `--cadence` to match what you plan to run. High-frequency loops (CI Sweeper at 5m) can burn tokens fast — slow the cadence or require early-exit triage first.
@@ -55,7 +55,7 @@ Adjust `--pattern`, `--level` (L1 → L2 → L3), and `--cadence` to match what 
 When a loop starts fixing code unattended, wire a **circuit breaker** so it escalates instead of retrying the same failure forever. `loop-init` scaffolds `loop-ledger.json` and a `loop-guard` skill for fix-capable patterns; check the ledger before each retry:
 
 ```bash
-npx @cobusgreyling/loop-context --check --ledger loop-ledger.json
+npx @kevinzhangnothing/loop-context --check --ledger loop-ledger.json
 ```
 
 Exit `0` = continue · `2` = escalate to a human. The breaker trips on max iterations, the same error repeating N× in a row, too many consecutive failures, or a token budget cap. Full API: [tools/loop-context/README.md](../tools/loop-context/README.md).
@@ -63,13 +63,13 @@ Exit `0` = continue · `2` = escalate to a human. The breaker trips on max itera
 ## 4. Audit readiness (30 seconds)
 
 ```bash
-npx @cobusgreyling/loop-audit . --suggest
+npx @kevinzhangnothing/loop-audit . --suggest
 ```
 
 Scores 0–100 with concrete next steps. Re-run after each improvement. Paste a badge when you're proud of the score:
 
 ```bash
-npx @cobusgreyling/loop-audit . --badge
+npx @kevinzhangnothing/loop-audit . --badge
 ```
 
 ### Optional: MCP runtime lookup
@@ -79,7 +79,7 @@ Agents can query patterns, skills, and state on demand instead of stuffing docs 
 Run the server from npm (no clone required):
 
 ```bash
-LOOP_PROJECT_ROOT=. npx @cobusgreyling/loop-mcp-server
+LOOP_PROJECT_ROOT=. npx @kevinzhangnothing/loop-mcp-server
 ```
 
 Or from a cloned `loop-engineering` repo for local development:
@@ -116,7 +116,7 @@ No `loop-init --tool openclaw` yet — copy `skills/loop-triage/SKILL.md` and `S
 ### Opencode
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern daily-triage --tool opencode
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool opencode
 ```
 
 Then schedule with cron or systemd — each tick runs headless via `opencode run`:
@@ -167,18 +167,18 @@ PR Babysitter and CI Sweeper need **one git worktree per fix attempt** so retrie
 
 ```bash
 # Create an isolated worktree for one fix attempt
-npx @cobusgreyling/loop-worktree create --run-id pr-217-fix-1 --pattern pr-babysitter
+npx @kevinzhangnothing/loop-worktree create --run-id pr-217-fix-1 --pattern pr-babysitter
 
 # Run your fix in the worktree path printed by create, then verifier...
 
 # Verifier rejected — mark for cleanup (audit trail only)
-npx @cobusgreyling/loop-worktree mark --run-id pr-217-fix-1 --status rejected
+npx @kevinzhangnothing/loop-worktree mark --run-id pr-217-fix-1 --status rejected
 
 # Sweep rejected/escalated worktrees older than 24h
-npx @cobusgreyling/loop-worktree cleanup --older-than 24h
+npx @kevinzhangnothing/loop-worktree cleanup --older-than 24h
 
 # List active worktrees
-npx @cobusgreyling/loop-worktree list
+npx @kevinzhangnothing/loop-worktree list
 ```
 
 Pair with the [circuit breaker](#circuit-breaker-for-l2-loops-optional) above: when `loop-context --check` exits `2`, mark the worktree `escalated` before handing off to a human. The two tools stay independent — see [tools/loop-worktree/README.md](../tools/loop-worktree/README.md).
@@ -188,35 +188,35 @@ Pair with the [circuit breaker](#circuit-breaker-for-l2-loops-optional) above: w
 ```bash
 # Scaffold — --tool accepts: grok | claude | codex | opencode
 # (cursor, windsurf, openclaw: manual copy — see table in section 2)
-npx @cobusgreyling/loop-init . --pattern daily-triage --tool grok
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok
 
 # List patterns and flags
-npx @cobusgreyling/loop-init --help
+npx @kevinzhangnothing/loop-init --help
 
 # Cost check
-npx @cobusgreyling/loop-cost --pattern daily-triage --level L1 --cadence 1d
+npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1 --cadence 1d
 
 # Audit + suggestions
-npx @cobusgreyling/loop-audit . --suggest
+npx @kevinzhangnothing/loop-audit . --suggest
 
 # Optional badge for your README
-npx @cobusgreyling/loop-audit . --badge
+npx @kevinzhangnothing/loop-audit . --badge
 
 # Optional MCP runtime lookup (patterns, skills, state on demand)
-LOOP_PROJECT_ROOT=. npx @cobusgreyling/loop-mcp-server
+LOOP_PROJECT_ROOT=. npx @kevinzhangnothing/loop-mcp-server
 
 # L2: isolated worktree per fix attempt (PR Babysitter, CI Sweeper)
-npx @cobusgreyling/loop-worktree create --run-id <id> --pattern <pattern>
-npx @cobusgreyling/loop-worktree mark --run-id <id> --status rejected
-npx @cobusgreyling/loop-worktree cleanup --older-than 24h
+npx @kevinzhangnothing/loop-worktree create --run-id <id> --pattern <pattern>
+npx @kevinzhangnothing/loop-worktree mark --run-id <id> --status rejected
+npx @kevinzhangnothing/loop-worktree cleanup --older-than 24h
 ```
 
 ## Learn the why (optional, 10 minutes)
 
-- [Loop Engineering essay](https://cobusgreyling.substack.com/p/loop-engineering) — concept and primitives
+- [Loop Engineering essay](https://KevinZhangNothing.substack.com/p/loop-engineering) — concept and primitives
 - [Primitives matrix](./primitives-matrix.md) — Grok vs Claude vs Codex vs OpenClaw vs Opencode vs Cursor
 - [Operating loops](./operating-loops.md) — when to kill a loop
 
 ---
 
-*Questions? [GitHub Discussions](https://github.com/cobusgreyling/loop-engineering/discussions) · Share your setup via [Add Adopter](https://github.com/cobusgreyling/loop-engineering/issues/new?template=add-adopter.yml)*
+*Questions? [GitHub Discussions](https://github.com/KevinZhangNothing/loop-engineering/discussions) · Share your setup via [Add Adopter](https://github.com/KevinZhangNothing/loop-engineering/issues/new?template=add-adopter.yml)*

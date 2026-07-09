@@ -22,16 +22,16 @@
     "drift-detection",
     "configuration"
   ],
-  "author": "Cobus Greyling",
+  "author": "Kevin Zhang",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cobusgreyling/loop-engineering.git",
+    "url": "git+https://github.com/KevinZhangNothing/loop-engineering.git",
     "directory": "tools/loop-sync"
   },
-  "homepage": "https://github.com/cobusgreyling/loop-engineering/tree/main/tools/loop-sync#readme",
+  "homepage": "https://github.com/KevinZhangNothing/loop-engineering/tree/main/tools/loop-sync#readme",
   "bugs": {
-    "url": "https://github.com/cobusgreyling/loop-engineering/issues"
+    "url": "https://github.com/KevinZhangNothing/loop-engineering/issues"
   },
   "engines": {
     "node": ">=18"

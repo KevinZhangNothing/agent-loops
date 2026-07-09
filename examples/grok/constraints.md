@@ -28,5 +28,5 @@ The agent appends your rules to `loop-constraints.md`.
 ## Scaffold automatically
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern daily-triage --tool grok
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok
 ```

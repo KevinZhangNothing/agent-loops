@@ -5,7 +5,7 @@ Clone-and-run scaffold for the **Dependency Sweeper** pattern (L2 assisted, patc
 ## Quick Start
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern dependency-sweeper --tool grok
+npx @kevinzhangnothing/loop-init . --pattern dependency-sweeper --tool grok
 ```
 
 Or manual copy:

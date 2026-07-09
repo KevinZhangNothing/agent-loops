@@ -5,7 +5,7 @@ Clone-and-run scaffold for the **Post-Merge Cleanup** pattern with opencode. Fol
 ## Quick Start
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern post-merge-cleanup --tool opencode
+npx @kevinzhangnothing/loop-init . --pattern post-merge-cleanup --tool opencode
 ```
 
 Or copy manually:

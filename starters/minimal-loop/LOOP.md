@@ -17,7 +17,7 @@
 - Max tokens/day: 100k (see `loop-budget.md`)
 - Append each run to `loop-run-log.md`; use `loop-budget` skill at start/end
 - Kill switch: `loop-pause-all` — pause schedulers and notify human
-- Estimate: `npx @cobusgreyling/loop-cost --pattern daily-triage`
+- Estimate: `npx @kevinzhangnothing/loop-cost --pattern daily-triage`
 
 ## Links
 

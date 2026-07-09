@@ -6,7 +6,7 @@ Scaffold for the [CI Sweeper](../../patterns/ci-sweeper.md) loop.
 
 1. Copy skills and state:
    ```bash
-   npx @cobusgreyling/loop-init . --pattern ci-sweeper --tool grok
+   npx @kevinzhangnothing/loop-init . --pattern ci-sweeper --tool grok
    # Or manual:
    mkdir -p .grok/skills
    cp -r starters/ci-sweeper/.grok/skills/ci-triage .grok/skills/

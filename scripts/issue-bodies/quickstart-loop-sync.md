@@ -6,7 +6,7 @@ Document **`loop-sync`** drift detection in the Quickstart — catch when `STATE
 
 ## Acceptance criteria
 - [ ] Short subsection in "What next?" or after the audit step
-- [ ] Show `npx @cobusgreyling/loop-sync .` with sample output interpretation
+- [ ] Show `npx @kevinzhangnothing/loop-sync .` with sample output interpretation
 - [ ] One sentence on when to run it (after editing `LOOP.md`, before scheduling L2)
 - [ ] Link to `tools/loop-sync/README.md`
 

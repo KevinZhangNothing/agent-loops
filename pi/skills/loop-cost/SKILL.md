@@ -20,19 +20,19 @@ user_invocable: true
 ### 基础估算
 
 ```bash
-npx @cobusgreyling/loop-cost --pattern <pattern> --level <L1|L2|L3>
+npx @kevinzhangnothing/loop-cost --pattern <pattern> --level <L1|L2|L3>
 ```
 
 ### 指定 cadence
 
 ```bash
-npx @cobusgreyling/loop-cost --pattern ci-sweeper --cadence 15m
+npx @kevinzhangnothing/loop-cost --pattern ci-sweeper --cadence 15m
 ```
 
 ### JSON 输出
 
 ```bash
-npx @cobusgreyling/loop-cost --pattern daily-triage --level L1 --json
+npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1 --json
 ```
 
 ## Token 估算模型
@@ -71,7 +71,7 @@ npx @cobusgreyling/loop-cost --pattern daily-triage --level L1 --json
 
 ```bash
 # 估算 Daily Triage L1 的花费
-npx @cobusgreyling/loop-cost --pattern daily-triage --level L1
+npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1
 
 # 输出示例：
 # Pattern: daily-triage (L1)
@@ -88,7 +88,7 @@ npx @cobusgreyling/loop-cost --pattern daily-triage --level L1
 
 ```bash
 # CI Sweeper 通常花费较高
-npx @cobusgreyling/loop-cost --pattern ci-sweeper --cadence 15m
+npx @kevinzhangnothing/loop-cost --pattern ci-sweeper --cadence 15m
 
 # 建议：
 # - 设置较高的日上限 (1M tokens)
@@ -167,10 +167,10 @@ Week 3+: L3 for safe patterns only (自动化)
 
 ```bash
 # 1. 估算花费
-npx @cobusgreyling/loop-cost --pattern daily-triage --level L1
+npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1
 
 # 2. 创建预算文件
-npx @cobusgreyling/loop-init . --pattern daily-triage
+npx @kevinzhangnothing/loop-init . --pattern daily-triage
 
 # 3. 运行时检查
 # loop-budget 技能会在每次运行前后检查 token 花费

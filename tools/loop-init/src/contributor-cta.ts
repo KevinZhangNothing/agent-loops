@@ -1,5 +1,5 @@
 export const CONTRIBUTOR_QUICKSTART_URL =
-  'https://github.com/cobusgreyling/loop-engineering/discussions/123';
+  'https://github.com/KevinZhangNothing/loop-engineering/discussions/123';
 
 export function printContributorCta(): void {
   console.log('');

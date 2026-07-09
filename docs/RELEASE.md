@@ -4,12 +4,12 @@ This repo ships six public npm packages from `tools/`:
 
 | Package | Directory | Release tag |
 |---------|-----------|-------------|
-| `@cobusgreyling/loop-audit` | `tools/loop-audit` | `loop-audit-v*` |
-| `@cobusgreyling/loop-init` | `tools/loop-init` | `loop-init-v*` |
-| `@cobusgreyling/loop-cost` | `tools/loop-cost` | `loop-cost-v*` |
-| `@cobusgreyling/loop-sync` | `tools/loop-sync` | `loop-sync-v*` |
-| `@cobusgreyling/loop-context` | `tools/loop-context` | `loop-context-v*` |
-| `@cobusgreyling/loop-mcp-server` | `tools/mcp-server` | `loop-mcp-server-v*` |
+| `@kevinzhangnothing/loop-audit` | `tools/loop-audit` | `loop-audit-v*` |
+| `@kevinzhangnothing/loop-init` | `tools/loop-init` | `loop-init-v*` |
+| `@kevinzhangnothing/loop-cost` | `tools/loop-cost` | `loop-cost-v*` |
+| `@kevinzhangnothing/loop-sync` | `tools/loop-sync` | `loop-sync-v*` |
+| `@kevinzhangnothing/loop-context` | `tools/loop-context` | `loop-context-v*` |
+| `@kevinzhangnothing/loop-mcp-server` | `tools/mcp-server` | `loop-mcp-server-v*` |
 
 ## One-time setup (trusted publishing — recommended)
 
@@ -17,12 +17,12 @@ Link npm to GitHub, then for **each package** on [npmjs.com](https://www.npmjs.c
 
 | Package | Repository | Workflow filename |
 |---------|--------------|-------------------|
-| `@cobusgreyling/loop-audit` | `cobusgreyling/loop-engineering` | `release-loop-audit.yml` |
-| `@cobusgreyling/loop-init` | `cobusgreyling/loop-engineering` | `release-loop-init.yml` |
-| `@cobusgreyling/loop-cost` | `cobusgreyling/loop-engineering` | `release-loop-cost.yml` |
-| `@cobusgreyling/loop-sync` | `cobusgreyling/loop-engineering` | `release-loop-sync.yml` |
-| `@cobusgreyling/loop-context` | `cobusgreyling/loop-engineering` | `release-loop-context.yml` |
-| `@cobusgreyling/loop-mcp-server` | `cobusgreyling/loop-engineering` | `release-loop-mcp-server.yml` |
+| `@kevinzhangnothing/loop-audit` | `KevinZhangNothing/loop-engineering` | `release-loop-audit.yml` |
+| `@kevinzhangnothing/loop-init` | `KevinZhangNothing/loop-engineering` | `release-loop-init.yml` |
+| `@kevinzhangnothing/loop-cost` | `KevinZhangNothing/loop-engineering` | `release-loop-cost.yml` |
+| `@kevinzhangnothing/loop-sync` | `KevinZhangNothing/loop-engineering` | `release-loop-sync.yml` |
+| `@kevinzhangnothing/loop-context` | `KevinZhangNothing/loop-engineering` | `release-loop-context.yml` |
+| `@kevinzhangnothing/loop-mcp-server` | `KevinZhangNothing/loop-engineering` | `release-loop-mcp-server.yml` |
 
 Names must match **exactly** (case-sensitive). No `NPM_TOKEN` secret is required when trusted publishing is configured.
 
@@ -71,15 +71,15 @@ Workflows: `.github/workflows/release-loop-audit.yml`, `.github/workflows/releas
 ## Verify after publish
 
 ```bash
-npx @cobusgreyling/loop-audit --help
-npx @cobusgreyling/loop-init --help
-npx @cobusgreyling/loop-cost --help
-npx @cobusgreyling/loop-sync --help
-npx @cobusgreyling/loop-context --help
-npx @cobusgreyling/loop-mcp-server --help
+npx @kevinzhangnothing/loop-audit --help
+npx @kevinzhangnothing/loop-init --help
+npx @kevinzhangnothing/loop-cost --help
+npx @kevinzhangnothing/loop-sync --help
+npx @kevinzhangnothing/loop-context --help
+npx @kevinzhangnothing/loop-mcp-server --help
 
 mkdir /tmp/loop-init-test && cd /tmp/loop-init-test
-npx @cobusgreyling/loop-init . --pattern daily-triage --tool grok --dry-run
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok --dry-run
 ```
 
 ## Before npm is live (local / monorepo)

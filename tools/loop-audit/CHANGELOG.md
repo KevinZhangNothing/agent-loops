@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `@cobusgreyling/loop-audit` are documented here.
+All notable changes to `@kevinzhangnothing/loop-audit` are documented here.
 
 ## [1.5.2] - 2026-06-30
 

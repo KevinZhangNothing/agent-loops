@@ -6,7 +6,7 @@ Scaffold for the [Post-Merge Cleanup](../../patterns/post-merge-cleanup.md) loop
 
 ```bash
 # Grok
-npx @cobusgreyling/loop-init . --pattern post-merge-cleanup --tool grok
+npx @kevinzhangnothing/loop-init . --pattern post-merge-cleanup --tool grok
 
 # Or manual copy
 cp -r starters/post-merge-cleanup/.grok/skills/post-merge-scan .grok/skills/

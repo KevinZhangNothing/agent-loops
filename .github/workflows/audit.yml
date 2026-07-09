@@ -51,7 +51,7 @@ jobs:
               '',
               recs.length ? '### Top suggestions\n' + recs.map(r => `- ${r}`).join('\n') : '_No suggestions — looking good._',
               '',
-              '<sub>Posted by `audit.yml` · [loop-audit docs](https://github.com/cobusgreyling/loop-engineering/tree/main/tools/loop-audit)</sub>',
+              '<sub>Posted by `audit.yml` · [loop-audit docs](https://github.com/KevinZhangNothing/loop-engineering/tree/main/tools/loop-audit)</sub>',
             ].join('\n');
             await github.rest.issues.createComment({
               owner: context.repo.owner,

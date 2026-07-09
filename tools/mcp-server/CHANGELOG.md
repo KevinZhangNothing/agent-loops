@@ -1,4 +1,4 @@
-# Changelog — @cobusgreyling/loop-mcp-server
+# Changelog — @kevinzhangnothing/loop-mcp-server
 
 ## 1.0.0 — 2026-07-06
 

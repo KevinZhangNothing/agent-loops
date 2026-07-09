@@ -16,9 +16,9 @@ When working in teams, Loop configurations can drift over time:
 ## Installation
 
 ```bash
-npm install -g @cobusgreyling/loop-sync
+npm install -g @kevinzhangnothing/loop-sync
 # or
-npx @cobusgreyling/loop-sync .
+npx @kevinzhangnothing/loop-sync .
 ```
 
 ## Usage
@@ -98,7 +98,7 @@ Add to your GitHub Actions workflow:
 
 ```yaml
 - name: Run loop-sync
-  run: npx @cobusgreyling/loop-sync .
+  run: npx @kevinzhangnothing/loop-sync .
 ```
 
 ## Development

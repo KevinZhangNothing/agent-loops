@@ -57,7 +57,7 @@ cp -r pi/workflows/ ~/.pi/agent/workflows/
   "mcpServers": {
     "LoopEngineering": {
       "command": "npx",
-      "args": ["-y", "@cobusgreyling/loop-mcp-server"],
+      "args": ["-y", "@kevinzhangnothing/loop-mcp-server"],
       "env": {
         "LOOP_PROJECT_ROOT": "/path/to/your/project"
       }
@@ -151,7 +151,7 @@ cp -r pi/workflows/ ~/.pi/agent/workflows/
 which npx
 
 # 手动运行 MCP 服务器
-npx -y @cobusgreyling/loop-mcp-server
+npx -y @kevinzhangnothing/loop-mcp-server
 ```
 
 ### Skills 未加载
@@ -172,7 +172,7 @@ cp -r pi/skills/loop-* ~/.pi/agent/skills/
 
 - 新技能模板：`pi/skills/{name}/SKILL.md`
 - 新 Workflow：`pi/workflows/{name}.yaml`
-- 集成问题：[GitHub Issues](https://github.com/cobusgreyling/loop-engineering/issues)
+- 集成问题：[GitHub Issues](https://github.com/KevinZhangNothing/loop-engineering/issues)
 
 ---
 

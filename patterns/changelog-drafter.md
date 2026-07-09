@@ -124,7 +124,7 @@ Optional but recommended during L1 dogfood runs. Even occasional critique entrie
 **Cadence**: 1d · **Tier**: low · **Suggested daily cap**: 100k tokens
 
 ```bash
-npx @cobusgreyling/loop-cost --pattern changelog-drafter --level L1
+npx @kevinzhangnothing/loop-cost --pattern changelog-drafter --level L1
 ```
 
 One of the cheapest high-value loops. Safe to run alongside others.

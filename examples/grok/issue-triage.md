@@ -30,7 +30,7 @@ Faster cadence for busy repos:
 Scaffold state file:
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern issue-triage --tool grok --dry-run
+npx @kevinzhangnothing/loop-init . --pattern issue-triage --tool grok --dry-run
 ```
 
 ## Typical `issue-triage-state.md` Shape

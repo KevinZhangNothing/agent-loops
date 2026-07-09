@@ -8,7 +8,7 @@ Add a copy-pasteable Daily Triage example for **Windsurf** under `examples/winds
 
 ## Acceptance criteria
 - [ ] Follow structure of [`examples/grok/daily-triage.md`](../blob/main/examples/grok/daily-triage.md)
-- [ ] Map scheduling to Cascade **Workflows** (`/workflow-name`) per [primitives-matrix appendix](https://github.com/cobusgreyling/loop-engineering/blob/main/docs/primitives-matrix.md#appendix-editor-transfer-recipes-opencode-cursor--windsurf)
+- [ ] Map scheduling to Cascade **Workflows** (`/workflow-name`) per [primitives-matrix appendix](https://github.com/KevinZhangNothing/loop-engineering/blob/main/docs/primitives-matrix.md#appendix-editor-transfer-recipes-opencode-cursor--windsurf)
 - [ ] Week-one report-only emphasis (no auto-fix)
 - [ ] Link from `docs/QUICKSTART.md` Windsurf bullet to the new example
 

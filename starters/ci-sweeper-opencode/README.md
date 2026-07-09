@@ -5,7 +5,7 @@ Clone-and-run scaffold for the **CI Sweeper** pattern with opencode. React to fa
 ## Quick Start
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern ci-sweeper --tool opencode
+npx @kevinzhangnothing/loop-init . --pattern ci-sweeper --tool opencode
 ```
 
 Or copy manually:

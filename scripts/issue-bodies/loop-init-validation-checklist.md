@@ -7,7 +7,7 @@ Start a **loop-init validation checklist** — `STATE.md` watch list asks for fr
 
 ## Acceptance criteria
 - [ ] Table: pattern × `--tool` (grok, claude, codex, opencode) with columns for Loop Ready score, files created, notes
-- [ ] **You validate at least one row** by running `npx @cobusgreyling/loop-init` in a temp git repo and recording results
+- [ ] **You validate at least one row** by running `npx @kevinzhangnothing/loop-init` in a temp git repo and recording results
 - [ ] Document the exact commands used so others can repeat
 - [ ] Leave empty rows for other contributors to fill (do not block PR on full matrix)
 

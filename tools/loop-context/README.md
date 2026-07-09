@@ -20,7 +20,7 @@ Everything is **deterministic and dependency-free**: no LLM call is needed to su
 ## Install / run
 
 ```bash
-npx @cobusgreyling/loop-context --help
+npx @kevinzhangnothing/loop-context --help
 # or from this repo:
 cd tools/loop-context && npm install && npm test
 ```
@@ -116,7 +116,7 @@ import {
   pruneLedger,
   summarizeAttempts,
   buildContextInjection,
-} from '@cobusgreyling/loop-context';
+} from '@kevinzhangnothing/loop-context';
 
 const decision = checkCircuitBreaker(ledger);
 if (decision.escalate) escalateToHuman(decision.reason);
@@ -127,4 +127,4 @@ else runNextIteration(buildContextInjection(ledger));
 
 This is the **Memory / State** primitive of loop engineering made dynamic: `STATE.md` stores state statically; `loop-context` manages it across iterations. See [docs/primitives.md](../../docs/primitives.md) and the [operating & safety](../../docs/) guides.
 
-MIT · part of [loop-engineering](https://github.com/cobusgreyling/loop-engineering) by Cobus Greyling.
+MIT · part of [loop-engineering](https://github.com/KevinZhangNothing/loop-engineering) by Kevin Zhang.

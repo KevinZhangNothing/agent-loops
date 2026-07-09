@@ -1,15 +1,15 @@
 # loop-cost
 
-Estimate daily token spend for [loop engineering](https://github.com/cobusgreyling/loop-engineering) patterns by cadence and readiness level (L1–L3).
+Estimate daily token spend for [loop engineering](https://github.com/KevinZhangNothing/loop-engineering) patterns by cadence and readiness level (L1–L3).
 
 Uses cost metadata from `patterns/registry.yaml`.
 
 ## Install & Run
 
 ```bash
-npx @cobusgreyling/loop-cost --pattern ci-sweeper --cadence 15m --level L2
-npx @cobusgreyling/loop-cost --pattern daily-triage --level L1 --json
-npx @cobusgreyling/loop-cost --list
+npx @kevinzhangnothing/loop-cost --pattern ci-sweeper --cadence 15m --level L2
+npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1 --json
+npx @kevinzhangnothing/loop-cost --list
 ```
 
 **From this repo:**
@@ -48,9 +48,9 @@ Pair with `loop-budget.md` (scaffolded by `loop-init`) and `loop-audit` cost obs
 pattern cost instead of a hand-typed guess (the `loop-guard` skill wires this):
 
 ```bash
-BUDGET=$(npx @cobusgreyling/loop-cost --pattern ci-sweeper --level L2 --json \
+BUDGET=$(npx @kevinzhangnothing/loop-cost --pattern ci-sweeper --level L2 --json \
   | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>process.stdout.write(String(JSON.parse(d).scenarios.realistic.tokensPerRun)))')
-npx @cobusgreyling/loop-context --check --ledger loop-ledger.json --token-budget "$BUDGET"
+npx @kevinzhangnothing/loop-context --check --ledger loop-ledger.json --token-budget "$BUDGET"
 ```
 
 The tools stay independent — no runtime dependency, just shell wiring.

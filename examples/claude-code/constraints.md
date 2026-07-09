@@ -26,5 +26,5 @@ Add rules your loop must never break. The `loop-constraints` skill reads `loop-c
 ## Scaffold automatically
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern daily-triage --tool claude
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool claude
 ```

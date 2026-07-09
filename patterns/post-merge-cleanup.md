@@ -102,7 +102,7 @@ Last run: 2026-06-09 22:00 UTC
 **Cadence**: 1d–6h · **Tier**: low · **Suggested daily cap**: 200k tokens
 
 ```bash
-npx @cobusgreyling/loop-cost --pattern post-merge-cleanup --cadence 1d --level L1
+npx @kevinzhangnothing/loop-cost --pattern post-merge-cleanup --cadence 1d --level L1
 ```
 
 Run off-peak. Cap auto-PRs per day in `loop-budget.md`.

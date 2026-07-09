@@ -277,7 +277,7 @@ function buildLoopBudgetMd(pattern: Pattern): string {
 ## Estimate spend
 
 \`\`\`bash
-npx @cobusgreyling/loop-cost --pattern ${pattern}
+npx @kevinzhangnothing/loop-cost --pattern ${pattern}
 \`\`\`
 `;
 }
@@ -394,7 +394,7 @@ async function resolveAuditCli(): Promise<string | null> {
   try {
     const { createRequire } = await import('node:module');
     const require = createRequire(import.meta.url);
-    const pkg = require.resolve('@cobusgreyling/loop-audit/package.json');
+    const pkg = require.resolve('@kevinzhangnothing/loop-audit/package.json');
     return path.join(path.dirname(pkg), 'dist/cli.js');
   } catch {
     return null;
@@ -465,9 +465,9 @@ Options:
   -h, --help      This help
 
 Examples:
-  npx @cobusgreyling/loop-init . --pattern daily-triage --tool grok
-  npx @cobusgreyling/loop-init . -p pr-babysitter -t claude
-  npx @cobusgreyling/loop-init . -p daily-triage -t opencode
+  npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok
+  npx @kevinzhangnothing/loop-init . -p pr-babysitter -t claude
+  npx @kevinzhangnothing/loop-init . -p daily-triage -t opencode
 `);
     process.exit(0);
   }
@@ -615,24 +615,24 @@ npm run lint
       console.log(`  ${audit.assessment}`);
       console.log('');
       console.log('Paste badge in README:');
-      console.log(`  npx @cobusgreyling/loop-audit ${auditArg} --badge`);
+      console.log(`  npx @kevinzhangnothing/loop-audit ${auditArg} --badge`);
     } else {
       console.log('\n=== Loop Ready score ===');
-      console.log(`  npx @cobusgreyling/loop-audit ${auditArg} --suggest`);
+      console.log(`  npx @kevinzhangnothing/loop-audit ${auditArg} --suggest`);
     }
   }
 
   if (PATTERNS_NEEDING_FIX.has(pattern)) {
     console.log('');
     console.log('Circuit breaker wired (loop-guard skill + loop-ledger.json):');
-    console.log('  npx @cobusgreyling/loop-context --check --ledger loop-ledger.json');
+    console.log('  npx @kevinzhangnothing/loop-context --check --ledger loop-ledger.json');
   }
 
   console.log('');
   console.log(`First loop (${tool}):`);
   console.log(`  ${firstLoopCommand(pattern, tool)}`);
   console.log('');
-  console.log(`Estimate cost: npx @cobusgreyling/loop-cost --pattern ${pattern} --level L1`);
+  console.log(`Estimate cost: npx @kevinzhangnothing/loop-cost --pattern ${pattern} --level L1`);
   printContributorCta();
 }
 

@@ -145,7 +145,7 @@ hermes cron remove <job-id>
 
 Pause without deleting: `hermes cron pause <job-id>`. Or set `loop-pause-all` inside `STATE.md` and teach the skill to short-circuit when it sees that flag — the loop keeps ticking but produces no side effects, which preserves scheduler history for audit.
 
-Audit readiness: `npx @cobusgreyling/loop-audit . --suggest`
+Audit readiness: `npx @kevinzhangnothing/loop-audit . --suggest`
 
 ## References
 

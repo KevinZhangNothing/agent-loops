@@ -8,7 +8,7 @@ Add a **Cursor Dependency Sweeper** example doc — fill the `—` in Dependency
 
 ## Acceptance criteria
 - [ ] Patch-only week one; denylist + human gate on majors (mirror `patterns/dependency-sweeper.md`)
-- [ ] Worktree per attempt via `npx @cobusgreyling/loop-worktree`
+- [ ] Worktree per attempt via `npx @kevinzhangnothing/loop-worktree`
 - [ ] Verifier skill required before any merge proposal
 - [ ] Follow structure of `examples/opencode/dependency-sweeper.md` adapted for Cursor Automations
 

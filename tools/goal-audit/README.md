@@ -5,9 +5,9 @@ Goal Readiness Score CLI for Grok Build `/goal` workflows.
 ## Install / run
 
 ```bash
-npx @cobusgreyling/goal-audit .
-npx @cobusgreyling/goal-audit . --suggest
-npx @cobusgreyling/goal-audit . --json
+npx @kevinzhangnothing/goal-audit .
+npx @kevinzhangnothing/goal-audit . --suggest
+npx @kevinzhangnothing/goal-audit . --json
 ```
 
 ## Levels

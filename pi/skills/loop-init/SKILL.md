@@ -20,23 +20,23 @@ user_invocable: true
 ### 基础脚手架
 
 ```bash
-npx @cobusgreyling/loop-init <project-path> --pattern <pattern> --tool <tool>
+npx @kevinzhangnothing/loop-init <project-path> --pattern <pattern> --tool <tool>
 ```
 
 ### 快速模式（使用默认值）
 
 ```bash
 # Grok + Daily Triage（默认）
-npx @cobusgreyling/loop-init .
+npx @kevinzhangnothing/loop-init .
 
 # 简写
-npx @cobusgreyling/loop-init . -p daily-triage -t grok
+npx @kevinzhangnothing/loop-init . -p daily-triage -t grok
 ```
 
 ### 干运行（预览变更）
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern daily-triage --dry-run
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --dry-run
 ```
 
 ## 支持的模式 (Patterns)
@@ -108,19 +108,19 @@ loop-ledger.json (熔断器日志)
 
 ```bash
 # 5 分钟完成脚手架
-npx @cobusgreyling/loop-init . --pattern daily-triage --tool grok
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok
 
 # 查看审计结果
-npx @cobusgreyling/loop-audit . --suggest
+npx @kevinzhangnothing/loop-audit . --suggest
 
 # 估算 token 花费
-npx @cobusgreyling/loop-cost --pattern daily-triage --level L1
+npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1
 ```
 
 ### 2. Opencode 项目
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern daily-triage --tool opencode
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool opencode
 ```
 
 这会生成 `opencode.json` 配置和 `AGENTS.md` 文件。
@@ -129,10 +129,10 @@ npx @cobusgreyling/loop-init . --pattern daily-triage --tool opencode
 
 ```bash
 # 先搭建 Daily Triage
-npx @cobusgreyling/loop-init . -p daily-triage -t claude
+npx @kevinzhangnothing/loop-init . -p daily-triage -t claude
 
 # 再添加 CI Sweeper
-npx @cobusgreyling/loop-init . -p ci-sweeper -t claude
+npx @kevinzhangnothing/loop-init . -p ci-sweeper -t claude
 ```
 
 ## 输出示例
@@ -151,7 +151,7 @@ Created:
 Loop Ready Score: 55/100 (L1)
 
 Next steps:
-  1. Run: npx @cobusgreyling/loop-audit . --suggest
+  1. Run: npx @kevinzhangnothing/loop-audit . --suggest
   2. Start loop: /loop 1d Run loop-triage. Update STATE.md.
 ```
 
@@ -161,10 +161,10 @@ Next steps:
 
 ```bash
 # 1. 审计项目获取改进建议
-npx @cobusgreyling/loop-audit . --suggest
+npx @kevinzhangnothing/loop-audit . --suggest
 
 # 2. 估算 token 花费
-npx @cobusgreyling/loop-cost --pattern <pattern> --level L1
+npx @kevinzhangnothing/loop-cost --pattern <pattern> --level L1
 
 # 3. 运行第一次报告
 # 根据工具不同，执行对应的 loop 命令

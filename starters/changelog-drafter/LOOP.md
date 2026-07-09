@@ -29,4 +29,4 @@
 
 - Pattern: [changelog-drafter](../../patterns/changelog-drafter.md)
 - Starter: this directory
-- Audit this starter: `npx @cobusgreyling/loop-audit . --suggest`
+- Audit this starter: `npx @kevinzhangnothing/loop-audit . --suggest`

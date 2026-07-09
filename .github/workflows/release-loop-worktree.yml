@@ -45,11 +45,11 @@ jobs:
         working-directory: tools/loop-worktree
         run: |
           VERSION=$(node -p "require('./package.json').version")
-          if npm view "@cobusgreyling/loop-worktree@${VERSION}" version 2>/dev/null; then
+          if npm view "__NPM_SCOPE__/loop-worktree@${VERSION}" version 2>/dev/null; then
             echo "Version ${VERSION} already on npm — skipping publish."
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
-            echo "Publishing @cobusgreyling/loop-worktree@${VERSION}"
+            echo "Publishing __NPM_SCOPE__/loop-worktree@${VERSION}"
             echo "skip=false" >> "$GITHUB_OUTPUT"
           fi
         env:

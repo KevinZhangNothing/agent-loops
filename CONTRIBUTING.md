@@ -24,7 +24,7 @@ Start small — every merged PR counts.
 | **3** | Half day | New starter, skill template, or MCP cookbook entry |
 | **4** | Full day | Full pattern in `patterns/` + `patterns/registry.yaml` entry |
 
-**Fastest paths:** [Add your project to adopters](https://github.com/cobusgreyling/loop-engineering/issues/new?template=add-adopter.yml) · [Share a story issue](https://github.com/cobusgreyling/loop-engineering/issues/new?template=share-story.yml) · [`good first issue` backlog](https://github.com/cobusgreyling/loop-engineering/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+**Fastest paths:** [Add your project to adopters](https://github.com/KevinZhangNothing/loop-engineering/issues/new?template=add-adopter.yml) · [Share a story issue](https://github.com/KevinZhangNothing/loop-engineering/issues/new?template=share-story.yml) · [`good first issue` backlog](https://github.com/KevinZhangNothing/loop-engineering/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
 ## Pattern Requirements
 
@@ -65,7 +65,7 @@ Also add an entry to `patterns/registry.yaml`.
 
 ## Maintainer response (adopters & stories)
 
-PRs that only touch `stories/`, `docs/adopters.md`, or the [Add Adopter](https://github.com/cobusgreyling/loop-engineering/issues/new?template=add-adopter.yml) template get **same-day review** when possible:
+PRs that only touch `stories/`, `docs/adopters.md`, or the [Add Adopter](https://github.com/KevinZhangNothing/loop-engineering/issues/new?template=add-adopter.yml) template get **same-day review** when possible:
 
 1. Maintainer merges or requests one small fix within 24 hours
 2. Public thank-you on the PR or issue (`@mention` the contributor)
@@ -75,10 +75,10 @@ Automation posts a welcome comment on new story/adopter PRs (see `.github/workfl
 
 ## Community
 
-- **Questions**: [GitHub Discussions](https://github.com/cobusgreyling/loop-engineering/discussions) (preferred) or issue with label `question`
-- **Show your loop**: [Add Adopter issue](https://github.com/cobusgreyling/loop-engineering/issues/new?template=add-adopter.yml), Discussions, or a row in [docs/adopters.md](./docs/adopters.md)
-- **Loop Ready badge**: `npx @cobusgreyling/loop-audit . --badge` — paste into your README
-- **Good first issues**: look for label [`good first issue`](https://github.com/cobusgreyling/loop-engineering/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+- **Questions**: [GitHub Discussions](https://github.com/KevinZhangNothing/loop-engineering/discussions) (preferred) or issue with label `question`
+- **Show your loop**: [Add Adopter issue](https://github.com/KevinZhangNothing/loop-engineering/issues/new?template=add-adopter.yml), Discussions, or a row in [docs/adopters.md](./docs/adopters.md)
+- **Loop Ready badge**: `npx @kevinzhangnothing/loop-audit . --badge` — paste into your README
+- **Good first issues**: look for label [`good first issue`](https://github.com/KevinZhangNothing/loop-engineering/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 - **Hall of fame**: [CONTRIBUTORS.md](./CONTRIBUTORS.md) — regenerate after merges with `npm run contributors:generate`
 - **Security**: see [SECURITY.md](./SECURITY.md) — do not file public issues for exploitable vulnerabilities
 

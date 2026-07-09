@@ -7,8 +7,8 @@ Manage isolated [git worktrees](https://git-scm.com/docs/git-worktree) for loop 
 ## Install & Run
 
 ```bash
-npx @cobusgreyling/loop-worktree create --run-id ci-sweeper-2026-07-07-01 --pattern ci-sweeper
-npx @cobusgreyling/loop-worktree list
+npx @kevinzhangnothing/loop-worktree create --run-id ci-sweeper-2026-07-07-01 --pattern ci-sweeper
+npx @kevinzhangnothing/loop-worktree list
 ```
 
 **From this repo:**

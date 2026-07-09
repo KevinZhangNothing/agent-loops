@@ -55,7 +55,7 @@ See [docs/multi-loop.md](docs/multi-loop.md). Priority: CI Sweeper → PR Babysi
 
 - Token caps: `loop-budget.md`
 - Run history: `loop-run-log.md` (appended each weekday run by `daily-triage.yml`)
-- Estimate: `npx @cobusgreyling/loop-cost --pattern daily-triage`
+- Estimate: `npx @kevinzhangnothing/loop-cost --pattern daily-triage`
 - Kill switch: `loop-pause-all` label or flag in `STATE.md`
 
 ## Safety & Gates (this repo)
@@ -68,7 +68,7 @@ See [docs/multi-loop.md](docs/multi-loop.md). Priority: CI Sweeper → PR Babysi
 
 ```bash
 node tools/loop-audit/dist/cli.js . --suggest
-npx @cobusgreyling/loop-init . --pattern daily-triage --tool grok  # after npm publish
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok  # after npm publish
 bash scripts/before-after-demo.sh
 ```
 

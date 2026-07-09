@@ -94,7 +94,7 @@ Example state entry:
 **Cadence**: 5m–15m · **Tier**: high · **Suggested daily cap**: 2M tokens · **Early exit required**
 
 ```bash
-npx @cobusgreyling/loop-cost --pattern pr-babysitter --cadence 10m --level L1 --conservative
+npx @kevinzhangnothing/loop-cost --pattern pr-babysitter --cadence 10m --level L1 --conservative
 ```
 
 High cadence without early-exit burns tokens fast. Use `loop-budget` skill + `loop-run-log.md`.

@@ -1,7 +1,7 @@
 {
   "name": "@cobusgreyling/loop-init",
   "version": "1.3.3",
-  "description": "Scaffold loop engineering patterns and starters into any project. Supports Grok, Claude Code, Codex, Opencode and more. npx @cobusgreyling/loop-init . --pattern daily-triage --tool opencode",
+  "description": "Scaffold loop engineering patterns and starters into any project. Supports Grok, Claude Code, Codex, Opencode and more. npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool opencode",
   "type": "module",
   "bin": {
     "loop-init": "./dist/cli.js"
@@ -35,22 +35,22 @@
     "github-actions",
     "patterns"
   ],
-  "author": "Cobus Greyling",
+  "author": "Kevin Zhang",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cobusgreyling/loop-engineering.git",
+    "url": "git+https://github.com/KevinZhangNothing/loop-engineering.git",
     "directory": "tools/loop-init"
   },
-  "homepage": "https://cobusgreyling.github.io/loop-engineering/",
+  "homepage": "https://KevinZhangNothing.github.io/loop-engineering/",
   "bugs": {
-    "url": "https://github.com/cobusgreyling/loop-engineering/issues"
+    "url": "https://github.com/KevinZhangNothing/loop-engineering/issues"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@cobusgreyling/loop-audit": "^1.5.0"
+    "@kevinzhangnothing/loop-audit": "^1.5.0"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",

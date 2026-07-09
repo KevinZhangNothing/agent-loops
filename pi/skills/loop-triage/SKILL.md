@@ -154,7 +154,7 @@ Last run: 2026-07-09T10:00:00Z
     },
     "LoopEngineering": {
       "command": "npx",
-      "args": ["-y", "@cobusgreyling/loop-mcp-server"]
+      "args": ["-y", "@kevinzhangnothing/loop-mcp-server"]
     }
   }
 }

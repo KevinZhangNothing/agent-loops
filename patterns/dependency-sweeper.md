@@ -96,7 +96,7 @@ Prune merged/closed entries on every run.
 **Cadence**: 6h–1d · **Tier**: medium · **Suggested daily cap**: 500k tokens
 
 ```bash
-npx @cobusgreyling/loop-cost --pattern dependency-sweeper --level L2
+npx @kevinzhangnothing/loop-cost --pattern dependency-sweeper --level L2
 ```
 
 Verifier runs (`npm ci && npm test`) dominate cost — cap attempts per package in `loop-budget.md`.

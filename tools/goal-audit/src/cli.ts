@@ -31,7 +31,7 @@ Exit codes:
 Examples:
   goal-audit .
   goal-audit . --suggest
-  npx @cobusgreyling/goal-audit . --json
+  npx @kevinzhangnothing/goal-audit . --json
 `);
   process.exit(0);
 }
@@ -53,7 +53,7 @@ try {
     console.log('  # Then in Grok Build:');
     console.log('  /goal Read GOAL.md. Work the objective. goal-verifier before completed: true.');
     console.log('');
-    console.log('  Docs: https://github.com/cobusgreyling/goal-engineering');
+    console.log('  Docs: https://github.com/KevinZhangNothing/goal-engineering');
   }
 
   process.exit(result.score >= 40 ? 0 : 2);

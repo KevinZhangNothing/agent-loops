@@ -34,16 +34,16 @@
     "grok",
     "devtools"
   ],
-  "author": "Cobus Greyling",
+  "author": "Kevin Zhang",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cobusgreyling/loop-engineering.git",
+    "url": "git+https://github.com/KevinZhangNothing/loop-engineering.git",
     "directory": "tools/loop-context"
   },
-  "homepage": "https://cobusgreyling.github.io/loop-engineering/",
+  "homepage": "https://KevinZhangNothing.github.io/loop-engineering/",
   "bugs": {
-    "url": "https://github.com/cobusgreyling/loop-engineering/issues"
+    "url": "https://github.com/KevinZhangNothing/loop-engineering/issues"
   },
   "publishConfig": {
     "access": "public"

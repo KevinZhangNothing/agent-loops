@@ -13,7 +13,7 @@ Same pattern as Grok; uses `$issue-triage` skill invocation and Claude Code sche
 Scaffold or copy the skill:
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern issue-triage --tool claude
+npx @kevinzhangnothing/loop-init . --pattern issue-triage --tool claude
 # Or manually:
 mkdir -p .claude/skills/issue-triage
 cp templates/SKILL.md.issue-triage .claude/skills/issue-triage/SKILL.md
@@ -32,7 +32,7 @@ cp templates/SKILL.md.verifier .claude/agents/loop-verifier.md
 Scaffold:
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern issue-triage --tool claude --dry-run
+npx @kevinzhangnothing/loop-init . --pattern issue-triage --tool claude --dry-run
 ```
 
 ## Allowlisted Labels (L2 only, week 3+)

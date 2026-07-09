@@ -2,20 +2,20 @@
 
 Scaffold loop engineering starters into your project by pattern and tool.
 
-**npx @cobusgreyling/loop-init . --pattern daily-triage --tool grok** works immediately.
+**npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok** works immediately.
 
 ## Install & Run
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern daily-triage --tool grok
-npx @cobusgreyling/loop-init . --pattern daily-triage --tool opencode
-npx @cobusgreyling/loop-init . -p pr-babysitter -t claude
-npx @cobusgreyling/loop-init . -p dependency-sweeper --dry-run
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool opencode
+npx @kevinzhangnothing/loop-init . -p pr-babysitter -t claude
+npx @kevinzhangnothing/loop-init . -p dependency-sweeper --dry-run
 ```
 
 See [docs/RELEASE.md](../../docs/RELEASE.md) for npm publish tags. The published package bundles `starters/` and `templates/` from this monorepo.
 
-After scaffolding, always run `npx @cobusgreyling/loop-audit . --suggest` and actually execute the first report-only loop to generate activity signals.
+After scaffolding, always run `npx @kevinzhangnothing/loop-audit . --suggest` and actually execute the first report-only loop to generate activity signals.
 
 ## Patterns
 
@@ -63,6 +63,6 @@ node dist/cli.js /path/to/project --pattern daily-triage --tool grok
 Pair with `loop-audit` and `loop-cost` after scaffolding:
 
 ```bash
-npx @cobusgreyling/loop-cost --pattern daily-triage --level L1
-npx @cobusgreyling/loop-audit . --suggest
+npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1
+npx @kevinzhangnothing/loop-audit . --suggest
 ```

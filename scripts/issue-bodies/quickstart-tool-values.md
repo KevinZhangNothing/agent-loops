@@ -6,7 +6,7 @@ New contributors confuse which `--tool` values `loop-init` accepts vs manual cop
 
 ## Acceptance criteria
 - [ ] List scaffolded tools: grok, claude, codex, opencode vs manual copy: cursor, windsurf, openclaw
-- [ ] Pointer to `npx @cobusgreyling/loop-init --help` for pattern list
+- [ ] Pointer to `npx @kevinzhangnothing/loop-init --help` for pattern list
 - [ ] Docs only — no CLI changes
 
 **Estimated time:** ~20 minutes

@@ -3,7 +3,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 IMAGE="${REPO_ROOT}/assets/visuals/social-preview.jpg"
-SETTINGS_URL="https://github.com/cobusgreyling/loop-engineering/settings"
+SETTINGS_URL="https://github.com/KevinZhangNothing/loop-engineering/settings"
 
 if [[ ! -f "${IMAGE}" ]]; then
   echo "Missing ${IMAGE}"

@@ -21,25 +21,25 @@ user_invocable: true
 ### 基础审计
 
 ```bash
-npx @cobusgreyling/loop-audit <project-path>
+npx @kevinzhangnothing/loop-audit <project-path>
 ```
 
 ### 获取改进建议
 
 ```bash
-npx @cobusgreyling/loop-audit <project-path> --suggest
+npx @kevinzhangnothing/loop-audit <project-path> --suggest
 ```
 
 ### JSON 输出（机器可读）
 
 ```bash
-npx @cobusgreyling/loop-audit <project-path> --json
+npx @kevinzhangnothing/loop-audit <project-path> --json
 ```
 
 ### 生成 README 徽章
 
 ```bash
-npx @cobusgreyling/loop-audit <project-path> --badge
+npx @kevinzhangnothing/loop-audit <project-path> --badge
 ```
 
 ## 评分标准
@@ -108,10 +108,10 @@ Top suggestions:
 
 ```bash
 # 审计当前项目
-npx @cobusgreyling/loop-audit .
+npx @kevinzhangnothing/loop-audit .
 
 # 获取具体改进命令
-npx @cobusgreyling/loop-audit . --suggest
+npx @kevinzhangnothing/loop-audit . --suggest
 ```
 
 ### 2. CI 集成
@@ -119,14 +119,14 @@ npx @cobusgreyling/loop-audit . --suggest
 ```yaml
 # .github/workflows/audit.yml
 - name: Loop Audit
-  run: npx @cobusgreyling/loop-audit . --json > /tmp/audit.json
+  run: npx @kevinzhangnothing/loop-audit . --json > /tmp/audit.json
 ```
 
 ### 3. PR 评论
 
 ```bash
 # 生成徽章 markdown
-npx @cobusgreyling/loop-audit . --badge
+npx @kevinzhangnothing/loop-audit . --badge
 ```
 
 ## 相关技能

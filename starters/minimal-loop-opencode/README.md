@@ -7,7 +7,7 @@ Clone this into your project root to run a **report-only daily triage loop** (L1
 1. Scaffold (recommended):
 
    ```bash
-   npx @cobusgreyling/loop-init . --pattern daily-triage --tool opencode
+   npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool opencode
    ```
 
    Or copy manually:
@@ -47,4 +47,4 @@ Clone this into your project root to run a **report-only daily triage loop** (L1
 - [Loop Design Checklist](../../docs/loop-design-checklist.md)
 - [Daily Triage pattern](../../patterns/daily-triage.md)
 - [Opencode example](../../examples/opencode/daily-triage.md)
-- Run `npx @cobusgreyling/loop-audit .` for readiness score
+- Run `npx @kevinzhangnothing/loop-audit .` for readiness score

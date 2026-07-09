@@ -5,7 +5,7 @@ Clone-and-run scaffold for the **PR Babysitter** pattern with opencode. Watch op
 ## Quick Start
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern pr-babysitter --tool opencode
+npx @kevinzhangnothing/loop-init . --pattern pr-babysitter --tool opencode
 ```
 
 Or copy manually:

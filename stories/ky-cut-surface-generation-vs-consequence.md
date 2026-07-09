@@ -1,6 +1,6 @@
 # KY Cut Surface — Generation vs Consequence
 
-*Contributed by [@sololys](https://github.com/sololys) — adapted from [PR #178](https://github.com/cobusgreyling/loop-engineering/pull/178). Norwegian source artifacts: [resources/ky-cut-surface-philosophy-v0_1/](../resources/ky-cut-surface-philosophy-v0_1/).*
+*Contributed by [@sololys](https://github.com/sololys) — adapted from [PR #178](https://github.com/KevinZhangNothing/loop-engineering/pull/178). Norwegian source artifacts: [resources/ky-cut-surface-philosophy-v0_1/](../resources/ky-cut-surface-philosophy-v0_1/).*
 
 This is a **philosophy artifact**, not a loop pattern. It is indexed here because its core thesis maps directly to loop engineering discipline.
 

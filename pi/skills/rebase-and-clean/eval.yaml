@@ -81,7 +81,7 @@ test_cases:
       - count_attempts_for_pr: 3
       - append_attempt: 4
       - expect_exit_code: 2
-      - run_command: "npx @cobusgreyling/loop-context --check --ledger loop-ledger.json"
+      - run_command: "npx @kevinzhangnothing/loop-context --check --ledger loop-ledger.json"
     expected_output:
       contains:
         - "Attempts this run: 4 (cap: 3)"
@@ -92,7 +92,7 @@ test_cases:
     description: 通过 loop-worktree 隔离，不污染主分支
     input: "rebase 这个有冲突的 PR"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-worktree create --run-id pr456 --pattern pr-babysitter"
+      - run_command: "npx @kevinzhangnothing/loop-worktree create --run-id pr456 --pattern pr-babysitter"
       - run_command: "git rebase origin/main"
     expected_output:
       contains:

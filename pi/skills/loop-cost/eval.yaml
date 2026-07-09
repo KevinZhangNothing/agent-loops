@@ -23,7 +23,7 @@ test_cases:
     description: 估算指定 pattern 的花费
     input: "估算 daily-triage 的 token 花费"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-cost --pattern daily-triage --level L1"
+      - run_command: "npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1"
     expected_output:
       contains:
         - "tokens"
@@ -35,7 +35,7 @@ test_cases:
     description: 不同等级的花费对比
     input: "L2 模式的 CI Sweeper 花费多少"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-cost --pattern ci-sweeper --level L2"
+      - run_command: "npx @kevinzhangnothing/loop-cost --pattern ci-sweeper --level L2"
     expected_output:
       contains:
         - "L2"
@@ -45,7 +45,7 @@ test_cases:
     description: 自定义 cadence 的花费计算
     input: "每 15 分钟运行一次 ci-sweeper 的花费"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-cost --pattern ci-sweeper --cadence 15m"
+      - run_command: "npx @kevinzhangnothing/loop-cost --pattern ci-sweeper --cadence 15m"
     expected_output:
       contains:
         - "cadence"
@@ -55,7 +55,7 @@ test_cases:
     description: 机器可读的 JSON 格式
     input: "以 JSON 格式输出花费估算"
     expected_actions:
-      - run_command: "npx @cobusgreyling/loop-cost --pattern daily-triage --level L1 --json"
+      - run_command: "npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1 --json"
     expected_output:
       is_json: true
       contains_keys:

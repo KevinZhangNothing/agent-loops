@@ -6,7 +6,7 @@ Scaffold for the [PR Babysitter](../../patterns/pr-babysitter.md) loop (L2 — a
 
 1. Copy into your repo:
    ```bash
-   npx @cobusgreyling/loop-init . --pattern pr-babysitter --tool grok
+   npx @kevinzhangnothing/loop-init . --pattern pr-babysitter --tool grok
    # Or manual:
    cp -r starters/pr-babysitter/.grok/skills/* .grok/skills/
    cp starters/pr-babysitter/pr-babysitter-state.md.example pr-babysitter-state.md

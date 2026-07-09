@@ -1,4 +1,4 @@
-# @cobusgreyling/loop-mcp-server
+# @kevinzhangnothing/loop-mcp-server
 
 MCP (Model Context Protocol) server for **loop-engineering** — exposes patterns, skills, state, budget, and audit tools as runtime-queryable resources for AI agents.
 
@@ -7,7 +7,7 @@ Instead of stuffing all loop documentation into the prompt, agents can query onl
 ## Quick Start
 
 ```bash
-npx @cobusgreyling/loop-mcp-server
+npx @kevinzhangnothing/loop-mcp-server
 ```
 
 From a cloned `loop-engineering` repo:
@@ -28,7 +28,7 @@ Add to your MCP config (`.mcp.json` or equivalent):
   "mcpServers": {
     "loop-engineering": {
       "command": "npx",
-      "args": ["-y", "@cobusgreyling/loop-mcp-server"],
+      "args": ["-y", "@kevinzhangnothing/loop-mcp-server"],
       "env": {
         "LOOP_PROJECT_ROOT": "."
       }

@@ -5,7 +5,7 @@ Clone-and-run scaffold for the **Dependency Sweeper** pattern with opencode. Dis
 ## Quick Start
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern dependency-sweeper --tool opencode
+npx @kevinzhangnothing/loop-init . --pattern dependency-sweeper --tool opencode
 ```
 
 Or copy manually:

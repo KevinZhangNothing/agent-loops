@@ -6,7 +6,7 @@ Scaffold for the [Changelog Drafter](../../patterns/changelog-drafter.md) loop (
 
 ```bash
 # Recommended
-npx @cobusgreyling/loop-init . --pattern changelog-drafter --tool grok
+npx @kevinzhangnothing/loop-init . --pattern changelog-drafter --tool grok
 
 # Or manual copy (Grok)
 cp -r starters/changelog-drafter/.grok/skills/changelog-scan .grok/skills/
@@ -44,5 +44,5 @@ Start (Grok example — report/draft only in week one):
 After copying, run:
 
 ```bash
-npx @cobusgreyling/loop-audit . --suggest
+npx @kevinzhangnothing/loop-audit . --suggest
 ```

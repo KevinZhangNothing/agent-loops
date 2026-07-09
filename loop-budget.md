@@ -24,5 +24,5 @@
 ## Estimate spend
 
 ```bash
-npx @cobusgreyling/loop-cost --pattern daily-triage --level L1
+npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1
 ```

@@ -5,7 +5,7 @@ Clone-and-run scaffold for the **Issue Triage** pattern with opencode. Keep the 
 ## Quick Start
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern issue-triage --tool opencode
+npx @kevinzhangnothing/loop-init . --pattern issue-triage --tool opencode
 ```
 
 Or copy manually:

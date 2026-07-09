@@ -26,8 +26,8 @@ flowchart TD
 Estimate before you schedule:
 
 ```bash
-npx @cobusgreyling/loop-cost --pattern <id> --level L1
-npx @cobusgreyling/loop-init . --pattern daily-triage --tool grok   # scaffolds loop-budget.md + loop-run-log.md
+npx @kevinzhangnothing/loop-cost --pattern <id> --level L1
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok   # scaffolds loop-budget.md + loop-run-log.md
 ```
 
 | Situation | Prefer | Avoid (until budget + early-exit) |
@@ -65,6 +65,6 @@ npx @cobusgreyling/loop-init . --pattern daily-triage --tool grok   # scaffolds 
 If unsure, start with **Daily Triage at L1**. It teaches state discipline without auto-merge risk.
 
 ```bash
-npx @cobusgreyling/loop-init . --pattern daily-triage --tool grok
-npx @cobusgreyling/loop-audit . --suggest
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok
+npx @kevinzhangnothing/loop-audit . --suggest
 ```
