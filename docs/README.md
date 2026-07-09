@@ -78,9 +78,16 @@ Central navigation for all loop-engineering documentation.
 |-----|-------------|
 | [PI-INTEGRATION.md](./PI-INTEGRATION.md) | Complete pi coding agent integration guide |
 | [pi/README.md](../pi/README.md) | pi integration kit overview |
-| [pi/skills/](../pi/skills/) | pi-formatted skills (loop-audit, loop-init, loop-triage, loop-cost) |
+| [pi/skills/](../pi/skills/) | pi-formatted skills (12 skills: loop-audit, loop-init, loop-triage, loop-cost, loop-budget, loop-verifier, minimal-fix, loop-sync, loop-guard, ci-triage, pr-review-triage, rebase-and-clean) |
 | [pi/workflows/](../pi/workflows/) | pi workflow definitions (daily-triage, pr-babysitter, ci-sweeper) |
 | [pi/mcp.json](../pi/mcp.json) | pi MCP server configuration template |
+| [PI-INTEGRATION-COMPLETE.md](../PI-INTEGRATION-COMPLETE.md) | pi integration v2 status report |
+
+## Rebrand & Operations
+
+| Doc | Description |
+|-----|-------------|
+| [REBRAND-NPM.md](./REBRAND-NPM.md) | Operator's guide to republish as `@kevinzhangnothing/*` (3 manual steps + 2 scripts) |
 
 ## Project Health
 

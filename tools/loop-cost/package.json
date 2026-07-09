@@ -1,5 +1,5 @@
 {
-  "name": "@cobusgreyling/loop-cost",
+  "name": "@kevinzhangnothing/loop-cost",
   "version": "1.0.3",
   "description": "Estimate token budgets and daily costs for loop engineering patterns. By cadence, readiness level (L1/L2/L3), and coding agent tool.",
   "type": "module",

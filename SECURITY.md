@@ -31,8 +31,15 @@ For general loop safety guidance, see [docs/safety.md](docs/safety.md).
 
 ## Supported versions
 
-| Package | Supported |
-|---------|-----------|
-| `@kevinzhangnothing/loop-audit` | Latest release on npm |
-| `@kevinzhangnothing/loop-init` | Latest release on npm |
-| Reference repo `main` | Current HEAD |
+| Package | Supported | Notes |
+|---------|-----------|-------|
+| `@kevinzhangnothing/loop-audit` | Latest release on npm | Pending republish — see [docs/REBRAND-NPM.md](docs/REBRAND-NPM.md) |
+| `@kevinzhangnothing/loop-init` | Latest release on npm | Pending republish |
+| `@kevinzhangnothing/loop-cost` | Latest release on npm | Pending republish |
+| `@kevinzhangnothing/loop-sync` | Latest release on npm | Pending republish |
+| `@kevinzhangnothing/loop-context` | Latest release on npm | Pending republish |
+| `@kevinzhangnothing/loop-mcp-server` | Latest release on npm | Pending republish |
+| `@kevinzhangnothing/loop-worktree` | Latest release on npm | Pending republish |
+| `@kevinzhangnothing/goal-audit` | Latest release on npm | Pending republish |
+| `@cobusgreyling/*` (legacy) | Best effort, will be deprecated | Original publisher's scope |
+| Reference repo `main` | Current HEAD | Always supported |

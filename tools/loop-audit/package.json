@@ -1,5 +1,5 @@
 {
-  "name": "@cobusgreyling/loop-audit",
+  "name": "@kevinzhangnothing/loop-audit",
   "version": "1.6.0",
   "description": "Loop engineering readiness auditor. Compute Loop Readiness Score (L0-L3), detect activity, and get actionable suggestions. npx @kevinzhangnothing/loop-audit . --suggest",
   "type": "module",

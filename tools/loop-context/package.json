@@ -1,5 +1,5 @@
 {
-  "name": "@cobusgreyling/loop-context",
+  "name": "@kevinzhangnothing/loop-context",
   "version": "1.0.0",
   "description": "Stateful memory manager for agent loops — summarize, prune, and inject context, with a circuit breaker that escalates stagnant or no-progress runs instead of burning tokens.",
   "type": "module",

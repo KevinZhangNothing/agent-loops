@@ -1,5 +1,5 @@
 {
-  "name": "@cobusgreyling/loop-init",
+  "name": "@kevinzhangnothing/loop-init",
   "version": "1.3.3",
   "description": "Scaffold loop engineering patterns and starters into any project. Supports Grok, Claude Code, Codex, Opencode and more. npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool opencode",
   "type": "module",

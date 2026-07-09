@@ -1,5 +1,5 @@
 {
-  "name": "@cobusgreyling/loop-sync",
+  "name": "@kevinzhangnothing/loop-sync",
   "version": "1.0.0",
   "description": "Detect and sync drift between Loop configuration files (STATE.md ↔ LOOP.md, Skills versions)",
   "type": "module",

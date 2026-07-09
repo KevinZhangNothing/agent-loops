@@ -101,6 +101,7 @@ For developers using Grok, Claude Code, Codex, Cursor, and other AI coding agent
 | [pi skill: loop-sync](pi/skills/loop-sync/) | STATE.md ↔ LOOP.md drift detection — wraps `@kevinzhangnothing/loop-sync` |
 | [pi skill: rebase-and-clean](pi/skills/rebase-and-clean/) | Safe PR rebase + cleanup for pr-babysitter workflow |
 | [pi install](pi/install.sh) | One-shot installer: `bash pi/install.sh` copies 12 skills + 3 workflows + mcp.json to `~/.pi/agent/` |
+| [Rebrand to @kevinzhangnothing](docs/REBRAND-NPM.md) | **3 manual steps + 2 scripts** to publish 8 packages under the new npm scope |
 | [Goal Engineering](https://github.com/KevinZhangNothing/goal-engineering) | **Companion:** loops discover, goals finish — `/goal` + [stack cookbook](https://github.com/KevinZhangNothing/goal-engineering/blob/main/docs/stack-cookbook.md) (`npx @kevinzhangnothing/goal doctor .`) |
 | [Stories](stories/) | Real wins and honest failures |
 | [Contributor quickstart](https://github.com/KevinZhangNothing/loop-engineering/discussions/123) | **Help wanted:** 25 scoped `good first issues` — comment *I'll take this* to get assigned |

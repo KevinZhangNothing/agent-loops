@@ -11,23 +11,25 @@ Real-time status of loop-engineering components.
 | **Loop Readiness Score** | ✅ 100/100 (L3) | `npx @kevinzhangnothing/loop-audit .` |
 | **Active Loops** | ✅ 2 running | Daily Triage (L1), Changelog Drafter (L1) |
 | **CI/CD** | ✅ Passing | `audit.yml`, `validate-patterns.yml` |
-| **npm Packages** | ✅ 8 published | All tools on npm registry |
+| **npm Packages** | ⏳ 8 staged for republish | Old `@cobusgreyling/*` still on registry — see [docs/REBRAND-NPM.md](./docs/REBRAND-NPM.md) |
 | **Community** | ✅ Growing | 5.5k+ stars, active adopters |
 
 ## npm Package Status
 
-| Package | Version | Last Published | Status |
-|---------|---------|----------------|--------|
-| `@kevinzhangnothing/loop-audit` | Latest | From `loop-audit-v*` tags | ✅ |
-| `@kevinzhangnothing/loop-init` | Latest | From `loop-init-v*` tags | ✅ |
-| `@kevinzhangnothing/loop-cost` | Latest | From `loop-cost-v*` tags | ✅ |
-| `@kevinzhangnothing/loop-sync` | Latest | From `loop-sync-v*` tags | ✅ |
-| `@kevinzhangnothing/loop-context` | Latest | From `loop-context-v*` tags | ✅ |
-| `@kevinzhangnothing/loop-mcp-server` | Latest | From `loop-mcp-server-v*` tags | ✅ |
-| `@kevinzhangnothing/loop-worktree` | Latest | From `loop-worktree-v*` tags | ✅ |
-| `@kevinzhangnothing/goal-audit` | Latest | From `goal-audit-v*` tags | ✅ |
+| Package | Source | npm registry | Status |
+|---------|--------|--------------|--------|
+| `@kevinzhangnothing/loop-audit` | `tools/loop-audit/` | ⏳ pending republish | Source ready, run `scripts/publish-npm-scope.sh` |
+| `@kevinzhangnothing/loop-init` | `tools/loop-init/` | ⏳ pending republish | Source ready |
+| `@kevinzhangnothing/loop-cost` | `tools/loop-cost/` | ⏳ pending republish | Source ready |
+| `@kevinzhangnothing/loop-sync` | `tools/loop-sync/` | ⏳ pending republish | Source ready |
+| `@kevinzhangnothing/loop-context` | `tools/loop-context/` | ⏳ pending republish | Source ready |
+| `@kevinzhangnothing/loop-mcp-server` | `tools/mcp-server/` | ⏳ pending republish | Source ready |
+| `@kevinzhangnothing/loop-worktree` | `tools/loop-worktree/` | ⏳ pending republish | Source ready |
+| `@kevinzhangnothing/goal-audit` | `tools/goal-audit/` | ⏳ pending republish | Source ready |
+| `@cobusgreyling/*` (legacy) | — | ⚠️ still published | See [rebrand guide](./docs/REBRAND-NPM.md#b-deprecate-the-old-cobusgreyling-packages-recommended) to deprecate |
 
-Publish workflow: [docs/RELEASE.md](./docs/RELEASE.md)
+Release workflow: [docs/RELEASE.md](./docs/RELEASE.md)
+Rebrand guide: [docs/REBRAND-NPM.md](./docs/REBRAND-NPM.md)
 
 ## Pattern Coverage
 
