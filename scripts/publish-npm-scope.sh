@@ -31,11 +31,16 @@
 #
 #   The script prompts for a 6-digit OTP before each 'npm publish' (the
 #   account has 2FA enabled, which is required for scoped package publishing).
-#   Type 's' at the prompt to skip that package.
 #
-#   To suppress prompts: export NPM_PUBLISH_OTP=000000  (rarely useful)
-#                        bash scripts/publish-npm-scope.sh --no-2fa  (will fail
-#                        on accounts that require OTP)
+#   Modes:
+#     default           — type the 6-digit code at the prompt
+#     --clipboard       — script activates Passwords.app, you copy the code
+#                         there with ⌘+C, then press Enter in the terminal;
+#                         script reads the clipboard automatically
+#     --no-2fa          — skip the prompt (will fail if account requires OTP)
+#
+#   Environment variable: NPM_PUBLISH_OTP=<code>  (rarely useful; one value
+#   applies to all publishes, but each TOTP expires after 30 seconds)
 #
 # The script is idempotent per-package: re-running it for a package that is
 # already published at the same version will be a no-op (npm refuses duplicate
@@ -210,9 +215,12 @@ fi
 #
 # Three modes are supported:
 #
-#   1) INTERACTIVE (default): the script prompts for an OTP before each
-#      'npm publish'. You type the 6-digit code from your authenticator
-#      and hit Enter. The input is hidden (read -s).
+#   1) INTERACTIVE (default):
+#      - Default sub-mode: prompt for 6-digit code (typed in)
+#      - Alternative: --clipboard flag → script activates Passwords.app,
+#        prompts you to copy the code there (⌘+C or click Copy), then
+#        reads the clipboard automatically when you press Enter.
+#        This is the "human-in-the-loop approval" mode you asked for.
 #
 #   2) AUTO from env: if NPM_PUBLISH_OTP is set in the environment, that
 #      single OTP is used for every publish. Useful only if you've set
@@ -222,12 +230,21 @@ fi
 #      fail with EOTP unless your account is configured to not require
 #      OTP (e.g. legacy accounts with granular tokens).
 OTP_MODE="interactive"
+USE_CLIPBOARD=false
 if [ "${NPM_PUBLISH_OTP:-}" != "" ]; then
   OTP_MODE="env"
 fi
-if [ "${1:-}" = "--no-2fa" ] || [ "${2:-}" = "--no-2fa" ] || [ "${3:-}" = "--no-2fa" ]; then
-  OTP_MODE="none"
+for arg in "$@"; do
+  case "$arg" in
+    --no-2fa)  OTP_MODE="none" ;;
+    --clipboard) USE_CLIPBOARD=true ;;
+  esac
+done
+if [ "$OTP_MODE" = "none" ]; then
   log_warn "Running with --no-2fa; publish will fail if your account requires OTP"
+fi
+if [ "$USE_CLIPBOARD" = true ]; then
+  log_info "Clipboard mode: script will activate Passwords.app and read OTP from clipboard"
 fi
 
 # Function: get an OTP for a publish.
@@ -245,35 +262,102 @@ get_otp() {
       # code (no API on macOS Passwords.app), but we can:
       #   1. play a system sound to grab attention
       #   2. show a desktop notification naming the package being published
-      #   3. tell the user (in the prompt) where to find the code
+      #   3. activate Passwords.app
+      #   4. (clipboard mode) let the user copy the code there with ⌘+C and
+      #      read it back from the clipboard
       play_attention_signal "$pkg"
       show_macos_notification "$pkg"
+      activate_passwords_app
 
-      local tries=3
-      while [ $tries -gt 0 ]; do
-        echo "" >&2
-        echo -e "${YELLOW}  ┌──────────────────────────────────────────────┐${NC}" >&2
-        echo -e "${YELLOW}  │  2FA required: open Passwords.app (⌘+Space)│${NC}" >&2
-        echo -e "${YELLOW}  │  Search 'npm' → copy 6-digit code            │${NC}" >&2
-        echo -e "${YELLOW}  │  Or type 's' to skip this package            │${NC}" >&2
-        echo -e "${YELLOW}  └──────────────────────────────────────────────┘${NC}" >&2
-        local otp
-        read -r -s -p "  OTP> " otp
-        echo "" >&2
-        if [ "$otp" = "s" ] || [ "$otp" = "S" ]; then
-          printf '%s\n' "__SKIP__"
-          return
-        fi
-        if echo "$otp" | grep -qE '^[0-9]{6}$'; then
-          printf '%s' "$otp"
-          return
-        fi
-        tries=$((tries - 1))
-        echo -e "${RED}  Invalid OTP (must be 6 digits). $tries tries left.${NC}" >&2
-      done
-      printf '%s\n' "__SKIP__"
+      if [ "$USE_CLIPBOARD" = true ]; then
+        get_otp_from_clipboard
+      else
+        get_otp_from_input
+      fi
       ;;
   esac
+}
+
+# Activate macOS Passwords.app (best-effort, no Accessibility needed).
+activate_passwords_app() {
+  if ! command -v osascript >/dev/null 2>&1; then
+    return
+  fi
+  osascript -e 'tell application "Passwords" to activate' >/dev/null 2>&1 &
+}
+
+# Read a 6-digit code from the user's input. Hidden (read -s).
+get_otp_from_input() {
+  local tries=3
+  while [ $tries -gt 0 ]; do
+    echo "" >&2
+    echo -e "${YELLOW}  ┌──────────────────────────────────────────────┐${NC}" >&2
+    echo -e "${YELLOW}  │  2FA required: open Passwords.app (⌘+Space)│${NC}" >&2
+    echo -e "${YELLOW}  │  Search 'npm' → copy 6-digit code            │${NC}" >&2
+    echo -e "${YELLOW}  │  Or type 's' to skip this package            │${NC}" >&2
+    echo -e "${YELLOW}  └──────────────────────────────────────────────┘${NC}" >&2
+    local otp
+    read -r -s -p "  OTP> " otp
+    echo "" >&2
+    if [ "$otp" = "s" ] || [ "$otp" = "S" ]; then
+      printf '%s\n' "__SKIP__"
+      return
+    fi
+    if echo "$otp" | grep -qE '^[0-9]{6}$'; then
+      printf '%s' "$otp"
+      return
+    fi
+    tries=$((tries - 1))
+    echo -e "${RED}  Invalid OTP (must be 6 digits). $tries tries left.${NC}" >&2
+  done
+  printf '%s\n' "__SKIP__"
+}
+
+# Read a 6-digit code from the macOS clipboard (after the user copies from
+# Passwords.app). The user activates the prompt with Enter; the script then
+# pbpastes and extracts the most recent 6-digit run.
+get_otp_from_clipboard() {
+  local tries=3
+  while [ $tries -gt 0 ]; do
+    echo "" >&2
+    echo -e "${YELLOW}  ┌──────────────────────────────────────────────┐${NC}" >&2
+    echo -e "${YELLOW}  │  Passwords.app is active.                    │${NC}" >&2
+    echo -e "${YELLOW}  │  Search 'npm' → click 'Copy Code' (or ⌘+C)  │${NC}" >&2
+    echo -e "${YELLOW}  │  Then come back here and press Enter.        │${NC}" >&2
+    echo -e "${YELLOW}  │  Type 's' + Enter to skip this package.      │${NC}" >&2
+    echo -e "${YELLOW}  └──────────────────────────────────────────────┘${NC}" >&2
+    local input
+    read -r -p "  Press Enter when copied (or 's' to skip)> " input
+    echo "" >&2
+    if [ "$input" = "s" ] || [ "$input" = "S" ]; then
+      printf '%s\n' "__SKIP__"
+      return
+    fi
+    # Read clipboard
+    if ! command -v pbpaste >/dev/null 2>&1; then
+      log_error "pbpaste not available — falling back to typed input"
+      get_otp_from_input
+      return
+    fi
+    local clip
+    clip=$(pbpaste 2>/dev/null)
+    # Extract the first 6-digit run (with optional space) from the clipboard
+    local otp
+    otp=$(echo "$clip" | grep -oE '[0-9]{3}[ ]?[0-9]{3}' | head -1 | tr -d ' ')
+    if [ -z "$otp" ]; then
+      # Try just 6 consecutive digits
+      otp=$(echo "$clip" | grep -oE '[0-9]{6}' | head -1)
+    fi
+    if [ -n "$otp" ]; then
+      echo "  → Read from clipboard: $otp" >&2
+      printf '%s' "$otp"
+      return
+    fi
+    tries=$((tries - 1))
+    echo -e "${RED}  No 6-digit code found in clipboard. $tries tries left.${NC}" >&2
+    echo -e "${RED}  Current clipboard content: $clip${NC}" >&2
+  done
+  printf '%s\n' "__SKIP__"
 }
 
 # Play a macOS system sound to alert the user that an OTP is needed.
