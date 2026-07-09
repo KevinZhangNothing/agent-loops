@@ -231,30 +231,36 @@ if [ "${1:-}" = "--no-2fa" ] || [ "${2:-}" = "--no-2fa" ] || [ "${3:-}" = "--no-
 fi
 
 # Function: get an OTP for a publish.
-# Echoes the OTP code (6 digits) on stdout, or empty string to skip.
+# Echoes the OTP code (6 digits) on stdout, or __SKIP__ sentinel to skip.
 get_otp() {
   case "$OTP_MODE" in
     env)
       echo "$NPM_PUBLISH_OTP"
       ;;
     none)
-      # Return empty + unique sentinel so callers can distinguish "no OTP" from
-      # "user pressed enter with no value". We use a newline + sentinel.
       printf '%s\n' ""
       ;;
     interactive)
+      # Try to focus the user on where the 2FA code lives. We can't READ the
+      # code (no API on macOS Passwords.app), but we can:
+      #   1. play a system sound to grab attention
+      #   2. show a desktop notification naming the package being published
+      #   3. tell the user (in the prompt) where to find the code
+      play_attention_signal "$pkg"
+      show_macos_notification "$pkg"
+
       local tries=3
       while [ $tries -gt 0 ]; do
         echo "" >&2
         echo -e "${YELLOW}  ┌──────────────────────────────────────────────┐${NC}" >&2
-        echo -e "${YELLOW}  │  2FA required: open your authenticator app  │${NC}" >&2
-        echo -e "${YELLOW}  │  Enter the 6-digit code (or 's' to skip):    │${NC}" >&2
+        echo -e "${YELLOW}  │  2FA required: open Passwords.app (⌘+Space)│${NC}" >&2
+        echo -e "${YELLOW}  │  Search 'npm' → copy 6-digit code            │${NC}" >&2
+        echo -e "${YELLOW}  │  Or type 's' to skip this package            │${NC}" >&2
         echo -e "${YELLOW}  └──────────────────────────────────────────────┘${NC}" >&2
         local otp
         read -r -s -p "  OTP> " otp
         echo "" >&2
         if [ "$otp" = "s" ] || [ "$otp" = "S" ]; then
-          # Skip — return empty + sentinel
           printf '%s\n' "__SKIP__"
           return
         fi
@@ -268,6 +274,27 @@ get_otp() {
       printf '%s\n' "__SKIP__"
       ;;
   esac
+}
+
+# Play a macOS system sound to alert the user that an OTP is needed.
+# Best-effort: silently ignore if not on macOS or sound not available.
+play_attention_signal() {
+  local pkg="$1"
+  if command -v afplay >/dev/null 2>&1 && [ -f /System/Library/Sounds/Glass.aiff ]; then
+    afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 &
+  fi
+}
+
+# Show a macOS desktop notification (best-effort).
+# Uses osascript which DOES NOT require Accessibility permission
+# (unlike UI scripting via System Events).
+show_macos_notification() {
+  local pkg="$1"
+  if ! command -v osascript >/dev/null 2>&1; then
+    return
+  fi
+  osascript -e "display notification \"Open Passwords.app, search 'npm', copy the 6-digit code\" with title \"npm publish: $pkg\" subtitle \"2FA OTP required\" sound name \"Submarine\"" \
+    >/dev/null 2>&1 &
 }
 
 # ---------- summary ----------
