@@ -4,7 +4,7 @@ const LEVEL_BADGE_COLORS = {
     L2: '58a6ff',
     L3: '3ee8c5',
 };
-const SHOWCASE_URL = 'https://cobusgreyling.github.io/loop-engineering/';
+const SHOWCASE_URL = 'https://KevinZhangNothing.github.io/loop-engineering/';
 /** ASCII progress bar for terminal + demo GIFs. */
 export function formatScoreBar(score, width = 20) {
     const filled = Math.max(0, Math.min(width, Math.round((score / 100) * width)));
@@ -42,7 +42,7 @@ export function formatHuman(r) {
         }
     }
     lines.push('');
-    lines.push(`Share: npx @cobusgreyling/loop-audit ${auditTargetArg(r.target)} --badge`);
+    lines.push(`Share: npx @kevinzhangnothing/loop-audit ${auditTargetArg(r.target)} --badge`);
     lines.push('Docs: docs/loop-design-checklist.md');
     lines.push('Tip: rerun with --suggest for ready-to-paste copy commands from templates/starters.');
     lines.push('');

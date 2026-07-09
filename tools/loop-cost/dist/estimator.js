@@ -136,7 +136,7 @@ export function formatEstimateHuman(r) {
             lines.push(`  ! ${w}`);
     }
     lines.push('');
-    lines.push('Docs: docs/operating-loops.md · Scaffold: npx @cobusgreyling/loop-init');
+    lines.push('Docs: docs/operating-loops.md · Scaffold: npx @kevinzhangnothing/loop-init');
     lines.push('');
     return lines.join('\n');
 }
