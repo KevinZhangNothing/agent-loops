@@ -1,0 +1,104 @@
+# eval.yaml — loop-cost 技能评估配置
+
+version: 1
+skill: loop-cost
+
+triggers:
+  keywords:
+    - "loop cost"
+    - "token 花费"
+    - "token 估算"
+    - "loop budget"
+    - "npx loop-cost"
+    - "花费估算"
+    - "预算上限"
+  
+  intents:
+    - "估算 Loop 的 token 花费"
+    - "设置 token 预算上限"
+    - "评估 Loop 运行成本"
+
+test_cases:
+  - name: 基础花费估算
+    description: 估算指定 pattern 的花费
+    input: "估算 daily-triage 的 token 花费"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-cost --pattern daily-triage --level L1"
+    expected_output:
+      contains:
+        - "tokens"
+        - "No-op"
+        - "Report"
+        - "Action"
+
+  - name: 指定等级估算
+    description: 不同等级的花费对比
+    input: "L2 模式的 CI Sweeper 花费多少"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-cost --pattern ci-sweeper --level L2"
+    expected_output:
+      contains:
+        - "L2"
+        - "ci-sweeper"
+
+  - name: 指定 cadence
+    description: 自定义 cadence 的花费计算
+    input: "每 15 分钟运行一次 ci-sweeper 的花费"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-cost --pattern ci-sweeper --cadence 15m"
+    expected_output:
+      contains:
+        - "cadence"
+        - "daily cap"
+
+  - name: JSON 输出
+    description: 机器可读的 JSON 格式
+    input: "以 JSON 格式输出花费估算"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-cost --pattern daily-triage --level L1 --json"
+    expected_output:
+      is_json: true
+      contains_keys:
+        - "pattern"
+        - "level"
+        - "tokens"
+        - "suggested_daily_cap"
+
+  - name: 预算建议
+    description: 提供合理的预算上限建议
+    input: "应该设置多少 token 预算"
+    expected_output:
+      contains:
+        - "suggested"
+        - "cap"
+        - "daily"
+
+  - name: 早停机制建议
+    description: 对高花费 pattern 建议早停机制
+    input: "ci-sweeper 需要早停吗"
+    expected_output:
+      contains:
+        - "early exit"
+        - "CI Sweeper"
+
+evaluation_criteria:
+  - name: 估算准确性
+    weight: 0.35
+    description: token 估算是否合理准确
+
+  - name: 参数选择正确性
+    weight: 0.25
+    description: 是否选择正确的 pattern/level/cadence
+
+  - name: 预算建议合理性
+    weight: 0.25
+    description: 预算上限建议是否合理
+
+  - name: 输出格式
+    weight: 0.15
+    description: 是否按要求格式输出（人类可读/JSON）
+
+scoring:
+  excellent: 0.9
+  good: 0.7
+  needs_improvement: 0.5

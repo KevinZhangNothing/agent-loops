@@ -1,0 +1,95 @@
+# eval.yaml — loop-audit 技能评估配置
+# 用于评估技能在不同场景下的表现
+
+version: 1
+skill: loop-audit
+
+triggers:
+  # 关键词触发
+  keywords:
+    - "loop audit"
+    - "审计项目"
+    - "检查 loop 就绪度"
+    - "loop readiness"
+    - "loop 评分"
+    - "loop score"
+    - "npx loop-audit"
+  
+  # 意图触发
+  intents:
+    - "评估项目的 Loop 工程就绪度"
+    - "计算 Loop Readiness Score"
+    - "获取 Loop 改进建议"
+    - "生成 Loop 徽章"
+
+test_cases:
+  - name: 基础审计
+    description: 对指定项目执行基础审计
+    input: "审计当前项目的 Loop 就绪度"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-audit ."
+    expected_output:
+      contains:
+        - "Score:"
+        - "Level:"
+        - "Findings:"
+
+  - name: 获取改进建议
+    description: 获取具体的改进建议和命令
+    input: "如何改进项目的 Loop 配置？"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-audit . --suggest"
+    expected_output:
+      contains:
+        - "suggestions"
+        - "copy"
+
+  - name: JSON 输出
+    description: 机器可读的 JSON 格式输出
+    input: "以 JSON 格式输出审计结果"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-audit . --json"
+    expected_output:
+      is_json: true
+      contains_keys:
+        - "score"
+        - "level"
+        - "findings"
+
+  - name: 生成徽章
+    description: 生成 README 徽章 markdown
+    input: "生成 Loop Ready 徽章"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-audit . --badge"
+    expected_output:
+      contains:
+        - "![Loop Readiness"
+        - "img.shields.io"
+
+  - name: 指定路径审计
+    description: 审计指定路径的项目
+    input: "审计 /path/to/project 项目"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-audit /path/to/project"
+
+evaluation_criteria:
+  - name: 命令正确性
+    weight: 0.4
+    description: 是否选择了正确的 npx 命令和参数
+
+  - name: 输出解释
+    weight: 0.3
+    description: 是否正确解释审计结果和分数含义
+
+  - name: 建议可操作性
+    weight: 0.2
+    description: 改进建议是否具体可执行
+
+  - name: 等级判定理解
+    weight: 0.1
+    description: 是否正确理解 L0-L3 等级含义
+
+scoring:
+  excellent: 0.9   # 90% 以上测试用例通过
+  good: 0.7        # 70% 以上测试用例通过
+  needs_improvement: 0.5  # 50% 以上测试用例通过

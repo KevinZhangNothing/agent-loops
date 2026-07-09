@@ -1,0 +1,99 @@
+# eval.yaml — loop-triage 技能评估配置
+
+version: 1
+skill: loop-triage
+
+triggers:
+  keywords:
+    - "loop triage"
+    - "日常分类"
+    - "triage report"
+    - "分类报告"
+    - "CI 失败"
+    - "PR 状态"
+    - "Issue 分类"
+  
+  intents:
+    - "执行日常 Loop 分类"
+    - "生成 triage 报告"
+    - "扫描 CI 失败和 Issue"
+    - "更新 STATE.md"
+
+test_cases:
+  - name: 基础分类报告
+    description: 生成标准的分类报告
+    input: "执行今天的日常分类"
+    expected_actions:
+      - gather_context: ["CI failures", "Open issues", "Recent commits"]
+      - generate_report: true
+    expected_output:
+      contains:
+        - "High-Priority Items"
+        - "Watch Items"
+        - "Noise / Ignore"
+        - "State Updates"
+
+  - name: 高优先级项目处理
+    description: 正确识别和处理高优先级项目
+    input: "有 CI 失败阻塞所有 PR"
+    expected_actions:
+      - classify_as: "high-priority"
+      - suggest_action: "minimal fix in worktree"
+    expected_output:
+      contains:
+        - "Impact:"
+        - "Suggested:"
+        - "Effort:"
+
+  - name: 噪音过滤
+    description: 正确过滤已知的噪音项目
+    input: "已知的不稳定测试失败了"
+    expected_actions:
+      - classify_as: "noise"
+      - reason: "already tracked"
+    expected_output:
+      contains:
+        - "Noise / Ignore"
+        - "already tracked"
+
+  - name: STATE.md 更新
+    description: 正确更新状态文件
+    input: "更新项目状态"
+    expected_actions:
+      - update_file: "STATE.md"
+    expected_output:
+      contains:
+        - "Last run:"
+        - "High Priority"
+        - "Watch List"
+
+  - name: 简洁性检查
+    description: 报告保持简洁，不超过 5 个高优先级项目
+    input: "发现多个问题需要处理"
+    constraints:
+      max_high_priority: 5
+    expected_output:
+      high_priority_count:
+        max: 5
+
+evaluation_criteria:
+  - name: 分类准确性
+    weight: 0.35
+    description: 是否正确分类高优先级、观察项和噪音
+
+  - name: 建议可操作性
+    weight: 0.25
+    description: 建议的下一步是否具体可执行
+
+  - name: 简洁性
+    weight: 0.2
+    description: 报告是否简洁，避免信息过载
+
+  - name: STATE.md 更新
+    weight: 0.2
+    description: 是否正确更新状态文件
+
+scoring:
+  excellent: 0.9
+  good: 0.7
+  needs_improvement: 0.5

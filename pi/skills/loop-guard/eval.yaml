@@ -1,0 +1,98 @@
+# eval.yaml — loop-guard 技能评估配置
+#
+# 基于项目实际存在的 @cobusgreyling/loop-context CLI
+# （参见 tools/loop-context/README.md 和 src/sync.ts）。
+# 该 CLI 的 exit code 约定：0 = continue, 2 = escalate, 1 = error。
+
+version: 1
+skill: loop-guard
+
+triggers:
+  keywords:
+    - "loop guard"
+    - "circuit breaker"
+    - "熔断器"
+    - "loop-ledger"
+    - "stagnation"
+    - "escalate-human"
+    - "npx loop-context"
+  intents:
+    - "运行 loop 的熔断器检查"
+    - "在修复循环中防止无限重试"
+    - "读取 loop-ledger.json 决定下一步"
+
+test_cases:
+  - name: 熔断器继续
+    description: ledger 无异常时 loop-context --check 返回 exit 0
+    input: "继续修复 CI 失败"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-context --check --ledger loop-ledger.json --token-budget \"$BUDGET\""
+      - expect_exit_code: 0
+    expected_output:
+      contains:
+        - "PROCEED"
+        - "continue"
+
+  - name: 熔断器跳闸
+    description: 同一错误连续 3 次后必须停止
+    input: "又失败了，继续重试"
+    expected_actions:
+      - classify_as: "STOP"
+      - reason_code: "REPEAT_ERROR"
+      - append_ledger: "iteration, action, outcome=failure, error"
+    expected_output:
+      contains:
+        - "STOP"
+        - "escalate"
+        - "Same error"
+
+  - name: token 预算超限
+    description: 当 --token-budget 耗尽时升级
+    input: "今天的 token 用完了"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-context --check --ledger loop-ledger.json --token-budget 80000"
+      - expect_exit_code: 2
+    expected_output:
+      contains:
+        - "OVER_BUDGET"
+        - "escalate"
+
+  - name: 跳闸后导出报告
+    description: exit 2 时用 --inject 生成给人类的简洁摘要
+    input: "熔断器跳闸后给维护者写一份报告"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-context --inject --ledger loop-ledger.json > escalation.md"
+    expected_output:
+      contains:
+        - "Goal"
+        - "Attempts"
+        - "Last error"
+
+  - name: 跳过只读 pattern
+    description: daily-triage / issue-triage 等 L1 模式不需要熔断器
+    input: "运行 daily-triage"
+    expected_actions:
+      - skip: "loop-guard"
+      - reason: "report-only pattern, no mutation"
+    expected_output:
+      contains:
+        - "report-only"
+
+evaluation_criteria:
+  - name: exit code 正确性
+    weight: 0.35
+    description: 是否正确调用 loop-context --check 并解释 exit 0 / 2
+  - name: ledger 维护
+    weight: 0.30
+    description: 是否每次迭代都正确追加 attempt 到 loop-ledger.json
+  - name: budget 来源
+    weight: 0.20
+    description: --token-budget 是否从 loop-cost 的 scenarios.realistic.tokensPerRun 派生
+  - name: 与其他 skill 协作
+    weight: 0.15
+    description: 是否理解与 minimal-fix / loop-verifier / loop-budget 的边界
+
+scoring:
+  excellent: 0.9
+  good: 0.7
+  needs_improvement: 0.5

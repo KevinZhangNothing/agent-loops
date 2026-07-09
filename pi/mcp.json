@@ -1,0 +1,94 @@
+{
+  "$schema": "https://pi.mcp.dev/schema/mcp.json",
+  "description": "Loop Engineering MCP 配置 — 用于 pi 集成",
+  "mcpServers": {
+    "LoopEngineering": {
+      "command": "npx",
+      "args": ["-y", "@cobusgreyling/loop-mcp-server"],
+      "env": {
+        "LOOP_PROJECT_ROOT": "${LOOP_PROJECT_ROOT:-.}"
+      },
+      "description": "Loop Engineering MCP 服务器 — 提供 patterns、skills、state 查询",
+      "resources": [
+        "loop://registry",
+        "loop://config",
+        "loop://budget",
+        "loop://run-log",
+        "loop://safety",
+        "loop://patterns/*",
+        "loop://skills/*",
+        "loop://state/*"
+      ],
+      "tools": [
+        "loop_list_patterns",
+        "loop_list_skills",
+        "loop_list_state_files",
+        "loop_get_pattern",
+        "loop_get_skill",
+        "loop_get_state",
+        "loop_recommend_pattern"
+      ]
+    },
+    "LoopAudit": {
+      "command": "npx",
+      "args": ["-y", "@cobusgreyling/loop-audit"],
+      "description": "Loop Readiness Score 审计工具",
+      "tools": [
+        "audit",
+        "audit:suggest",
+        "audit:badge"
+      ]
+    },
+    "LoopInit": {
+      "command": "npx",
+      "args": ["-y", "@cobusgreyling/loop-init"],
+      "description": "Loop 脚手架生成器",
+      "tools": [
+        "init",
+        "init:dry-run"
+      ]
+    },
+    "LoopCost": {
+      "command": "npx",
+      "args": ["-y", "@cobusgreyling/loop-cost"],
+      "description": "Token 花费估算器",
+      "tools": [
+        "estimate",
+        "estimate:json"
+      ]
+    }
+  },
+  "shortcuts": {
+    "+loop-score": {
+      "description": "运行 loop-audit 审计当前项目",
+      "command": "npx @cobusgreyling/loop-audit ."
+    },
+    "+loop-score-suggest": {
+      "description": "运行 loop-audit 并获取改进建议",
+      "command": "npx @cobusgreyling/loop-audit . --suggest"
+    },
+    "+loop-init": {
+      "description": "初始化 Loop 脚手架",
+      "command": "npx @cobusgreyling/loop-init . --pattern daily-triage --tool claude"
+    },
+    "+loop-cost": {
+      "description": "估算 Loop token 花费",
+      "command": "npx @cobusgreyling/loop-cost --pattern daily-triage --level L1"
+    },
+    "+loop-state": {
+      "description": "查看当前 STATE.md 内容",
+      "command": "cat STATE.md 2>/dev/null || echo 'No STATE.md found'"
+    },
+    "+loop-log": {
+      "description": "查看最近的 loop 运行日志",
+      "command": "tail -20 loop-run-log.md 2>/dev/null || echo 'No loop-run-log.md found'"
+    }
+  },
+  "variables": {
+    "LOOP_PROJECT_ROOT": {
+      "description": "Loop 项目根目录",
+      "default": ".",
+      "prompt_user": false
+    }
+  }
+}

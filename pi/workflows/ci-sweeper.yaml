@@ -1,0 +1,154 @@
+# CI Sweeper Workflow — pi 集成定义
+# 监控 CI 失败，自动尝试最小修复
+
+name: ci-sweeper
+description: CI 失败自动修复 — 检测 CI 失败，分类问题，尝试最小修复
+
+trigger:
+  type: schedule
+  cron: '*/10 * * * *'  # 每 10 分钟
+  manual: true
+  event_driven:
+    - github.workflow_run.completed
+
+skills:
+  - ci-triage
+  - minimal-fix
+  - loop-verifier
+  - loop-guard
+
+level: L2  # 辅助修复模式
+
+inputs:
+  - type: github
+    resource: failed_workflows
+    params:
+      branch: main
+      since: 1h
+  - type: github
+    resource: workflow_logs
+    params:
+      format: text
+  - type: file
+    resource: ledger
+    path: loop-ledger.json
+
+outputs:
+  - type: file
+    path: ci-sweeper-state.md
+    action: update
+  - type: github
+    action: create_issue
+    condition: escalation_needed
+  - type: console
+    format: markdown
+
+budget:
+  daily_cap: 1000000  # CI Sweeper 花费较高
+  per_run_cap: 200000
+  early_exit_required: true
+
+constraints:
+  allowed_branches:
+    - main
+    - develop
+  max_attempts_per_failure: 3
+  require_verifier: true
+  denylisted_failures:
+    - security_scan
+    - license_check
+    - "deploy-*"
+
+circuit_breaker:
+  enabled: true
+  ledger: loop-ledger.json
+  conditions:
+    - same_error_count: 3
+    - no_progress_runs: 5
+    - token_budget_exceeded: true
+    - iteration_cap: 10
+
+actions:
+  - name: detect_failure
+    condition: workflow.status == 'failure'
+    do:
+      - fetch_logs
+      - classify_failure
+
+  - name: classify_and_act
+    switch: failure.type
+    cases:
+      - when: test_failure
+        do:
+          - analyze_test_output
+          - if: failure.pattern == 'flaky'
+            then: retry_workflow
+          - elif: failure.pattern == 'fixable'
+            then:
+              - check_circuit_breaker
+              - create_worktree
+              - attempt_minimal_fix
+              - run_verifier
+              - if: verifier.passed
+                then:
+                  - commit_fix
+                  - push_and_wait_ci
+              - else:
+                - log_attempt
+                - escalate_to_human
+
+      - when: lint_failure
+        do:
+          - run_auto_fix
+          - if: fix.successful
+            then: commit_and_push
+          - else:
+            - create_issue
+            - label: "auto-fix-failed"
+
+      - when: build_failure
+        do:
+          - analyze_build_log
+          - if: failure.cause == 'dependency'
+            then:
+              - create_issue
+              - label: "build-broken"
+              - priority: high
+          - elif: failure.cause == 'code'
+            then:
+              - attempt_fix
+              - run_verifier
+
+      - when: security_scan
+        do:
+          - escalate_immediately
+          - label: "security"
+          - priority: critical
+
+on_circuit_breaker_trip:
+  - action: log
+    level: warning
+    message: "Circuit breaker tripped — stopping auto-fix"
+  - action: create_issue
+    title: "CI Sweeper stopped — circuit breaker tripped"
+    body: |
+      The CI Sweeper loop has been stopped due to repeated failures.
+
+      Reason: {{breaker.reason}}
+      Attempts: {{breaker.attempt_count}}
+      Last error: {{breaker.last_error}}
+
+      Please investigate manually.
+  - action: update_state
+    field: circuit_breaker_status
+    value: tripped
+
+on_success:
+  - action: append_log
+    file: ci-sweeper-run-log.md
+    format: json
+  - action: update_state
+    field: Last successful fix
+    value: "{{timestamp}}"
+  - action: comment_pr
+    template: auto_fix_applied

@@ -1,0 +1,112 @@
+# PR Babysitter Workflow — pi 集成定义
+# 监控 PR 状态，协助通过 review、CI、rebase 和合并
+
+name: pr-babysitter
+description: PR 看护 — 监控 PR 状态，自动处理 rebase、CI 重试，通知审查者
+
+trigger:
+  type: schedule
+  cron: '*/15 * * * *'  # 每 15 分钟
+  manual: true
+
+skills:
+  - pr-review-triage
+  - minimal-fix
+  - rebase-and-clean
+  - loop-verifier
+
+level: L2  # 辅助模式，需要人工确认合并
+
+inputs:
+  - type: github
+    resource: open_prs
+    params:
+      state: open
+      author: current_user
+  - type: github
+    resource: pr_reviews
+    params:
+      state: pending
+  - type: github
+    resource: ci_status
+    params:
+      required: true
+
+outputs:
+  - type: file
+    path: pr-babysitter-state.md
+    action: update
+  - type: github
+    action: comment
+    template: pr-status-update
+  - type: console
+    format: markdown
+
+budget:
+  daily_cap: 200000
+  per_run_cap: 80000
+  early_exit_required: true
+
+constraints:
+  allowed_branches:
+    - main
+    - develop
+    - "feature/*"
+    - "hotfix/*"
+  max_fix_attempts: 3
+  require_verifier: true
+  auto_merge: false  # 需要人工确认
+
+actions:
+  - name: check_pr_status
+    condition: pr.is_open
+    do:
+      - check_ci_status
+      - check_review_status
+
+  - name: handle_ci_failure
+    condition: ci.status == 'failure'
+    do:
+      - classify_failure
+      - if: failure.type == 'flaky'
+        then: retry_ci
+      - elif: failure.type == 'fixable'
+        then:
+          - create_worktree
+          - attempt_fix
+          - run_verifier
+          - if: verifier.passed
+            then: push_fix
+          - else:
+            - escalate_to_human
+
+  - name: handle_pending_review
+    condition: review.status == 'pending' && review.age > 24h
+    do:
+      - notify_reviewer
+      - add_gentle_reminder_comment
+
+  - name: handle_approved_pr
+    condition: review.status == 'approved' && ci.status == 'success'
+    do:
+      - check_merge_conflicts
+      - if: no_conflicts
+        then: request_merge_approval
+      - else:
+        - notify_author_rebase_needed
+
+on_error:
+  - action: log
+    level: error
+  - action: update_state
+    field: last_error
+    value: "{{error.message}}"
+  - action: escalate
+    condition: error.retry_count >= 3
+
+on_success:
+  - action: append_log
+    file: pr-babysitter-run-log.md
+  - action: update_state
+    field: Last run
+    value: "{{timestamp}}"

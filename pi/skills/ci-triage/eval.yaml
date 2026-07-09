@@ -1,0 +1,27 @@
+# eval.yaml — ci-triage 技能评估配置
+
+version: 1
+skill: ci-triage
+
+triggers:
+  keywords:
+    - "ci-triage"
+  intents:
+    - "使用 ci-triage 技能"
+
+test_cases:
+  - name: 基础调用
+    description: ci-triage 技能基础调用
+    input: "运行 ci-triage"
+    expected_output:
+      contains:
+        - "ci-triage"
+
+evaluation_criteria:
+  - name: 输出格式
+    weight: 1.0
+
+scoring:
+  excellent: 0.9
+  good: 0.7
+  needs_improvement: 0.5

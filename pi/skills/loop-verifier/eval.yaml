@@ -1,0 +1,27 @@
+# eval.yaml — loop-verifier 技能评估配置
+
+version: 1
+skill: loop-verifier
+
+triggers:
+  keywords:
+    - "loop-verifier"
+  intents:
+    - "使用 loop-verifier 技能"
+
+test_cases:
+  - name: 基础调用
+    description: loop-verifier 技能基础调用
+    input: "运行 loop-verifier"
+    expected_output:
+      contains:
+        - "loop-verifier"
+
+evaluation_criteria:
+  - name: 输出格式
+    weight: 1.0
+
+scoring:
+  excellent: 0.9
+  good: 0.7
+  needs_improvement: 0.5

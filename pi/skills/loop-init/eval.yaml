@@ -1,0 +1,93 @@
+# eval.yaml — loop-init 技能评估配置
+
+version: 1
+skill: loop-init
+
+triggers:
+  keywords:
+    - "loop init"
+    - "初始化 loop"
+    - "搭建 loop 工程"
+    - "scaffold loop"
+    - "npx loop-init"
+    - "创建 loop 脚手架"
+  
+  intents:
+    - "为项目初始化 Loop 工程结构"
+    - "创建 Loop 技能模板"
+    - "搭建 Loop 状态和预算文件"
+
+test_cases:
+  - name: 基础脚手架
+    description: 使用默认参数创建脚手架
+    input: "为当前项目初始化 Loop"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-init ."
+    expected_output:
+      contains:
+        - "Created:"
+        - "Loop Ready Score:"
+
+  - name: 指定模式
+    description: 指定 pattern 进行初始化
+    input: "使用 daily-triage 模式初始化"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-init . --pattern daily-triage"
+    expected_output:
+      contains:
+        - "STATE.md"
+        - "loop-budget.md"
+
+  - name: 指定工具
+    description: 指定 tool 进行初始化
+    input: "为 Claude 项目初始化 Loop"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-init . --tool claude"
+
+  - name: Opencode 项目
+    description: 为 Opencode 项目初始化
+    input: "为 Opencode 项目搭建 Loop"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-init . --tool opencode"
+    expected_output:
+      contains:
+        - "opencode.json"
+        - "AGENTS.md"
+
+  - name: 干运行预览
+    description: 预览变更但不实际执行
+    input: "预览初始化会创建哪些文件"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-init . --dry-run"
+
+  - name: L2 模式带熔断器
+    description: CI Sweeper 等 L2 模式会配置熔断器
+    input: "初始化 CI Sweeper 模式"
+    expected_actions:
+      - run_command: "npx @cobusgreyling/loop-init . --pattern ci-sweeper"
+    expected_output:
+      contains:
+        - "loop-guard"
+        - "loop-ledger.json"
+
+evaluation_criteria:
+  - name: 参数选择正确性
+    weight: 0.35
+    description: 是否根据用户需求选择正确的 pattern 和 tool
+
+  - name: 命令执行
+    weight: 0.35
+    description: 是否正确执行 npx 命令
+
+  - name: 输出解释
+    weight: 0.2
+    description: 是否解释生成的文件和后续步骤
+
+  - name: 熔断器理解
+    weight: 0.1
+    description: 是否理解 L2 模式的熔断器配置
+
+scoring:
+  excellent: 0.9
+  good: 0.7
+  needs_improvement: 0.5
