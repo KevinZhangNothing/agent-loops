@@ -8,6 +8,7 @@
 | [PATTERN_PICKER](./PATTERN_PICKER.md) | 3 min | Which loop to run first |
 | [SAFETY](./SAFETY.md) | 5 min | Read before enabling auto-fixes |
 | [PI INTEGRATION](./PI-INTEGRATION.md) | 10 min | pi coding agent integration |
+| [DOGFOODING](./DOGFOODING.md) | 15 min | Use agent-loops to improve itself |
 
 ## Core Concepts
 
