@@ -42,6 +42,50 @@ npx @kevinzhangnothing/loop-audit . --suggest
 
 > "You shouldn't be prompting coding agents anymore. You should be designing loops that prompt your agents."
 
+### Architecture Overview
+
+```mermaid
+flowchart TB
+    subgraph Inputs["Input Sources"]
+        GH[GitHub Events]
+        CRON[Cron Schedules]
+        MANUAL[Manual /loop]
+    end
+
+    subgraph Primitives["Core Primitives"]
+        SCHED[Scheduling]
+        STATE[State MD]
+        SKILLS[Skills]
+        WT[Worktrees]
+        SUB[Sub-agents]
+    end
+
+    subgraph MCP["MCP Integration"]
+        GH_MCP[GitHub]
+        LIN_MCP[Linear]
+        SLK_MCP[Slack]
+    end
+
+    subgraph Outputs["Output Actions"]
+        STATE_UPD[STATE.md]
+        PR_COM[PR Comments]
+        FIXES[Fix Commits]
+        REPS[Reports]
+    end
+
+    GH & CRON & MANUAL --> SCHED
+    SCHED --> STATE & SKILLS
+    SKILLS --> WT & SUB & MCP
+    MCP --> GH_MCP & LIN_MCP & SLK_MCP
+    STATE --> STATE_UPD
+    SKILLS --> PR_COM & REPS
+    WT --> FIXES
+```
+
+<p align="center">
+  <em>Open the <a href="docs/diagrams/agent-loops-architecture.html">interactive architecture diagram</a> or visit the <a href="docs/DIAGRAMS.md">Diagrams Documentation</a> for details.</em>
+</p>
+
 | Primitive | Purpose |
 |-----------|---------|
 | **Scheduling** | Run triage on a cadence (cron, `/loop`, Automations) |
@@ -63,6 +107,44 @@ npx @kevinzhangnothing/loop-audit . --suggest
 | [Dependency Sweeper](patterns/dependency-sweeper.md) | 6h–1d | Patch-only | Medium |
 | [Changelog Drafter](patterns/changelog-drafter.md) | 1d or tag | Draft only | Low |
 | [Issue Triage](patterns/issue-triage.md) | 2h–1d | Propose only | Low |
+
+### Execution Flow
+
+```mermaid
+stateDiagram-v2
+    [*] --> Triggered
+    Triggered --> BudgetCheck
+    BudgetCheck --> Triage: budget ok
+    BudgetCheck --> EarlyExit: over budget
+    Triage --> Executing
+    Executing --> Verifying: submit
+    Verifying --> Completed: verified
+    Verifying --> Escalated: failed
+    EarlyExit --> [*]
+    Completed --> [*]
+    Escalated --> [*]
+
+    note right of Verifying
+        loop-guard
+        circuit breaker
+    end note
+
+    classDef start fill:#22c55e,color:#fff
+    classDef active fill:#3b82f6,color:#fff
+    classDef waiting fill:#f59e0b,color:#fff
+    classDef success fill:#22c55e,color:#fff
+    classDef failure fill:#ef4444,color:#fff
+    
+    class Triggered start
+    class BudgetCheck,Triage,Executing active
+    class Verifying waiting
+    class Completed,EarlyExit success
+    class Escalated failure
+```
+
+<p align="center">
+  <em>Open the <a href="docs/diagrams/loop-execution-lifecycle.html">interactive lifecycle diagram</a> or visit the <a href="docs/DIAGRAMS.md">Diagrams Documentation</a> for details.</em>
+</p>
 
 👉 **[All Patterns →](patterns/README.md)** | **[Pattern Picker →](docs/PATTERN_PICKER.md)**
 

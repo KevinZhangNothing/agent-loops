@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Agent Loop Execution Flow",
+    "subtitle": "From trigger to verified output",
+    "output": "loop-execution-flow.html"
+  },
+  "lanes": [
+    { "id": "main", "label": "Execution Pipeline" }
+  ],
+  "nodes": [
+    {
+      "id": "trigger",
+      "lane": "main",
+      "col": 0,
+      "type": "frontend",
+      "label": "Trigger",
+      "sublabel": "cron/event/manual",
+      "tag": "start"
+    },
+    {
+      "id": "budget",
+      "lane": "main",
+      "col": 2,
+      "type": "security",
+      "label": "Budget",
+      "sublabel": "token check"
+    },
+    {
+      "id": "triage",
+      "lane": "main",
+      "col": 3,
+      "type": "backend",
+      "label": "Triage",
+      "sublabel": "plan"
+    },
+    {
+      "id": "execute",
+      "lane": "main",
+      "col": 4,
+      "type": "backend",
+      "label": "Execute",
+      "sublabel": "skill"
+    }
+  ],
+  "edges": [
+    {
+      "from": "trigger",
+      "to": "budget",
+      "variant": "emphasis"
+    },
+    {
+      "from": "budget",
+      "to": "triage",
+      "variant": "emphasis"
+    },
+    {
+      "from": "triage",
+      "to": "execute",
+      "variant": "emphasis"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Loop Levels",
+      "items": ["L1: Report only", "L2: Assisted fixes", "L3: Auto-merge"]
+    },
+    {
+      "dot": "amber",
+      "title": "Circuit Breaker",
+      "items": ["loop-guard tracks", "Escalates on fail", "Prevents loops"]
+    },
+    {
+      "dot": "emerald",
+      "title": "Token Budget",
+      "items": ["loop-budget caps", "Early exit", "Cost control"]
+    }
+  ]
+}

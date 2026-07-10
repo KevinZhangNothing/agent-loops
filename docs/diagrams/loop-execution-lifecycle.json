@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "diagram_type": "lifecycle",
+  "meta": {
+    "title": "Agent Loop Execution Lifecycle",
+    "subtitle": "States and transitions from trigger to completion",
+    "output": "loop-execution-lifecycle.html",
+    "viewBox": [980, 720]
+  },
+  "lanes": [
+    { "id": "main", "label": "Execution States" },
+    { "id": "waiting", "label": "Waiting States" },
+    { "id": "terminal", "label": "Terminal Outcomes" }
+  ],
+  "states": [
+    {
+      "id": "triggered",
+      "type": "start",
+      "label": "Triggered",
+      "lane": "main",
+      "col": 0,
+      "step": "01"
+    },
+    {
+      "id": "checking",
+      "type": "active",
+      "label": "Budget Check",
+      "lane": "main",
+      "col": 1,
+      "step": "02"
+    },
+    {
+      "id": "triaging",
+      "type": "active",
+      "label": "Triage",
+      "lane": "main",
+      "col": 2,
+      "step": "03"
+    },
+    {
+      "id": "executing",
+      "type": "active",
+      "label": "Executing",
+      "lane": "main",
+      "col": 3,
+      "step": "04"
+    },
+    {
+      "id": "verifying",
+      "type": "waiting",
+      "label": "Verification",
+      "lane": "waiting",
+      "col": 2,
+      "step": "05"
+    },
+    {
+      "id": "exited",
+      "type": "success",
+      "label": "Early Exit",
+      "lane": "terminal",
+      "col": 0,
+      "sublabel": "no action"
+    },
+    {
+      "id": "completed",
+      "type": "success",
+      "label": "Completed",
+      "lane": "terminal",
+      "col": 2,
+      "step": "06"
+    },
+    {
+      "id": "escalated",
+      "type": "failure",
+      "label": "Escalated",
+      "lane": "terminal",
+      "col": 1,
+      "yOffset": 50,
+      "sublabel": "human review"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "triggered",
+      "to": "checking",
+      "variant": "emphasis"
+    },
+    {
+      "from": "checking",
+      "to": "triaging",
+      "variant": "emphasis",
+      "labelDy": 55
+    },
+    {
+      "from": "checking",
+      "to": "exited",
+      "variant": "dashed",
+      "label": "over budget",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "from": "triaging",
+      "to": "executing",
+      "variant": "emphasis"
+    },
+    {
+      "from": "executing",
+      "to": "verifying",
+      "variant": "emphasis",
+      "label": "submit",
+      "fromSide": "bottom",
+      "toSide": "right"
+    },
+    {
+      "from": "verifying",
+      "to": "completed",
+      "variant": "emphasis",
+      "label": "verified"
+    },
+    {
+      "from": "verifying",
+      "to": "escalated",
+      "variant": "security",
+      "label": "failed",
+      "fromSide": "bottom",
+      "toSide": "left"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Loop Levels",
+      "items": ["L1: Report only", "L2: Assisted fixes", "L3: Auto-merge"]
+    },
+    {
+      "dot": "amber",
+      "title": "Circuit Breaker",
+      "items": ["loop-guard tracks", "Escalates on fail", "Prevents loops"]
+    },
+    {
+      "dot": "emerald",
+      "title": "Token Budget",
+      "items": ["loop-budget caps", "Early exit", "Cost control"]
+    }
+  ]
+}
