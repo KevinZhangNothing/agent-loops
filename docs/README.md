@@ -35,6 +35,7 @@ See [patterns/README.md](../patterns/README.md) for full pattern documentation.
 | Doc | Description |
 |-----|-------------|
 | [Publishing](./NPM-SETUP.md) | Publish @kevinzhangnothing/loop-* to npm |
+| [GitHub Settings](./GITHUB-SETTINGS.md) | Configure repo description, topics |
 | [Adopters](./adopters.md) | Projects using agent loops |
 | [Contributing](../CONTRIBUTING.md) | Contribution ladder and requirements |
 
