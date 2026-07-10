@@ -1,10 +1,8 @@
-# Adopters & community setups
+# Adopters & Community Setups
 
-Forks and stars mean people are trying this in their own stacks. If you run a loop from this repo (or adapted from it), add yourself here via PR.
+If you run a loop from this repo (or adapted from it), add yourself here.
 
-**Pinned:** [Add your project — Loop Ready badge + adopters list](https://github.com/KevinZhangNothing/agent-loops/discussions/92) (Discussions)
-
-## Loop Ready badge
+## Loop Ready Badge
 
 Show your readiness level in your README:
 
@@ -14,11 +12,13 @@ npx @kevinzhangnothing/loop-audit . --badge
 
 Paste the markdown output into your README. Re-run after you graduate L1 → L2 → L3.
 
-## How to list your project
+**Note:** npm packages pending publish. Run from source: `cd tools/loop-audit && npm ci && node dist/cli.js . --badge`
 
-**Fast path:** [open the Add Adopter issue](https://github.com/KevinZhangNothing/agent-loops/issues/new?template=add-adopter.yml) — we'll add your row.
+## How to List Your Project
 
-Or open a PR that adds a row to the table below:
+**Option 1:** Open an [Add Adopter issue](https://github.com/KevinZhangNothing/agent-loops/issues/new?template=add-adopter.yml)
+
+**Option 2:** Open a PR that adds a row to the table below
 
 | Field | What to include |
 |-------|-----------------|
@@ -32,15 +32,11 @@ Or open a PR that adds a row to the table below:
 
 | Project | Pattern(s) | Tool | Level | Notes |
 |---------|------------|------|-------|-------|
-| [agent-loops](https://github.com/KevinZhangNothing/agent-loops) (this repo) | Daily Triage, Changelog Drafter, audit dogfood | GitHub Actions + Grok | L3 | Reference implementation — `loop-audit` on every PR; readiness score 100 |
-| [agent-loops](https://github.com/KevinZhangNothing/agent-loops) (maintainer) | Post-Merge Cleanup | Grok + GitHub Actions | L1→L2 | Off-peak scan; verifier caught doc/API drift — see [story](../stories/post-merge-cleanup-honest-win.md) |
-| [agent-loops](https://github.com/KevinZhangNothing/agent-loops) (maintainer) | Issue Triage + Daily Triage | Grok | L1 | Issue queue feeder: propose labels only week one; pairs with morning `STATE.md` triage |
-| [agent-loops](https://github.com/KevinZhangNothing/agent-loops) (maintainer) | PR Babysitter, Dependency Sweeper | Grok / Claude Code | L2 | Assisted fixes in worktrees; human gate on merges; patch-only deps |
-| [Hermes Agent](https://github.com/NousResearch/hermes-agent) by [Nous Research](https://nousresearch.com) | Daily Triage | Hermes | L1 | Six loop primitives in one binary — `hermes cron` + skill + `delegate_task` + MCP + memory. Reference: [examples/hermes/daily-triage.md](../examples/hermes/daily-triage.md) |
+| [agent-loops](https://github.com/KevinZhangNothing/agent-loops) (this repo) | Daily Triage, Changelog Drafter, audit dogfood | GitHub Actions + Grok | L3 | Reference implementation — `loop-audit` on every PR |
 
-*Your project here — see [CONTRIBUTING.md](../CONTRIBUTING.md).*
+*Your project here — open an issue or PR*
 
-## Show & tell
+## Show & Tell
 
 Prefer chat over a PR? Post in [GitHub Discussions → Show and tell](https://github.com/KevinZhangNothing/agent-loops/discussions/categories/show-and-tell) with:
 
@@ -48,4 +44,10 @@ Prefer chat over a PR? Post in [GitHub Discussions → Show and tell](https://gi
 2. Your first `/loop` or scheduler command
 3. One surprise (good or bad)
 
-Failure reports are first-class — see [stories/](../stories/).
+**Failure reports welcome.** See [stories/](../stories/) for honest post-mortems.
+
+## Community
+
+- [GitHub Discussions](https://github.com/KevinZhangNothing/agent-loops/discussions) — Q&A and show-and-tell
+- [GitHub Issues](https://github.com/KevinZhangNothing/agent-loops/issues) — bug reports and feature requests
+- [`good first issues`](https://github.com/KevinZhangNothing/agent-loops/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) — start contributing

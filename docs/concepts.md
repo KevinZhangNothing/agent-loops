@@ -1,93 +1,121 @@
-# Concepts & Vocabulary
+# Core Concepts
 
-Loop engineering sits in a family of ideas about agentic software development. This glossary links them so you can design loops with the right mental model.
+## What Is an Agent Loop?
 
-## Agent Loops
+An **agent loop** is a scheduled, stateful workflow where an AI agent:
+1. **Reads** persistent state (`STATE.md`)
+2. **Triages** new information (CI failures, PRs, issues)
+3. **Acts** within defined boundaries (report → fix → merge)
+4. **Writes** updated state for the next run
 
-**Replacing yourself as the prompter.** You design a system that discovers work, assigns it, verifies results, and persists state — instead of typing the next prompt yourself.
+> "You shouldn't be prompting coding agents anymore. You should be designing loops that prompt your agents."
 
-A loop is a **recursive goal**: define purpose, let the agent iterate (with sub-agents and external memory) until done or until the loop escalates to a human.
+## Loops vs Goals
 
-## Related Concepts (Addy Osmani)
+| Aspect | Loop | Goal |
+|--------|------|------|
+| **Purpose** | Discover + triage ongoing work | Finish a bounded task |
+| **Cadence** | Scheduled (every 5m, 1d, etc.) | Run until done |
+| **State** | Persistent (`STATE.md`) | Temporary (session-only) |
+| **Stop condition** | Never (kill switch manual) | Verifiable completion |
+| **Example** | "Daily triage at 9am" | "Fix all failing tests" |
 
-### Agent Harness Engineering
+**Use loops for:** monitoring, triage, maintenance, cadence-based work
+**Use goals for:** bounded tasks with clear completion criteria
 
-The environment **one agent** runs in: tools, context, permissions, rules. The harness is the sandbox; the loop is what **schedules and orchestrates** harness runs over time.
+## The Five Primitives + Memory
 
-```
-Harness = single session setup
-Loop    = harness + schedule + state + verification chain
-```
+| Primitive | Purpose | Example |
+|-----------|---------|---------|
+| **Scheduling** | Run on cadence | `/loop 1d`, cron, Automations |
+| **State** | Persistent memory | `STATE.md`, Linear tickets |
+| **Skills** | Reusable capabilities | `SKILL.md.loop-triage` |
+| **Worktrees** | Safe parallel execution | `git worktree` per fix |
+| **Sub-agents** | Maker/checker split | Implementer → Verifier |
+| **+ Memory** | Cross-session spine | `LOOP.md`, run logs |
 
-### The Factory Model
+**[Primitives →](./PRIMITIVES.md)** | **[Tool Matrix →](./TOOL_MATRIX.md)**
 
-The system that **builds** the software: pipelines, agents, checks, and handoffs. Loop engineering is how you operate the factory floor — not manually assembling each unit.
+## Intent Debt vs Comprehension Debt
 
 ### Intent Debt
 
-Every session, the agent starts cold. Missing intent gets filled with confident guesses. **Skills** are how you pay down intent debt — conventions, build steps, and "we don't do it this way" written once, read every run.
+**Definition:** The gap between what you told the loop to do and what it actually does.
+
+**Causes:**
+- Vague prompts ("fix CI")
+- Missing constraints (no denylist)
+- No verifier step
+
+**Symptoms:**
+- Loop makes unexpected changes
+- Token costs spike
+- You dread checking what it did
+
+**Fix:**
+- Write explicit constraints in `LOOP.md`
+- Add denylist paths
+- Require verifier approval
 
 ### Comprehension Debt
 
-The gap between what exists in the repo and what you actually understand. Faster loops ship more code you didn't write — comprehension debt grows unless you **read what the loop made**.
+**Definition:** The gap between what the loop did and what you understand.
 
-### Cognitive Surrender
+**Causes:**
+- Not reading `STATE.md` updates
+- Skipping run logs
+- Complex multi-step actions
 
-The trap of letting the loop run while you stop having opinions. Designing loops with judgment is the cure; using loops to avoid thinking is the accelerant. Same action, opposite outcome.
+**Symptoms:**
+- "What did this loop even do?"
+- Surprised by PRs
+- Can't explain token spend
 
-### Orchestration Tax
+**Fix:**
+- Read `STATE.md` every run (week 1+)
+- Require 5-line summaries
+- Escalate ambiguous actions
 
-The human cost of coordinating parallel agents: review bandwidth, merge conflicts, context switching. **Worktrees** remove mechanical collisions; you remain the ceiling on how many parallel loops you can absorb.
+## Harness Engineering vs Loop Engineering
 
-### Code Agent Orchestra / Adversarial Code Review
+| Aspect | Harness | Loop |
+|--------|---------|------|
+| **Focus** | One-off automation | Recurring workflow |
+| **State** | None (stateless) | Persistent (`STATE.md`) |
+| **Verification** | Hope | Built-in verifier |
+| **Example** | "Fix this bug" | "Daily triage + fix small bugs" |
 
-Structural pattern: different agents with different roles (explore, implement, verify). The implementer must never grade its own homework. Critical for **unattended** loops.
+**Harness:** You prompt, agent acts, conversation ends
+**Loop:** Agent prompts itself, acts, updates state, repeats
 
-## The Six Primitives (+ Memory)
+## Phased Rollout (L1 → L2 → L3)
 
-See [primitives.md](./primitives.md) and [primitives-matrix.md](./primitives-matrix.md).
+| Level | Stance | When | Requirements |
+|-------|--------|------|--------------|
+| **L1** | Report only | Week 1-2 | `STATE.md`, skill, run log |
+| **L2** | Assisted fixes | Week 3+ | Worktrees + verifier + human gate |
+| **L3** | Unattended | Rare | Path allowlist, auto-merge, full verification |
 
-1. Automations / Scheduling
-2. Worktrees
-3. Skills
-4. Plugins & Connectors (MCP)
-5. Sub-agents (maker / checker)
-6. **+ Memory / State** (external, durable)
+**Never skip L1.** Read what the loop writes before letting it act.
 
-## Concept Map
+## When to Kill a Loop
 
-```mermaid
-flowchart TB
-  subgraph human [Human — highest leverage]
-    Design[Design loop]
-    Judgment[Encode judgment in skills + verifiers]
-    Gate[Human gates for high-risk work]
-  end
+**Immediate kill signals:**
+- Token cost 10x expected
+- Fix loop (same failure 3+ times)
+- Acting outside constraints
+- You can't explain what it's doing
 
-  subgraph loop [Loop system]
-    Schedule[Scheduler /loop cron Action]
-    Triage[Triage skill]
-    State[(STATE.md / Linear)]
-    Impl[Implementer sub-agent]
-    Verify[Verifier sub-agent]
-    MCP[MCP connectors]
-  end
+**How to kill:**
+1. Delete scheduler (`/loop delete`, remove cron)
+2. Commit final `STATE.md`
+3. Log reason in `loop-run-log.md`
+4. Update `LOOP.md` — mark as dead
 
-  Design --> Schedule
-  Schedule --> Triage
-  Triage --> State
-  State --> Impl
-  Impl --> Verify
-  Verify --> MCP
-  MCP --> State
-  Verify --> Gate
-  Judgment --> Triage
-  Judgment --> Verify
-```
+> "Build the loop. But build it like someone who intends to stay the engineer, not just the person who presses go."
 
-## Where to Go Next
+## See Also
 
-- [Loop Design Checklist](./loop-design-checklist.md) — before you ship a loop
-- [Failure Modes](./failure-modes.md) — when loops go wrong
-- [Operating Loops](./operating-loops.md) — cost, logging, when to pause
-- [Safety](./safety.md) — guardrails for production
+- [Safety Guidelines](./SAFETY.md) — denylists, auto-merge policy
+- [Primitives](./PRIMITIVES.md) — detailed primitive breakdown
+- [Pattern Picker](./PATTERN_PICKER.md) — which loop to run first

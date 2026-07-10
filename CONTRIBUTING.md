@@ -1,45 +1,33 @@
 # Contributing to Agent Loops
 
-This repo is a **practical engineering reference**, not a hype collection. We welcome patterns, stories, tool mappings, and honest failure reports.
+This repo is a **practical engineering reference**, not a hype collection. We welcome patterns, stories, tool examples, and honest failure reports.
 
 ## Ways to Contribute
 
-| Contribution | Where |
-|--------------|-------|
-| New loop pattern | `patterns/` + `patterns/registry.yaml` |
-| Production story | `stories/` |
-| Tool example | `examples/{grok,claude-code,codex,openclaw,opencode,github-actions}/` |
-| Skill template | `templates/` |
-| Starter kit | `starters/` |
-| Doc improvement | `docs/` |
+| Contribution | Where | Time |
+|--------------|-------|------|
+| Typo fix, link update | Any `.md` file | ~10 min |
+| Add your project to adopters | [Issue form](https://github.com/KevinZhangNothing/agent-loops/issues/new?template=add-adopter.yml) | ~10 min |
+| Production story | `stories/` | ~30 min |
+| Tool example | `examples/{tool}/` | ~1 hr |
+| New pattern | `patterns/` + `patterns/registry.yaml` | Half day |
 
-## Contribution ladder
-
-Start small — every merged PR counts.
-
-| Step | Time | What to contribute |
-|------|------|-------------------|
-| **1** | ~15 min | Typo fix, adopters row, primitives-matrix row, or `examples/README.md` link |
-| **2** | ~1 hr | Production story in `stories/` or tool example in `examples/{tool}/` |
-| **3** | Half day | New starter, skill template, or MCP cookbook entry |
-| **4** | Full day | Full pattern in `patterns/` + `patterns/registry.yaml` entry |
-
-**Fastest paths:** [Add your project to adopters](https://github.com/KevinZhangNothing/agent-loops/issues/new?template=add-adopter.yml) · [Share a story issue](https://github.com/KevinZhangNothing/agent-loops/issues/new?template=share-story.yml) · [`good first issue` backlog](https://github.com/KevinZhangNothing/agent-loops/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+**Start here:** [`good first issues`](https://github.com/KevinZhangNothing/agent-loops/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
 ## Pattern Requirements
 
-Every new pattern must include all sections from [templates/pattern-template.md](./templates/pattern-template.md):
+Every new pattern must include:
 
-1. Goal (one sentence)
-2. Scheduling (per-tool commands)
-3. Required skills
-4. State schema (with example)
-5. Typical cycle (numbered steps)
-6. Verification strategy (maker/checker)
-7. Human handoff points
-8. Tool-specific notes (at least 2 tools)
-9. Failure modes table
-10. Success metrics
+1. **Goal** — one sentence
+2. **Scheduling** — per-tool commands
+3. **Required skills** — `SKILL.md` templates
+4. **State schema** — with example
+5. **Typical cycle** — numbered steps
+6. **Verification** — maker/checker split
+7. **Human handoff** — when to escalate
+8. **Tool notes** — at least 2 tools
+9. **Failure modes** — what breaks and why
+10. **Success metrics** — how to measure
 
 Also add an entry to `patterns/registry.yaml`.
 
@@ -52,34 +40,30 @@ Also add an entry to `patterns/registry.yaml`.
 
 ## Pull Request Checklist
 
-- [ ] Links work from README or relevant index
+- [ ] Links work from README or docs index
 - [ ] No secrets, tokens, or internal URLs
-- [ ] `STATE.md` examples use `.example` suffix (gitignored live state)
-- [ ] Safety-sensitive patterns reference [docs/safety.md](./docs/safety.md)
+- [ ] `STATE.md` examples use `.example` suffix (live state is gitignored)
+- [ ] Safety-sensitive patterns reference [docs/SAFETY.md](docs/SAFETY.md)
 
 ## Code of Conduct
 
-- Engineering over hype
-- Failures are first-class content
-- Tool-agnostic by default; tool-specific in labeled sections
+- **Engineering over hype** — substance over marketing
+- **Failures are first-class** — post-mortems welcome
+- **Tool-agnostic by default** — tool-specific in labeled sections
+- **No performative agreement** — technical rigor over politeness
 
-## Maintainer response (adopters & stories)
+## Maintainer Response
 
-PRs that only touch `stories/`, `docs/adopters.md`, or the [Add Adopter](https://github.com/KevinZhangNothing/agent-loops/issues/new?template=add-adopter.yml) template get **same-day review** when possible:
+PRs that only touch `stories/`, `docs/adopters.md`, or the Add Adopter issue get **same-day review** when possible:
 
 1. Maintainer merges or requests one small fix within 24 hours
-2. Public thank-you on the PR or issue (`@mention` the contributor)
-3. Optional follow-up issue if the contributor wants a second PR (e.g. expand story → pattern example)
+2. Public thank-you on the PR (`@mention` the contributor)
+3. Optional follow-up issue if contributor wants a second PR
 
-Automation posts a welcome comment on new story/adopter PRs (see `.github/workflows/welcome-contributors.yml`).
+## Questions?
 
-## Community
-
-- **Questions**: [GitHub Discussions](https://github.com/KevinZhangNothing/agent-loops/discussions) (preferred) or issue with label `question`
-- **Show your loop**: [Add Adopter issue](https://github.com/KevinZhangNothing/agent-loops/issues/new?template=add-adopter.yml), Discussions, or a row in [docs/adopters.md](./docs/adopters.md)
-- **Loop Ready badge**: `npx @kevinzhangnothing/loop-audit . --badge` — paste into your README
-- **Good first issues**: look for label [`good first issue`](https://github.com/KevinZhangNothing/agent-loops/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
-- **Hall of fame**: [CONTRIBUTORS.md](./CONTRIBUTORS.md) — regenerate after merges with `npm run contributors:generate`
-- **Security**: see [SECURITY.md](./SECURITY.md) — do not file public issues for exploitable vulnerabilities
+- **General Q&A:** [GitHub Discussions](https://github.com/KevinZhangNothing/agent-loops/discussions)
+- **Bug reports:** [New Issue](https://github.com/KevinZhangNothing/agent-loops/issues/new)
+- **Security:** [SECURITY.md](SECURITY.md) — do not file public issues for vulnerabilities
 
 Thank you for helping make this the go-to reference for agent loops.

@@ -1,97 +1,199 @@
 # The Five Primitives + Memory
 
-This document expands on the core building blocks of agent loops.
+Agent loops are built from six building blocks. Master these, and you can design loops for any tool.
 
-## 1. Automations / Scheduling
+## 1. Scheduling / Automations
 
-The heartbeat. Without scheduling, you just have a one-off agent run.
+**Purpose:** Run triage on a cadence without manual triggering.
 
-**Common realizations**:
-- `/loop` (Grok)
-- Scheduled tasks / cron in Claude Code
-- GitHub Actions + repository dispatch
-- `/goal` (run until a verifiable condition is true)
-- Custom harness schedulers
+| Tool | Mechanism | Example |
+|------|-----------|---------|
+| **Grok** | `/loop [interval]` | `/loop 1d Run loop-triage` |
+| **Claude Code** | `/loop`, cron | `/loop 5m /babysit` |
+| **Codex** | Automations tab | Project → Automations → 1d cadence |
+| **Opencode** | cron/systemd | `0 9 * * * opencode run "..."` |
+| **Cursor** | Automations | Settings → Automations → cron trigger |
+| **GitHub Actions** | Workflow `on.schedule` | `cron: '0 9 * * *'` |
 
-Key properties: interval, fire-immediately, recurring vs one-shot, durable (survives restarts).
+**Design tip:** Start with daily cadence. Increase frequency only after L1 stability.
 
-## 2. Worktrees
+## 2. State / Memory
 
-Parallelism without chaos.
+**Purpose:** Persistent memory outside any conversation. The loop reads state at start, writes at end.
 
-When two agents edit the same files at the same time you get merge hell. Git worktrees (or equivalent isolated checkouts) give each agent its own working directory that shares history but not the working tree.
+**Common patterns:**
+- `STATE.md` — general triage state
+- `issue-triage-state.md` — issue queue health
+- `ci-sweeper-state.md` — active CI failures
+- Linear/GitHub Projects — structured state
 
-In Grok: pass `isolation: "worktree"` when spawning subagents, or use `--worktree` / dedicated sessions.
+**Example `STATE.md`:**
+```markdown
+## Last run
+2026-07-10 09:00
 
-Cleanup is important — loops should delete the worktree when the task is done or handed off. The [loop-worktree](../tools/loop-worktree/) CLI makes this mechanical: one worktree per attempt, tracked in a manifest, swept on reject or escalation.
+## High Priority
+- CI failing: `test-api` on main (3 failures)
+
+## Watch List
+- PR #47: awaiting review
+- Issue #120: needs reproduction
+
+## Completed
+- [x] Updated changelog for v1.5.0
+```
+
+**Design tip:** State must be **machine-readable**. Use consistent headings, bullet format, timestamps.
 
 ## 3. Skills
 
-The persistent memory of *intent*.
+**Purpose:** Reusable capabilities. A skill is a `SKILL.md` file that defines what the agent should do.
 
-A skill (usually a `SKILL.md` + optional scripts/references) encodes:
-- Project conventions
-- "We don't do it this way because of X incident"
-- Build/test/lint commands
-- Review standards
-- Domain knowledge
+**Structure:**
+```markdown
+# loop-triage
 
-Without skills the loop re-derives everything from scratch on every run (intent debt).
+## Purpose
+Scan CI, issues, and commits. Update STATE.md with priorities.
 
-Skills are also the unit of reuse. Package them as plugins to share across repos or teams.
+## Steps
+1. Read STATE.md
+2. Check CI status on main
+3. Scan new issues (last 24h)
+4. Scan new commits (last 24h)
+5. Update STATE.md: High Priority, Watch List, Completed
+6. Write 5-line summary
 
-## 4. Plugins & Connectors (MCP)
+## Constraints
+- No code changes
+- No comments on issues/PRs
+- Escalate if CI failing > 3 runs
+```
 
-A loop that can only read the filesystem is limited.
+**Invocation:**
+- Grok: "Run the loop-triage skill"
+- Claude Code: `$loop-triage`
+- Opencode: Skill auto-discovered from `skills/` folder
 
-Connectors let the loop:
-- Read and update Linear / Jira tickets
-- Post to Slack / Discord
-- Query databases or internal APIs
-- Create branches and PRs on GitHub
-- Trigger deploys or runbooks
+**Design tip:** Skills should be **tool-agnostic**. The skill describes *what* to do; scheduling is *how* to invoke.
 
-MCP (Model Context Protocol) has become the common substrate, so connectors written for one tool often work in another.
+## 4. Worktrees
 
-## 5. Sub-agents (Maker / Checker Split)
+**Purpose:** Safe parallel execution. Each fix attempt gets an isolated git worktree.
 
-The single most important structural pattern for reliable loops.
+**Why:** Prevents branch collisions, enables parallel fixes, easy cleanup.
 
-The agent that wrote the code is a terrible judge of its own work. A second agent (sometimes on a stronger model, always with different instructions) performs verification.
+**Pattern:**
+```bash
+# Create worktree for fix attempt
+FIX_ID="$(date +%Y%m%d%H%M%S)"
+WORKTREE="../wt-fix-$FIX_ID"
+git worktree add "$WORKTREE" -b "loop/fix-$FIX_ID"
 
-Common splits:
-- Explorer → Implementer → Verifier
-- Implementer → Security reviewer
-- Implementer → Test writer + runner
+# Run implementer in worktree
+opencode run "Fix the failing test" --dir "$WORKTREE"
 
-In unattended loops, the verifier is what lets you (the human) walk away with some confidence.
+# Extract diff for verifier
+git -C "$WORKTREE" diff > /tmp/diff.patch
 
-`/goal` in several tools uses a fresh model to decide whether the stopping condition has been met — another application of the maker/checker idea.
+# Verifier reviews diff (not code)
+opencode run "Review this diff" --file /tmp/diff.patch
 
-## + Memory / State
+# Cleanup (if rejected)
+git worktree remove "$WORKTREE"
+```
 
-The model has no long-term memory across separate turns or sessions.
+**Design tip:** L2 loops **must** use worktrees. Never fix directly on main or feature branches.
 
-The loop must read from and write to something durable:
-- A `STATE.md` or `LOOP-STATE.json` in the repo
-- A dedicated section of a Linear board or GitHub Project
-- A small database row
+## 5. Sub-agents
 
-Good state answers:
-- What are we currently working on?
-- What did we try last time and what was the outcome?
-- What is waiting for a human?
+**Purpose:** Maker/checker split. One agent implements, another verifies.
 
-The state file is often the single most important artifact the loop produces.
+**Pattern:**
+```
+Implementer: "Fix the failing test in wt-fix-001"
+   ↓
+Verifier: "Review diff.patch. APPROVE or REJECT only."
+   ↓
+If APPROVE: merge
+If REJECT: cleanup worktree, log failure
+```
 
-## How the Pieces Fit Together
+**Tools:**
+- Grok: `Task` with `subagent_type`
+- Claude Code: `.claude/agents/reviewer.md`
+- Opencode: `--agent implementer` / `--agent verifier`
+- Cursor: Review mode
 
-A minimal viable loop usually starts with:
-Scheduling + one skill (triage) + state file.
+**Design tip:** Verifier should see **only the diff**, not the codebase. Forces focused review.
 
-You then add:
-- Worktree isolation when you start making changes
-- Sub-agent verification when the loop is acting autonomously
-- Connectors when you want it to drive tickets and PRs instead of just suggesting
+## + Memory (The Spine)
 
-The best loops are the ones where each new primitive is added only when the previous version has proven its value (and its failure modes).
+**Purpose:** Durable spine outside any conversation. More than state — the loop's identity.
+
+| File | Purpose |
+|------|---------|
+| `LOOP.md` | Active loops, cadence, constraints |
+| `loop-budget.md` | Token caps, kill switch |
+| `loop-run-log.md` | Append-only run history |
+| `loop-constraints.md` | Denylist paths, protected branches |
+
+**Example `loop-budget.md`:**
+```markdown
+## Daily token budget
+- Max: 500K tokens/day
+- Current: 127K (25%)
+
+## Kill switch
+- Trigger: 1M tokens/day OR 10x expected cost
+- Action: Delete scheduler, alert #eng
+
+## Last reset
+2026-07-10 00:00
+```
+
+**Design tip:** Memory files are **git-tracked** (except live state). They're the loop's contract with you.
+
+## Putting It Together: Anatomy of a Loop
+
+```
+┌─────────────────────────────────────────────────────┐
+│  Schedule (cron, /loop, Automations)                │
+│       ↓                                             │
+│  Read STATE.md + LOOP.md                            │
+│       ↓                                             │
+│  Triage Skill (loop-triage, pr-babysitter, etc.)    │
+│       ↓                                             │
+│  Decide: Report? Fix? Escalate?                     │
+│       ↓                                             │
+│  If Fix:                                            │
+│    → Create worktree                                │
+│    → Implementer sub-agent                          │
+│    → Verifier sub-agent (diff review)               │
+│    → If APPROVE: merge; If REJECT: cleanup          │
+│       ↓                                             │
+│  Update STATE.md + loop-run-log.md                  │
+│       ↓                                             │
+│  Human gate? (L2/L3)                                │
+│       ↓                                             │
+│  Wait for next cadence                              │
+└─────────────────────────────────────────────────────┘
+```
+
+## Tool Matrix Summary
+
+| Primitive | Grok | Claude Code | Opencode | Cursor |
+|-----------|------|-------------|----------|--------|
+| Scheduling | `/loop` | `/loop`, cron | cron/systemd | Automations |
+| State | `STATE.md` | `STATE.md` | `STATE.md` | `STATE.md` |
+| Skills | `SKILL.md` | `SKILL.md` | `SKILL.md` | `.cursor/rules/` |
+| Worktrees | `isolation: worktree` | `git worktree` | `git worktree` | `git worktree` |
+| Sub-agents | `Task` | `.claude/agents/` | `--agent` | Review mode |
+
+**[Full Tool Matrix →](./TOOL_MATRIX.md)**
+
+## See Also
+
+- [Quickstart](./QUICKSTART.md) — first loop in 5 minutes
+- [Concepts](./CONCEPTS.md) — intent debt, comprehension debt
+- [Safety](./SAFETY.md) — denylists, auto-merge policy
