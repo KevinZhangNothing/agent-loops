@@ -2,7 +2,7 @@
 
 **Stateful memory manager for agent loops.** Keeps the context window clean and stops runaway loops before they burn tokens.
 
-Long-running agent loops fail in two classic ways the [loop-engineering docs](../../docs/) warn about:
+Long-running agent loops fail in two classic ways the [agent-loops docs](../../docs/) warn about:
 
 - **Context overflow & rot** — conversation history and error logs grow until the model loses the original goal or drowns in stale stack traces.
 - **Stagnant / no-progress loops** — the agent retries the same failing action forever, quietly blowing the token budget.
@@ -125,6 +125,6 @@ else runNextIteration(buildContextInjection(ledger));
 
 ## Where it fits
 
-This is the **Memory / State** primitive of loop engineering made dynamic: `STATE.md` stores state statically; `loop-context` manages it across iterations. See [docs/primitives.md](../../docs/primitives.md) and the [operating & safety](../../docs/) guides.
+This is the **Memory / State** primitive of agent loops made dynamic: `STATE.md` stores state statically; `loop-context` manages it across iterations. See [docs/primitives.md](../../docs/primitives.md) and the [operating & safety](../../docs/) guides.
 
-MIT · part of [loop-engineering](https://github.com/KevinZhangNothing/loop-engineering) by Kevin Zhang.
+MIT · part of [agent-loops](https://github.com/KevinZhangNothing/agent-loops) by Kevin Zhang.

@@ -116,4 +116,4 @@ At 15m cadence without early-exit, worst-case spend exceeds 5M tokens/day. Never
 - % of failures resolved without human intervention (trivial cases only)
 - Repeat failure rate (same job failing again within 48h)
 
-Best entry loop for teams new to loop engineering — high frequency, bounded scope, clear verification.
+Best entry loop for teams new to agent loops — high frequency, bounded scope, clear verification.

@@ -1,6 +1,6 @@
 # loop-cost
 
-Estimate daily token spend for [loop engineering](https://github.com/KevinZhangNothing/loop-engineering) patterns by cadence and readiness level (L1–L3).
+Estimate daily token spend for [agent loops](https://github.com/KevinZhangNothing/agent-loops) patterns by cadence and readiness level (L1–L3).
 
 Uses cost metadata from `patterns/registry.yaml`.
 

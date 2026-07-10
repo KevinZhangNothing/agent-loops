@@ -1,6 +1,6 @@
 {
   "$schema": "https://pi.mcp.dev/schema/mcp.json",
-  "description": "Loop Engineering MCP 配置 — 用于 pi 集成",
+  "description": "Agent Loops MCP 配置 — 用于 pi 集成",
   "mcpServers": {
     "LoopEngineering": {
       "command": "npx",
@@ -8,7 +8,7 @@
       "env": {
         "LOOP_PROJECT_ROOT": "${LOOP_PROJECT_ROOT:-.}"
       },
-      "description": "Loop Engineering MCP 服务器 — 提供 patterns、skills、state 查询",
+      "description": "Agent Loops MCP 服务器 — 提供 patterns、skills、state 查询与 cost 估算",
       "resources": [
         "loop://registry",
         "loop://config",
@@ -26,35 +26,8 @@
         "loop_get_pattern",
         "loop_get_skill",
         "loop_get_state",
-        "loop_recommend_pattern"
-      ]
-    },
-    "LoopAudit": {
-      "command": "npx",
-      "args": ["-y", "@kevinzhangnothing/loop-audit"],
-      "description": "Loop Readiness Score 审计工具",
-      "tools": [
-        "audit",
-        "audit:suggest",
-        "audit:badge"
-      ]
-    },
-    "LoopInit": {
-      "command": "npx",
-      "args": ["-y", "@kevinzhangnothing/loop-init"],
-      "description": "Loop 脚手架生成器",
-      "tools": [
-        "init",
-        "init:dry-run"
-      ]
-    },
-    "LoopCost": {
-      "command": "npx",
-      "args": ["-y", "@kevinzhangnothing/loop-cost"],
-      "description": "Token 花费估算器",
-      "tools": [
-        "estimate",
-        "estimate:json"
+        "loop_recommend_pattern",
+        "loop_estimate_cost"
       ]
     }
   },
@@ -67,13 +40,29 @@
       "description": "运行 loop-audit 并获取改进建议",
       "command": "npx @kevinzhangnothing/loop-audit . --suggest"
     },
+    "+loop-score-json": {
+      "description": "运行 loop-audit 输出 JSON",
+      "command": "npx @kevinzhangnothing/loop-audit . --json"
+    },
+    "+loop-badge": {
+      "description": "生成 README 徽章",
+      "command": "npx @kevinzhangnothing/loop-audit . --badge"
+    },
     "+loop-init": {
       "description": "初始化 Loop 脚手架",
       "command": "npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool claude"
     },
+    "+loop-init-dry-run": {
+      "description": "预览 Loop 脚手架生成",
+      "command": "npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool claude --dry-run"
+    },
     "+loop-cost": {
       "description": "估算 Loop token 花费",
       "command": "npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1"
+    },
+    "+loop-cost-json": {
+      "description": "估算 Loop token 花费（JSON）",
+      "command": "npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1 --json"
     },
     "+loop-state": {
       "description": "查看当前 STATE.md 内容",

@@ -75,7 +75,7 @@ Once you're logged in, everything else is two commands:
 ### A. Publish the 8 packages under the new scope
 
 ```bash
-cd /path/to/loop-engineering
+cd /path/to/agent-loops
 bash scripts/publish-npm-scope.sh
 ```
 
@@ -125,7 +125,7 @@ packages. After this, anyone running `npx @cobusgreyling/loop-audit` will see:
 ```
 npm warn deprecated @cobusgreyling/loop-audit@1.6.0:
 This package has been republished as @kevinzhangnothing/loop-audit.
-See https://github.com/KevinZhangNothing/loop-engineering
+See https://github.com/KevinZhangNothing/agent-loops
 ```
 
 ⚠️ **This step only works if you are a maintainer of `@cobusgreyling/*`.** If

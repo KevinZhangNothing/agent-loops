@@ -50,7 +50,7 @@ Use this before enabling a loop in production. Score honestly — a loop missing
 
 - [ ] Minimum permissions for connectors (read vs write)
 - [ ] Loop can **open/update PRs** or tickets if acting, not just suggest
-- [ ] Bot identity clear on PR comments (e.g. "Loop Engineering — PR Babysitter")
+- [ ] Bot identity clear on PR comments (e.g. "Agent Loops — PR Babysitter")
 
 ## 8. Cost & Limits
 

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/KevinZhangNothing/loop-engineering/patterns/registry.schema.json",
+  "$id": "https://github.com/KevinZhangNothing/agent-loops/patterns/registry.schema.json",
   "title": "Loop Pattern Registry",
   "type": "object",
   "required": ["patterns"],

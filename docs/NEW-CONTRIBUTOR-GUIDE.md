@@ -1,6 +1,6 @@
 # New Contributor Guide
 
-Welcome! This guide helps you make your first contribution to loop-engineering in **under 30 minutes**.
+Welcome! This guide helps you make your first contribution to agent-loops in **under 30 minutes**.
 
 ## Pick Your Path
 
@@ -8,7 +8,7 @@ Welcome! This guide helps you make your first contribution to loop-engineering i
 
 **Add your project to the adopters list**
 
-1. Click [New Issue → Add Adopter](https://github.com/KevinZhangNothing/loop-engineering/issues/new?template=add-adopter.yml)
+1. Click [New Issue → Add Adopter](https://github.com/KevinZhangNothing/agent-loops/issues/new?template=add-adopter.yml)
 2. Fill in the form (project name, pattern used, tool, level)
 3. Submit
 
@@ -30,7 +30,7 @@ Examples:
 
 ### 🛠️ Good First Issue (~30-60 minutes)
 
-**Browse [`good first issue`](https://github.com/KevinZhangNothing/loop-engineering/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)**
+**Browse [`good first issue`](https://github.com/KevinZhangNothing/agent-loops/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)**
 
 Current opportunities:
 - Add a tool example to `examples/{tool}/`
@@ -44,7 +44,7 @@ Comment **"I'll take this"** on any issue to get assigned.
 
 | Step | Time | What | Where |
 |------|------|------|-------|
-| **1** | ~10 min | Add your project to adopters | [Issue form](https://github.com/KevinZhangNothing/loop-engineering/issues/new?template=add-adopter.yml) |
+| **1** | ~10 min | Add your project to adopters | [Issue form](https://github.com/KevinZhangNothing/agent-loops/issues/new?template=add-adopter.yml) |
 | **2** | ~15 min | Typo fix or doc improvement | Any `.md` file |
 | **3** | ~30 min | Production story or tool example | `stories/` or `examples/{tool}/` |
 | **4** | ~1 hr | Skill template or MCP example | `templates/` or `examples/mcp/` |
@@ -87,18 +87,18 @@ Before submitting:
    npx @kevinzhangnothing/loop-audit . --badge
    ```
 
-2. **Share your setup** in [Show and Tell Discussions](https://github.com/KevinZhangNothing/loop-engineering/discussions/categories/show-and-tell)
+2. **Share your setup** in [Show and Tell Discussions](https://github.com/KevinZhangNothing/agent-loops/discussions/categories/show-and-tell)
 
 3. **Pick a bigger contribution** from the ladder above
 
 ## Questions?
 
-- **General Q&A**: [GitHub Discussions](https://github.com/KevinZhangNothing/loop-engineering/discussions)
-- **Bug reports**: [New Issue](https://github.com/KevinZhangNothing/loop-engineering/issues/new)
+- **General Q&A**: [GitHub Discussions](https://github.com/KevinZhangNothing/agent-loops/discussions)
+- **Bug reports**: [New Issue](https://github.com/KevinZhangNothing/agent-loops/issues/new)
 - **Security issues**: [SECURITY.md](../SECURITY.md) — do not file public issues
 
 ## Thank You
 
-Every contribution makes loop engineering more practical and accessible. Whether you add a row to a table or write a full pattern, you're helping others avoid the same pitfalls and accelerate their own loops.
+Every contribution makes agent loops more practical and accessible. Whether you add a row to a table or write a full pattern, you're helping others avoid the same pitfalls and accelerate their own loops.
 
-— The loop-engineering maintainers
+— The agent-loops maintainers

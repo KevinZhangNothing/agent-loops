@@ -3,12 +3,12 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 IMAGE="${REPO_ROOT}/assets/visuals/social-preview.jpg"
-SETTINGS_URL="https://github.com/KevinZhangNothing/loop-engineering/settings"
+SETTINGS_URL="https://github.com/KevinZhangNothing/agent-loops/settings"
 
 if [[ ! -f "${IMAGE}" ]]; then
   echo "Missing ${IMAGE}"
   echo "Regenerate with:"
-  echo "  sips -c 640 1280 assets/visuals/loop-engineering-social-banner.jpg --out assets/visuals/social-preview.jpg"
+  echo "  sips -c 640 1280 assets/visuals/agent-loops-social-banner.jpg --out assets/visuals/social-preview.jpg"
   exit 1
 fi
 

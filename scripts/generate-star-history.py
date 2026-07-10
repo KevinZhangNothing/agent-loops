@@ -18,7 +18,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-REPO = os.environ.get("STAR_HISTORY_REPO", "cobusgreyling/loop-engineering")
+REPO = os.environ.get("STAR_HISTORY_REPO", "kevinzhangnothing/agent-loops")
 OUT_DIR = Path(os.environ.get("STAR_HISTORY_OUT_DIR", "assets/visuals"))
 
 

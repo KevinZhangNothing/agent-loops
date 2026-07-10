@@ -22,7 +22,7 @@ openclaw cron create "*/5 * * * *" \
   --tools read,write,exec
 ```
 
-Use [loop-cost](https://github.com/KevinZhangNothing/loop-engineering/blob/main/tools/loop-cost) before choosing a cadence.
+Use [loop-cost](https://github.com/KevinZhangNothing/agent-loops/blob/main/tools/loop-cost) before choosing a cadence.
 
 ## Webhook variant (post-deploy)
 

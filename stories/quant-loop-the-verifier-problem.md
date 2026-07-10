@@ -1,12 +1,12 @@
 # Quant Trading Loop — The Verifier Problem
 
-*Contributed by [@50thycal](https://github.com/50thycal) — adapted from [PR #136](https://github.com/KevinZhangNothing/loop-engineering/pull/136).*
+*Contributed by [@50thycal](https://github.com/50thycal) — adapted from [PR #136](https://github.com/KevinZhangNothing/agent-loops/pull/136).*
 
-A viral article ("loop engineering for quant trading") proposed running an entire
+A viral article ("agent loops for quant trading") proposed running an entire
 hedge fund as an autonomous loop. The architecture was the same five stages this
 repo documents. But it shipped the loop at **L3 from day one, with real money,
 and an LLM as the verifier.** We rebuilt it as a paper-only quant research loop
-([reference implementation](https://github.com/50thycal/loop-engineering/tree/claude/code-review-discussion-9w5pnt/starters/quant-research-loop))
+([reference implementation](https://github.com/50thycal/agent-loops/tree/claude/code-review-discussion-9w5pnt/starters/quant-research-loop))
 to show what changes when you keep the repo's discipline.
 
 ## Setup

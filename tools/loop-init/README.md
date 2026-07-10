@@ -1,6 +1,6 @@
 # loop-init
 
-Scaffold loop engineering starters into your project by pattern and tool.
+Scaffold agent loops starters into your project by pattern and tool.
 
 **npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok** works immediately.
 

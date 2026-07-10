@@ -17,7 +17,7 @@
 
 - **State file** (`pr-babysitter-state.md`) stopped duplicate fix attempts — attempt counter mattered
 - Verifier on stronger model caught 2 over-broad diffs before PR comment
-- Loop comments signed `🤖 Loop Engineering — PR Babysitter` — reviewers knew what to trust
+- Loop comments signed `🤖 Agent Loops — PR Babysitter` — reviewers knew what to trust
 
 ## What Broke
 

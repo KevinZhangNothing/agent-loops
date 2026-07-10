@@ -1,4 +1,4 @@
-# Machine-readable pattern registry for loop-engineering
+# Machine-readable pattern registry for agent-loops
 # Used by loop-audit, loop-cost, docs site, and tooling.
 
 patterns:

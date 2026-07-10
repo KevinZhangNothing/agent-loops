@@ -95,8 +95,8 @@ def render_frame(stage_title: str, score: int, level: str, assessment: str) -> I
         draw.text((48, y), "✓ Verifier skill present", fill=ACCENT, font=font_sm)
         y += 28
 
-    draw.text((48, HEIGHT - 88), "npx @cobusgreyling/loop-init . --pattern daily-triage --tool grok", fill=FG, font=font_sm)
-    draw.text((48, HEIGHT - 56), "npx @cobusgreyling/loop-audit . --badge", fill=ACCENT, font=font_sm)
+    draw.text((48, HEIGHT - 88), "npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok", fill=FG, font=font_sm)
+    draw.text((48, HEIGHT - 56), "npx @kevinzhangnothing/loop-audit . --badge", fill=ACCENT, font=font_sm)
 
     # big score watermark
     draw.text((WIDTH - 200, 130), str(score), fill=(20, 32, 48), font=font_xl)

@@ -62,7 +62,7 @@ Last run: 2026-07-05 09:00 UTC
 
 - Start with PRs you own or explicitly care about; avoid scanning the whole org on every run.
 - Keep week-one output short: ready, blocked, stale, or needs human decision.
-- Sign any future comments clearly, for example `🤖 Loop Engineering — PR Babysitter`.
+- Sign any future comments clearly, for example `🤖 Agent Loops — PR Babysitter`.
 - See [patterns/pr-babysitter.md](../../patterns/pr-babysitter.md) and [starters/pr-babysitter](../../starters/pr-babysitter/) for the full pattern spec.
 
 See the [primitives matrix](../../docs/primitives-matrix.md) for how Windsurf maps to the same loop shape.

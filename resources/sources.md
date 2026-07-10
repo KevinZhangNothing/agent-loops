@@ -4,10 +4,10 @@ This repository exists because of public discussion and practice by experienced 
 
 ## Core Definition & Framework
 
-- **Kevin Zhang** — [Loop Engineering](https://KevinZhangNothing.substack.com/p/loop-engineering) (June 2026)
-  Companion essay for this repository: context engineering vs harness engineering vs loop engineering, the five primitives + memory, Grok mapping, and production realities.
+- **Kevin Zhang** — [Agent Loops](https://KevinZhangNothing.substack.com/p/agent-loops) (June 2026)
+  Companion essay for this repository: context engineering vs harness engineering vs agent loops, the five primitives + memory, Grok mapping, and production realities.
 
-- **Addy Osmani** — [Loop Engineering](https://addyosmani.com/blog/loop-engineering/) (June 2026)
+- **Addy Osmani** — [Agent Loops](https://addyosmani.com/blog/agent-loops/) (June 2026)
   The most complete written synthesis of the concept, including the five primitives + memory table and the concrete daily loop example.
 
 - The originating X thread: https://x.com/addyosmani/status/2064127981161959567
@@ -37,7 +37,7 @@ These provide important context and guardrails for loop design.
 ## Other Early Signals
 
 - Peter Steinberger: emphasis on designing loops rather than prompting agents directly.
-- Various practitioners experimenting with closed-loop systems, feedback loop engineering, and "routines that prompt the model."
+- Various practitioners experimenting with closed-loop systems, feedback agent loops, and "routines that prompt the model."
 
 ## Community Philosophy Artifacts
 

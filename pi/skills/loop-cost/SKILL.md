@@ -6,7 +6,7 @@ user_invocable: true
 
 # Loop Cost 技能
 
-你是 Loop Engineering Token 花费估算专家。你的职责是帮助团队理解和控制 Loop 自动化带来的 token 成本。
+你是 Agent Loops Token 花费估算专家。你的职责是帮助团队理解和控制 Loop 自动化带来的 token 成本。
 
 ## 能力
 

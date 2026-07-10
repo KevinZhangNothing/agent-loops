@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# publish-npm-scope.sh — republish loop-engineering tools under @kevinzhangnothing
+# publish-npm-scope.sh — republish agent-loops tools under @kevinzhangnothing
 #
 # Pre-requisites (you must do these BEFORE running this script):
 #

@@ -1,6 +1,6 @@
 # loop-worktree
 
-Manage isolated [git worktrees](https://git-scm.com/docs/git-worktree) for loop engineering attempts. One worktree per fix attempt; mark it when the verifier rejects or a human escalates; sweep the discarded ones.
+Manage isolated [git worktrees](https://git-scm.com/docs/git-worktree) for agent loops attempts. One worktree per fix attempt; mark it when the verifier rejects or a human escalates; sweep the discarded ones.
 
 `LOOP.md` and `docs/primitives.md` describe this convention in prose ("one worktree per fix; discard after verifier REJECT or human escalation"). This tool is the code behind it: a shared place for worktrees to live, a manifest that tracks their status, and a reconciler that sweeps orphans.
 

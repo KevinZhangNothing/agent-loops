@@ -2,7 +2,7 @@
 
 Loop engineering sits in a family of ideas about agentic software development. This glossary links them so you can design loops with the right mental model.
 
-## Loop Engineering
+## Agent Loops
 
 **Replacing yourself as the prompter.** You design a system that discovers work, assigns it, verifies results, and persists state — instead of typing the next prompt yourself.
 

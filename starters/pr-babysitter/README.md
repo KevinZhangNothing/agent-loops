@@ -20,7 +20,7 @@ Scaffold for the [PR Babysitter](../../patterns/pr-babysitter.md) loop (L2 — a
    /loop 5m Check open PRs. Update pr-babysitter-state.md. For CI failures or actionable review comments on allowlisted PRs: worktree + minimal-fix + loop-verifier. Never merge — propose only. Escalate after 3 attempts per PR.
    ```
 
-4. Sign PR comments: `🤖 Loop Engineering — PR Babysitter`
+4. Sign PR comments: `🤖 Agent Loops — PR Babysitter`
 
 ## Files
 

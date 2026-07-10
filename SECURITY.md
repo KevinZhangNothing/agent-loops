@@ -6,7 +6,7 @@ Loop engineering runs unattended automation against your codebase. Treat loops l
 
 Report security issues **privately** — do not open public issues for exploitable vulnerabilities.
 
-- **Preferred:** [GitHub private vulnerability reporting](https://github.com/KevinZhangNothing/loop-engineering/security/advisories/new)
+- **Preferred:** [GitHub private vulnerability reporting](https://github.com/KevinZhangNothing/agent-loops/security/advisories/new)
 - **Email:** security@kevinzhangnothing.com (PGP on request)
 
 For general loop safety guidance, see [docs/safety.md](docs/safety.md).

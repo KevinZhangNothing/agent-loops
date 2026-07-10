@@ -1,4 +1,4 @@
-# Loop State — loop-engineering reference
+# Loop State — agent-loops reference
 
 Last run: 2026-07-09T10:41:53Z (automated daily-triage workflow)
 

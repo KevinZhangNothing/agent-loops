@@ -1,7 +1,7 @@
 {
   "name": "@kevinzhangnothing/loop-audit",
   "version": "1.6.0",
-  "description": "Loop engineering readiness auditor. Compute Loop Readiness Score (L0-L3), detect activity, and get actionable suggestions. npx @kevinzhangnothing/loop-audit . --suggest",
+  "description": "Agent loops readiness auditor. Compute Loop Readiness Score (L0-L3), detect activity, and get actionable suggestions. npx @kevinzhangnothing/loop-audit . --suggest",
   "type": "module",
   "bin": {
     "loop-audit": "./dist/cli.js"
@@ -23,7 +23,7 @@
     "node": ">=18"
   },
   "keywords": [
-    "loop-engineering",
+    "agent-loops",
     "ai-agents",
     "coding-agents",
     "claude-code",
@@ -37,12 +37,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KevinZhangNothing/loop-engineering.git",
+    "url": "git+https://github.com/KevinZhangNothing/agent-loops.git",
     "directory": "tools/loop-audit"
   },
-  "homepage": "https://KevinZhangNothing.github.io/loop-engineering/",
+  "homepage": "https://KevinZhangNothing.github.io/agent-loops/",
   "bugs": {
-    "url": "https://github.com/KevinZhangNothing/loop-engineering/issues"
+    "url": "https://github.com/KevinZhangNothing/agent-loops/issues"
   },
   "publishConfig": {
     "access": "public"

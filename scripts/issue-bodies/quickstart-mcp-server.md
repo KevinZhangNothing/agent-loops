@@ -6,7 +6,7 @@ Add a short **loop-mcp-server** install snippet to the Quickstart so newcomers c
 
 ## Acceptance criteria
 - [ ] New subsection (e.g. "Optional: MCP runtime lookup") after audit/init steps
-- [ ] Show `examples/mcp/loop-engineering.mcp.json` copy path
+- [ ] Show `examples/mcp/agent-loops.mcp.json` copy path
 - [ ] Show one-liner to run the server from a cloned repo
 - [ ] Note npm publish is pending — do not claim `npx` works yet
 

@@ -1,7 +1,7 @@
 {
   "name": "@kevinzhangnothing/loop-mcp-server",
   "version": "1.0.0",
-  "description": "MCP server for loop-engineering — exposes patterns, skills, state, and audit tools as runtime-queryable resources for AI agents",
+  "description": "MCP server for agent-loops — exposes patterns, skills, state, and audit tools as runtime-queryable resources for AI agents",
   "type": "module",
   "bin": {
     "loop-mcp-server": "dist/index.js"
@@ -20,7 +20,7 @@
     "node": ">=18"
   },
   "keywords": [
-    "loop-engineering",
+    "agent-loops",
     "mcp",
     "model-context-protocol",
     "ai-agents",
@@ -32,12 +32,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KevinZhangNothing/loop-engineering.git",
+    "url": "git+https://github.com/KevinZhangNothing/agent-loops.git",
     "directory": "tools/mcp-server"
   },
-  "homepage": "https://KevinZhangNothing.github.io/loop-engineering/",
+  "homepage": "https://KevinZhangNothing.github.io/agent-loops/",
   "bugs": {
-    "url": "https://github.com/KevinZhangNothing/loop-engineering/issues"
+    "url": "https://github.com/KevinZhangNothing/agent-loops/issues"
   },
   "publishConfig": {
     "access": "public"

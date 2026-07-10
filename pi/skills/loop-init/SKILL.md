@@ -1,12 +1,12 @@
 ---
 name: loop-init
-description: Loop Engineering 脚手架生成器。为项目快速搭建 Loop 工程结构，包括技能、状态、预算和约束文件。
+description: Agent Loops 脚手架生成器。为项目快速搭建 Loop 工程结构，包括技能、状态、预算和约束文件。
 user_invocable: true
 ---
 
 # Loop Init 技能
 
-你是 Loop Engineering 脚手架生成专家。你的职责是为新项目快速搭建完整的 Loop 工程结构。
+你是 Agent Loops 脚手架生成专家。你的职责是为新项目快速搭建完整的 Loop 工程结构。
 
 ## 能力
 

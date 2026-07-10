@@ -17,12 +17,12 @@ Link npm to GitHub, then for **each package** on [npmjs.com](https://www.npmjs.c
 
 | Package | Repository | Workflow filename |
 |---------|--------------|-------------------|
-| `@kevinzhangnothing/loop-audit` | `KevinZhangNothing/loop-engineering` | `release-loop-audit.yml` |
-| `@kevinzhangnothing/loop-init` | `KevinZhangNothing/loop-engineering` | `release-loop-init.yml` |
-| `@kevinzhangnothing/loop-cost` | `KevinZhangNothing/loop-engineering` | `release-loop-cost.yml` |
-| `@kevinzhangnothing/loop-sync` | `KevinZhangNothing/loop-engineering` | `release-loop-sync.yml` |
-| `@kevinzhangnothing/loop-context` | `KevinZhangNothing/loop-engineering` | `release-loop-context.yml` |
-| `@kevinzhangnothing/loop-mcp-server` | `KevinZhangNothing/loop-engineering` | `release-loop-mcp-server.yml` |
+| `@kevinzhangnothing/loop-audit` | `KevinZhangNothing/agent-loops` | `release-loop-audit.yml` |
+| `@kevinzhangnothing/loop-init` | `KevinZhangNothing/agent-loops` | `release-loop-init.yml` |
+| `@kevinzhangnothing/loop-cost` | `KevinZhangNothing/agent-loops` | `release-loop-cost.yml` |
+| `@kevinzhangnothing/loop-sync` | `KevinZhangNothing/agent-loops` | `release-loop-sync.yml` |
+| `@kevinzhangnothing/loop-context` | `KevinZhangNothing/agent-loops` | `release-loop-context.yml` |
+| `@kevinzhangnothing/loop-mcp-server` | `KevinZhangNothing/agent-loops` | `release-loop-mcp-server.yml` |
 
 Names must match **exactly** (case-sensitive). No `NPM_TOKEN` secret is required when trusted publishing is configured.
 

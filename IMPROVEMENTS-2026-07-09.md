@@ -1,6 +1,6 @@
 # Project Improvements — 2026-07-09
 
-Summary of enhancements made to the loop-engineering reference repository.
+Summary of enhancements made to the agent-loops reference repository.
 
 ## New Documentation
 

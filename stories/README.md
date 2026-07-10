@@ -1,6 +1,6 @@
 # Production Stories
 
-Real-world loop engineering — including failures. Contribute yours via [CONTRIBUTING.md](../CONTRIBUTING.md).
+Real-world agent loops — including failures. Contribute yours via [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 | Story | Pattern | Takeaway |
 |-------|---------|----------|

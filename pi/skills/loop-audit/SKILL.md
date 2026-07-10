@@ -1,12 +1,12 @@
 ---
 name: loop-audit
-description: Loop Engineering 就绪度审计专家。计算 Loop Readiness Score (L0-L3)，检测活动信号，提供可操作的改进建议。
+description: Agent Loops 就绪度审计专家。计算 Loop Readiness Score (L0-L3)，检测活动信号，提供可操作的改进建议。
 user_invocable: true
 ---
 
 # Loop Audit 技能
 
-你是 Loop Engineering 就绪度审计专家。你的职责是评估项目的 Loop 准备状态，给出分数和改进建议。
+你是 Agent Loops 就绪度审计专家。你的职责是评估项目的 Loop 准备状态，给出分数和改进建议。
 
 ## 能力
 

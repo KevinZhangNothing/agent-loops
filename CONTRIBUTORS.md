@@ -18,6 +18,6 @@ Thank you to everyone who shipped docs, stories, examples, and tool fixes.
 
 ## Your first PR
 
-Pick a scoped ~15 min task: [Contributor quickstart](https://github.com/KevinZhangNothing/loop-engineering/discussions/123).
+Pick a scoped ~15 min task: [Contributor quickstart](https://github.com/KevinZhangNothing/agent-loops/discussions/123).
 
 Same-day review on stories, adopters, and docs — see [CONTRIBUTING.md](./CONTRIBUTING.md).

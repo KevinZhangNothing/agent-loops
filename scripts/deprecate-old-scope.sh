@@ -31,7 +31,7 @@
 #
 #   npm warn deprecated @cobusgreyling/loop-audit@1.6.0:
 #   This package has been republished as @kevinzhangnothing/loop-audit.
-#   See https://github.com/KevinZhangNothing/loop-engineering
+#   See https://github.com/KevinZhangNothing/agent-loops
 #
 
 set -euo pipefail
@@ -44,7 +44,7 @@ NC='\033[0m'
 
 OLD_SCOPE="@cobusgreyling"
 NEW_SCOPE="@kevinzhangnothing"
-REPO_URL="https://github.com/KevinZhangNothing/loop-engineering"
+REPO_URL="https://github.com/KevinZhangNothing/agent-loops"
 
 PACKAGES=(
   "loop-audit"

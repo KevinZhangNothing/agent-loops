@@ -1,7 +1,7 @@
 {
   "name": "@kevinzhangnothing/loop-init",
   "version": "1.3.3",
-  "description": "Scaffold loop engineering patterns and starters into any project. Supports Grok, Claude Code, Codex, Opencode and more. npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool opencode",
+  "description": "Scaffold agent loops patterns and starters into any project. Supports Grok, Claude Code, Codex, Opencode and more. npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool opencode",
   "type": "module",
   "bin": {
     "loop-init": "./dist/cli.js"
@@ -23,7 +23,7 @@
     "node": ">=18"
   },
   "keywords": [
-    "loop-engineering",
+    "agent-loops",
     "ai-agents",
     "coding-agents",
     "scaffold",
@@ -39,12 +39,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KevinZhangNothing/loop-engineering.git",
+    "url": "git+https://github.com/KevinZhangNothing/agent-loops.git",
     "directory": "tools/loop-init"
   },
-  "homepage": "https://KevinZhangNothing.github.io/loop-engineering/",
+  "homepage": "https://KevinZhangNothing.github.io/agent-loops/",
   "bugs": {
-    "url": "https://github.com/KevinZhangNothing/loop-engineering/issues"
+    "url": "https://github.com/KevinZhangNothing/agent-loops/issues"
   },
   "publishConfig": {
     "access": "public"

@@ -1,7 +1,7 @@
 {
   "name": "@kevinzhangnothing/loop-cost",
   "version": "1.0.3",
-  "description": "Estimate token budgets and daily costs for loop engineering patterns. By cadence, readiness level (L1/L2/L3), and coding agent tool.",
+  "description": "Estimate token budgets and daily costs for agent loops patterns. By cadence, readiness level (L1/L2/L3), and coding agent tool.",
   "type": "module",
   "bin": {
     "loop-cost": "dist/cli.js"
@@ -22,7 +22,7 @@
     "node": ">=18"
   },
   "keywords": [
-    "loop-engineering",
+    "agent-loops",
     "ai-agents",
     "coding-agents",
     "token-budget",
@@ -36,12 +36,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KevinZhangNothing/loop-engineering.git",
+    "url": "git+https://github.com/KevinZhangNothing/agent-loops.git",
     "directory": "tools/loop-cost"
   },
-  "homepage": "https://KevinZhangNothing.github.io/loop-engineering/",
+  "homepage": "https://KevinZhangNothing.github.io/agent-loops/",
   "bugs": {
-    "url": "https://github.com/KevinZhangNothing/loop-engineering/issues"
+    "url": "https://github.com/KevinZhangNothing/agent-loops/issues"
   },
   "publishConfig": {
     "access": "public"

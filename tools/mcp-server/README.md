@@ -1,6 +1,6 @@
 # @kevinzhangnothing/loop-mcp-server
 
-MCP (Model Context Protocol) server for **loop-engineering** — exposes patterns, skills, state, budget, and audit tools as runtime-queryable resources for AI agents.
+MCP (Model Context Protocol) server for **agent-loops** — exposes patterns, skills, state, budget, and audit tools as runtime-queryable resources for AI agents.
 
 Instead of stuffing all loop documentation into the prompt, agents can query only what they need on-demand via MCP.
 
@@ -10,7 +10,7 @@ Instead of stuffing all loop documentation into the prompt, agents can query onl
 npx @kevinzhangnothing/loop-mcp-server
 ```
 
-From a cloned `loop-engineering` repo:
+From a cloned `agent-loops` repo:
 
 ```bash
 cd tools/mcp-server && npm ci && npm test
@@ -26,7 +26,7 @@ Add to your MCP config (`.mcp.json` or equivalent):
 ```json
 {
   "mcpServers": {
-    "loop-engineering": {
+    "agent-loops": {
       "command": "npx",
       "args": ["-y", "@kevinzhangnothing/loop-mcp-server"],
       "env": {
@@ -98,7 +98,7 @@ The server reads from the local filesystem at `LOOP_PROJECT_ROOT`. It is read-on
 
 ## See Also
 
-- [Loop Engineering Patterns](../../patterns/)
+- [Agent Loops Patterns](../../patterns/)
 - [MCP Examples](../../examples/mcp/)
 - [Primitives: Plugins & Connectors](../../docs/primitives.md)
 - [Safety: MCP Least Privilege](../../docs/safety.md)

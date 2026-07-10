@@ -24,7 +24,7 @@
     "node": ">=18"
   },
   "keywords": [
-    "loop-engineering",
+    "agent-loops",
     "ai-agents",
     "coding-agents",
     "context-management",
@@ -38,12 +38,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KevinZhangNothing/loop-engineering.git",
+    "url": "git+https://github.com/KevinZhangNothing/agent-loops.git",
     "directory": "tools/loop-context"
   },
-  "homepage": "https://KevinZhangNothing.github.io/loop-engineering/",
+  "homepage": "https://KevinZhangNothing.github.io/agent-loops/",
   "bugs": {
-    "url": "https://github.com/KevinZhangNothing/loop-engineering/issues"
+    "url": "https://github.com/KevinZhangNothing/agent-loops/issues"
   },
   "publishConfig": {
     "access": "public"

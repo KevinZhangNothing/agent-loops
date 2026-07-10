@@ -1,15 +1,15 @@
-# Loop Engineering
+# Agent Loops
 
 
 <p align="center">
-  <a href="https://KevinZhangNothing.github.io/loop-engineering/">
+  <a href="https://KevinZhangNothing.github.io/agent-loops/">
     <img src="https://img.shields.io/badge/✨_Explore_the_Showcase-Design_systems_that_prompt_your_agents-0d1117?style=for-the-badge&labelColor=111a28&color=3ee8c5" alt="Explore the Showcase" />
   </a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/KevinZhangNothing/loop-engineering/stargazers"><img src="https://img.shields.io/github/stars/KevinZhangNothing/loop-engineering?style=social" alt="GitHub stars"></a>
-  <a href="https://github.com/KevinZhangNothing/loop-engineering/actions/workflows/audit.yml"><img src="https://img.shields.io/github/actions/workflow/status/KevinZhangNothing/loop-engineering/audit.yml?label=loop-audit%20dogfood" alt="loop-audit dogfood"></a>
+  <a href="https://github.com/KevinZhangNothing/agent-loops/stargazers"><img src="https://img.shields.io/github/stars/KevinZhangNothing/agent-loops?style=social" alt="GitHub stars"></a>
+  <a href="https://github.com/KevinZhangNothing/agent-loops/actions/workflows/audit.yml"><img src="https://img.shields.io/github/actions/workflow/status/KevinZhangNothing/agent-loops/audit.yml?label=loop-audit%20dogfood" alt="loop-audit dogfood"></a>
   <a href="https://www.npmjs.com/package/@kevinzhangnothing/loop-audit"><img src="https://img.shields.io/npm/v/@kevinzhangnothing/loop-audit?label=loop-audit" alt="loop-audit npm"></a>
   <a href="https://www.npmjs.com/package/@kevinzhangnothing/loop-init"><img src="https://img.shields.io/npm/v/@kevinzhangnothing/loop-init?label=loop-init" alt="loop-init npm"></a>
   <a href="https://www.npmjs.com/package/@kevinzhangnothing/loop-cost"><img src="https://img.shields.io/npm/v/@kevinzhangnothing/loop-cost?label=loop-cost" alt="loop-cost npm"></a>
@@ -17,21 +17,21 @@
   <a href="https://www.npmjs.com/package/@kevinzhangnothing/loop-context"><img src="https://img.shields.io/npm/v/@kevinzhangnothing/loop-context?label=loop-context" alt="loop-context npm"></a>
   <a href="https://www.npmjs.com/package/@kevinzhangnothing/loop-mcp-server"><img src="https://img.shields.io/npm/v/@kevinzhangnothing/loop-mcp-server?label=loop-mcp-server" alt="loop-mcp-server npm"></a>
   <a href="https://www.npmjs.com/package/@kevinzhangnothing/loop-worktree"><img src="https://img.shields.io/npm/v/@kevinzhangnothing/loop-worktree?label=loop-worktree" alt="loop-worktree npm"></a>
-  <a href="https://github.com/KevinZhangNothing/loop-engineering/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT"></a>
-  <a href="https://KevinZhangNothing.github.io/loop-engineering/"><img src="https://img.shields.io/badge/GitHub_Pages-live%20%7C%20interactive-3ee8c5" alt="Pages"></a>
+  <a href="https://github.com/KevinZhangNothing/agent-loops/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT"></a>
+  <a href="https://KevinZhangNothing.github.io/agent-loops/"><img src="https://img.shields.io/badge/GitHub_Pages-live%20%7C%20interactive-3ee8c5" alt="Pages"></a>
 </p>
 
 
 <p align="center">
-  <a href="https://KevinZhangNothing.github.io/loop-engineering/">
-    <img src="assets/visuals/loop-engineering-logo.svg" alt="Loop Engineering logo" width="88" />
+  <a href="https://KevinZhangNothing.github.io/agent-loops/">
+    <img src="assets/visuals/agent-loops-logo.svg" alt="Agent Loops logo" width="88" />
   </a>
 </p>
 
 > **Stop prompting. Design the loop. Get a score.**
 
 <p align="center">
-  <img src="assets/visuals/LE5.jpeg" alt="Loop Engineering — design the system that prompts your agents" width="100%" />
+  <img src="assets/visuals/LE5.jpeg" alt="Agent Loops — design the system that prompts your agents" width="100%" />
 </p>
 
 ```bash
@@ -46,16 +46,16 @@ npx @kevinzhangnothing/loop-init .
   </a>
 </p>
 
-Loop engineering replaces you as the person who prompts the agent — you design the system that does it instead.
+Agent loops replace you as the person who prompts the agent — you design the system that does it instead.
 
-**New here?** [Quickstart (5 min)](docs/QUICKSTART.md) · [Interactive picker](https://KevinZhangNothing.github.io/loop-engineering/#interactive)
+**New here?** [Quickstart (5 min)](docs/QUICKSTART.md) · [Interactive picker](https://KevinZhangNothing.github.io/agent-loops/#interactive)
 
 For developers using Grok, Claude Code, Codex, Cursor, and other AI coding agents.
 
 <p align="center">
-  <strong><a href="https://KevinZhangNothing.github.io/loop-engineering/">→ Interactive showcase + pattern picker</a></strong>
+  <strong><a href="https://KevinZhangNothing.github.io/agent-loops/">→ Interactive showcase + pattern picker</a></strong>
   ·
-  <a href="https://addyosmani.com/blog/loop-engineering/">Addy Osmani</a>
+  <a href="https://addyosmani.com/blog/agent-loops/">Addy Osmani</a>
 </p>
 
 ## Contents
@@ -81,13 +81,13 @@ For developers using Grok, Claude Code, Codex, Cursor, and other AI coding agent
 | [Quickstart (5 min)](docs/QUICKSTART.md) | Scaffold → cost check → audit → first loop — **start here if you just landed** |
 | [New Contributor Guide](docs/NEW-CONTRIBUTOR-GUIDE.md) | First contribution in under 30 minutes |
 | [Docs Index](docs/README.md) | Complete documentation navigation |
-| [Loop Engineering essay](https://github.com/KevinZhangNothing/loop-engineering/blob/main/PI-INTEGRATION-COMPLETE.md) | The concept, primitives, and the loop-engineering reference |
-| [**pi Integration**](docs/PI-INTEGRATION.md) | **NEW:** Plug loop-engineering into the [pi coding agent](https://pi.mcp.dev) — 12 skills, 3 workflows, one `install.sh` |
+| [Agent Loops essay](https://github.com/KevinZhangNothing/agent-loops/blob/main/PI-INTEGRATION-COMPLETE.md) | The concept, primitives, and the agent-loops reference |
+| [**pi Integration**](docs/PI-INTEGRATION.md) | **NEW:** Plug agent-loops into the [pi coding agent](https://pi.mcp.dev) — 12 skills, 3 workflows, one `install.sh` |
 | [Pattern Picker](docs/pattern-picker.md) | Which loop to run first — **start here if unsure** |
 | [Primitives Matrix](docs/primitives-matrix.md) | Cross-tool loop primitive mapping — bookmark this |
 | [Loop Design Checklist](docs/loop-design-checklist.md) | Ship readiness rubric |
 | [Project Health](PROJECT-HEALTH.md) | Real-time status dashboard |
-| [Patterns](patterns/README.md) | 7 production patterns + [interactive picker](https://KevinZhangNothing.github.io/loop-engineering/#interactive) |
+| [Patterns](patterns/README.md) | 7 production patterns + [interactive picker](https://KevinZhangNothing.github.io/agent-loops/#interactive) |
 | [Starters](starters/) | Clone-and-run kits (Grok, Claude Code, Codex, Opencode) |
 | [Opencode examples](examples/opencode/) | CLI-first loops: cron/systemd + `opencode run`, skills, worktrees |
 | [loop-audit](tools/loop-audit/) | Loop Readiness Score CLI (v1.5 + constraints scoring) — `npx @kevinzhangnothing/loop-audit . --suggest` · `--badge` for README |
@@ -104,10 +104,10 @@ For developers using Grok, Claude Code, Codex, Cursor, and other AI coding agent
 | [Rebrand to @kevinzhangnothing](docs/REBRAND-NPM.md) | **3 manual steps + 2 scripts** to publish 8 packages under the new npm scope |
 | [Goal Engineering](https://github.com/KevinZhangNothing/goal-engineering) | **Companion:** loops discover, goals finish — `/goal` + [stack cookbook](https://github.com/KevinZhangNothing/goal-engineering/blob/main/docs/stack-cookbook.md) (`npx @kevinzhangnothing/goal doctor .`) |
 | [Stories](stories/) | Real wins and honest failures |
-| [Contributor quickstart](https://github.com/KevinZhangNothing/loop-engineering/discussions/123) | **Help wanted:** 25 scoped `good first issues` — comment *I'll take this* to get assigned |
-| [Community update](https://github.com/KevinZhangNothing/loop-engineering/discussions/145) | **July 4:** 5.5k stars, traffic sources, contributor merges |
-| [Prior release notes](https://github.com/KevinZhangNothing/loop-engineering/discussions/89) | v1.5.0 — loop-sync, constraints, MCP server |
-| [Add your project](https://github.com/KevinZhangNothing/loop-engineering/discussions/92) | **Pinned:** Loop Ready badge + adopters list |
+| [Contributor quickstart](https://github.com/KevinZhangNothing/agent-loops/discussions/123) | **Help wanted:** 25 scoped `good first issues` — comment *I'll take this* to get assigned |
+| [Community update](https://github.com/KevinZhangNothing/agent-loops/discussions/145) | **July 4:** 5.5k stars, traffic sources, contributor merges |
+| [Prior release notes](https://github.com/KevinZhangNothing/agent-loops/discussions/89) | v1.5.0 — loop-sync, constraints, MCP server |
+| [Add your project](https://github.com/KevinZhangNothing/agent-loops/discussions/92) | **Pinned:** Loop Ready badge + adopters list |
 
 <p align="center">
   <img src="assets/visuals/section-divider.svg" alt="" width="100%" />
@@ -116,10 +116,10 @@ For developers using Grok, Claude Code, Codex, Cursor, and other AI coding agent
 ## Why This Matters
 
 Peter Steinberger:
-> “You shouldn’t be prompting coding agents anymore. You should be designing loops that prompt your agents.”
+> "You shouldn't be prompting coding agents anymore. You should be designing loops that prompt your agents."
 
 Boris Cherny (Head of Claude Code at Anthropic):
-> “I don’t prompt Claude anymore. I have loops running that prompt Claude and figuring out what to do. My job is to write loops.”
+> "I don't prompt Claude anymore. I have loops running that prompt Claude and figuring out what to do. My job is to write loops."
 
 The leverage point has moved from crafting individual prompts to designing the control systems that orchestrate agents over time.
 
@@ -139,7 +139,7 @@ Full detail: [docs/primitives.md](docs/primitives.md) · Cross-tool matrix: [doc
 ### Visual Overview
 
 <p align="center">
-  <img src="assets/visuals/primitives-infographic.jpg" alt="The Five Building Blocks + Memory — Loop Engineering" width="100%" />
+  <img src="assets/visuals/primitives-infographic.jpg" alt="The Five Building Blocks + Memory — Agent Loops" width="100%" />
 </p>
 
 ### Anatomy of a Loop
@@ -186,7 +186,7 @@ flowchart LR
 | [Post-Merge Cleanup](patterns/post-merge-cleanup.md) | 1d–6h | [post-merge-cleanup](starters/post-merge-cleanup/) | **L1** off-peak | Low |
 | [Issue Triage](patterns/issue-triage.md) | 2h–1d | [issue-triage](starters/issue-triage/) | **L1** propose-only | Low |
 
-Not sure which to pick? Try the [interactive picker](https://KevinZhangNothing.github.io/loop-engineering/#interactive) or [pattern-picker](docs/pattern-picker.md).
+Not sure which to pick? Try the [interactive picker](https://KevinZhangNothing.github.io/agent-loops/#interactive) or [pattern-picker](docs/pattern-picker.md).
 
 Machine-readable index: [patterns/registry.yaml](patterns/registry.yaml) (7 patterns)
 
@@ -235,13 +235,13 @@ Phased rollout: **L1 report → L2 assisted fixes → L3 unattended** — see [l
 
 ## pi Coding Agent Integration
 
-[pi](https://pi.mcp.dev) is a coding-agent framework that supports Skills, MCP servers, Workflows, and Shortcuts. Loop-engineering ships a complete integration kit under [`pi/`](pi/):
+[pi](https://pi.mcp.dev) is a coding-agent framework that supports Skills, MCP servers, Workflows, and Shortcuts. Agent-loops ships a complete integration kit under [`pi/`](pi/):
 
 | Component | Count | Purpose |
 |-----------|-------|---------|
 | Skills (`pi/skills/`) | 12 | `loop-audit`, `loop-init`, `loop-triage`, `loop-cost`, `loop-budget`, `loop-verifier`, `minimal-fix`, `loop-sync`, `loop-guard`, `ci-triage`, `pr-review-triage`, `rebase-and-clean` |
 | Workflows (`pi/workflows/`) | 3 | `daily-triage` (L1, 09:00 Asia/Shanghai), `pr-babysitter` (L2, every 15min), `ci-sweeper` (L2, every 10min + circuit breaker) |
-| MCP servers (`pi/mcp.json`) | 4 | `LoopEngineering`, `LoopAudit`, `LoopInit`, `LoopCost` |
+| MCP servers (`pi/mcp.json`) | 1 (+ 9 CLI shortcuts) | `AgentLoops` (real MCP server); `LoopAudit`/`LoopInit`/`LoopCost` 作为 `+loop-*` shortcuts |
 | Shortcuts | 6 | `+loop-score`, `+loop-init`, `+loop-cost`, `+loop-state`, `+loop-log`, … |
 | Installer | 1 | `bash pi/install.sh` — expands `~`, backs up existing skills |
 
@@ -249,7 +249,7 @@ Phased rollout: **L1 report → L2 assisted fixes → L3 unattended** — see [l
 
 ```bash
 cd path/to/your-project
-bash path/to/loop-engineering/pi/install.sh     # → ~/.pi/agent/
+bash path/to/agent-loops/pi/install.sh     # → ~/.pi/agent/
 
 # In pi, try:
 #   +loop-score          → audit + readiness score
@@ -267,7 +267,7 @@ The installer honors `~/.pi/agent/` as the default, expands `~/custom-target` pa
 
 The new `loop-guard` skill wraps every fix iteration with `loop-context --check --ledger loop-ledger.json` and escalates instead of looping in vain. `loop-sync` wraps `@kevinzhangnothing/loop-sync` for drift detection between `STATE.md` and `LOOP.md`. `rebase-and-clean` honors `loop-constraints.md` (denylist paths, protected branches, 3-attempt cap, draft PR first).
 
-Full guide: [docs/PI-INTEGRATION.md](docs/PI-INTEGRATION.md) · 现状报告: [PI-INTEGRATION-COMPLETE.md](PI-INTEGRATION-COMPLETE.md)
+Full guide: [docs/PI-INTEGRATION.md](docs/PI-INTEGRATION.md) · 现状报告：[PI-INTEGRATION-COMPLETE.md](PI-INTEGRATION-COMPLETE.md)
 
 ## Operating & Safety
 
@@ -282,7 +282,7 @@ Full guide: [docs/PI-INTEGRATION.md](docs/PI-INTEGRATION.md) · 现状报告: [P
 
 ## Caveats
 
-Loop engineering amplifies judgment — both good and bad.
+Agent loops amplify judgment — both good and bad.
 
 - **Token costs** can explode with sub-agents and long-running loops.
 - **Verification is still on you.** Unattended loops make unattended mistakes.
@@ -290,29 +290,29 @@ Loop engineering amplifies judgment — both good and bad.
 - Two people can run the same loop and get opposite results. The loop doesn't know. You do.
 
 Addy Osmani:
-> “Build the loop. But build it like someone who intends to stay the engineer, not just the person who presses go.”
+> "Build the loop. But build it like someone who intends to stay the engineer, not just the person who presses go."
 
 ## Help wanted
 
-**First PR?** Start with the [contributor quickstart](https://github.com/KevinZhangNothing/loop-engineering/discussions/123) — ~10 min to ~1 hr tasks with same-day review on stories and adopters. See [CONTRIBUTORS.md](CONTRIBUTORS.md) for everyone who has shipped so far.
+**First PR?** Start with the [contributor quickstart](https://github.com/KevinZhangNothing/agent-loops/discussions/123) — ~10 min to ~1 hr tasks with same-day review on stories and adopters. See [CONTRIBUTORS.md](CONTRIBUTORS.md) for everyone who has shipped so far.
 
 | Pick one | Issue |
 |----------|-------|
-| ~10 min | [#120 — Add your project to adopters](https://github.com/KevinZhangNothing/loop-engineering/issues/120) |
-| ~15 min | [#227 — `loop-sync` subsection in QUICKSTART](https://github.com/KevinZhangNothing/loop-engineering/issues/227) |
-| ~30 min | [#147 — Cline appendix](https://github.com/KevinZhangNothing/loop-engineering/issues/147) · [#220 — Cursor CI Sweeper example](https://github.com/KevinZhangNothing/loop-engineering/issues/220) |
-| ~45 min | [#225 — Hermes PR Babysitter example](https://github.com/KevinZhangNothing/loop-engineering/issues/225) |
-| ~1 hr | [#230](https://github.com/KevinZhangNothing/loop-engineering/issues/230) / [#231](https://github.com/KevinZhangNothing/loop-engineering/issues/231) — **your story** (worktree week-two, multi-loop failure) |
+| ~10 min | [#120 — Add your project to adopters](https://github.com/KevinZhangNothing/agent-loops/issues/120) |
+| ~15 min | [#227 — `loop-sync` subsection in QUICKSTART](https://github.com/KevinZhangNothing/agent-loops/issues/227) |
+| ~30 min | [#147 — Cline appendix](https://github.com/KevinZhangNothing/agent-loops/issues/147) · [#220 — Cursor CI Sweeper example](https://github.com/KevinZhangNothing/agent-loops/issues/220) |
+| ~45 min | [#225 — Hermes PR Babysitter example](https://github.com/KevinZhangNothing/agent-loops/issues/225) |
+| ~1 hr | [#230](https://github.com/KevinZhangNothing/agent-loops/issues/230) / [#231](https://github.com/KevinZhangNothing/agent-loops/issues/231) — **your story** (worktree week-two, multi-loop failure) |
 
-Comment **"I'll take this"** on any [`good first issue`](https://github.com/KevinZhangNothing/loop-engineering/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) for assignment.
+Comment **"I'll take this"** on any [`good first issue`](https://github.com/KevinZhangNothing/agent-loops/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) for assignment.
 
 ## Contributing
 
-Share production patterns, tool mappings, and failure stories. See [CONTRIBUTING.md](CONTRIBUTING.md) (contribution ladder + [`good first issue` backlog](https://github.com/KevinZhangNothing/loop-engineering/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)), [adopters](docs/adopters.md), and [GitHub Discussions](https://github.com/KevinZhangNothing/loop-engineering/discussions).
+Share production patterns, tool mappings, and failure stories. See [CONTRIBUTING.md](CONTRIBUTING.md) (contribution ladder + [`good first issue` backlog](https://github.com/KevinZhangNothing/agent-loops/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)), [adopters](docs/adopters.md), and [GitHub Discussions](https://github.com/KevinZhangNothing/agent-loops/discussions).
 
 ## Sources
 
-- [Addy Osmani – Loop Engineering](https://addyosmani.com/blog/loop-engineering/)
+- [Addy Osmani – Agent Loops](https://addyosmani.com/blog/agent-loops/)
 - [Attribution & further reading](resources/sources.md)
 
 ## License
@@ -321,16 +321,16 @@ MIT
 
 ---
 
-*Practical, tool-aware reference for loop engineering, patterns you can clone, checklists you can ship against, and stories that include what broke.*
+*Practical, tool-aware reference for agent loops, patterns you can clone, checklists you can ship against, and stories that include what broke.*
 
 <p align="center">
-  <a href="https://KevinZhangNothing.github.io/loop-engineering/">Showcase</a>
+  <a href="https://KevinZhangNothing.github.io/agent-loops/">Showcase</a>
   ·
   <a href="https://github.com/KevinZhangNothing">Kevin Zhang</a>
 </p>
 
 <p align="center">
-  <a href="https://KevinZhangNothing.github.io/loop-engineering/star-history.html">
+  <a href="https://KevinZhangNothing.github.io/agent-loops/star-history.html">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="assets/visuals/star-history-dark.svg" />
       <source media="(prefers-color-scheme: light)" srcset="assets/visuals/star-history.svg" />
@@ -338,4 +338,4 @@ MIT
     </picture>
   </a>
 </p>
-<p align="center"><sub>Static chart (CI-updated daily). <a href="https://KevinZhangNothing.github.io/loop-engineering/star-history.html">Live chart</a> needs a GitHub token — stored in your browser only.</sub></p>
+<p align="center"><sub>Static chart (CI-updated daily). <a href="https://KevinZhangNothing.github.io/agent-loops/star-history.html">Live chart</a> needs a GitHub token — stored in your browser only.</sub></p>

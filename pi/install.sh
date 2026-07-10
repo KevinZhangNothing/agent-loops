@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# pi Integration Installer for loop-engineering
+# pi Integration Installer for agent-loops
 # 
 # Usage:
 #   ./install.sh                    # Install to default pi location
@@ -23,7 +23,7 @@ PI_AGENT_DIR="$DEFAULT_PI_AGENT_DIR"
 
 # Script directory (where this script lives)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LOOP_ENGINEERING_ROOT="$(dirname "$SCRIPT_DIR")"
+AGENT_LOOPS_ROOT="$(dirname "$SCRIPT_DIR")"
 
 # Parse arguments
 DRY_RUN=false
@@ -126,7 +126,7 @@ install_skills() {
     if [ "$DRY_RUN" = true ]; then
         echo "  Would copy skills from: $src_dir"
         echo "  Would install to: $dst_dir"
-        for skill in "$src_dir"/loop-*; do
+        for skill in "$src_dir"/*/; do
             if [ -d "$skill" ]; then
                 echo "    - $(basename "$skill")"
             fi
@@ -138,7 +138,7 @@ install_skills() {
     mkdir -p "$dst_dir"
     
     # Copy each skill — backup existing skill before overwrite
-    for skill in "$src_dir"/loop-*; do
+    for skill in "$src_dir"/*/; do
         if [ -d "$skill" ]; then
             local skill_name=$(basename "$skill")
             # Backup existing skill if it exists (avoid silent overwrite)
@@ -206,7 +206,7 @@ verify_installation() {
     
     # Check skills
     local skill_count=0
-    for skill in "$PI_AGENT_DIR/skills"/loop-*; do
+    for skill in "$PI_AGENT_DIR/skills"/*/; do
         if [ -d "$skill" ]; then
             ((skill_count++))
         fi
@@ -267,13 +267,16 @@ print_dry_run_summary() {
     echo ""
     echo "Files to be installed:"
     echo "  - mcp.json"
-    echo "  - skills/loop-audit/"
-    echo "  - skills/loop-init/"
-    echo "  - skills/loop-triage/"
-    echo "  - skills/loop-cost/"
-    echo "  - workflows/daily-triage.yaml"
-    echo "  - workflows/pr-babysitter.yaml"
-    echo "  - workflows/ci-sweeper.yaml"
+    for skill in "$SCRIPT_DIR/skills"/*/; do
+        if [ -d "$skill" ]; then
+            echo "  - skills/$(basename "$skill")/"
+        fi
+    done
+    for workflow in "$SCRIPT_DIR/workflows"/*.yaml; do
+        if [ -f "$workflow" ]; then
+            echo "  - workflows/$(basename "$workflow")"
+        fi
+    done
     echo ""
     echo "Run without --dry-run to install."
 }
@@ -281,7 +284,7 @@ print_dry_run_summary() {
 # Main
 main() {
     echo -e "${BLUE}========================================${NC}"
-    echo -e "${BLUE}  loop-engineering pi Installer${NC}"
+    echo -e "${BLUE}  agent-loops pi Installer${NC}"
     echo -e "${BLUE}========================================${NC}"
     echo ""
     

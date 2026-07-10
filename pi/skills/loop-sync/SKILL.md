@@ -19,7 +19,7 @@ suggest the smallest fix the human can review.
 - Whenever a new pattern is added or removed in `LOOP.md`.
 - Whenever a new skill lands in `skills/` (or `.grok/skills/`, `.claude/skills/`,
   `.codex/skills/` — `@kevinzhangnothing/loop-sync` scans all four).
-- After upgrading any loop-engineering tool.
+- After upgrading any agent-loops tool.
 
 ## What `@kevinzhangnothing/loop-sync` actually checks
 

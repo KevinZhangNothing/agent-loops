@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "loop-engineering": {
+    "agent-loops": {
       "command": "npx",
       "args": ["-y", "@kevinzhangnothing/loop-mcp-server"],
       "env": {

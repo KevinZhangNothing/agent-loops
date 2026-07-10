@@ -25,7 +25,7 @@ jobs:
           script: |
             const pr = context.payload.pull_request;
             const opener = pr.user.login;
-            const marker = '— loop-engineering maintainers';
+            const marker = '— agent-loops maintainers';
 
             const comments = await github.paginate(
               github.rest.issues.listComments,
@@ -66,12 +66,12 @@ jobs:
               `Thanks @${opener} for contributing ${kind} — visible, reviewable PRs like this grow the reference for everyone.`,
               '',
               '**What happens next**',
-              '- Maintainer aims for **same-day review** on story, adopter, and scoped docs/example PRs ([CONTRIBUTING.md](https://github.com/KevinZhangNothing/loop-engineering/blob/main/CONTRIBUTING.md#maintainer-response-adopters--stories)).',
+              '- Maintainer aims for **same-day review** on story, adopter, and scoped docs/example PRs ([CONTRIBUTING.md](https://github.com/KevinZhangNothing/agent-loops/blob/main/CONTRIBUTING.md#maintainer-response-adopters--stories)).',
               '- `good first issue` PRs: comment on the linked issue so we can assign and close on merge.',
               '',
               '**More ways to help**',
-              '- [Contributor quickstart + open issues](https://github.com/KevinZhangNothing/loop-engineering/discussions/123)',
-              '- [Good first issue backlog](https://github.com/KevinZhangNothing/loop-engineering/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)',
+              '- [Contributor quickstart + open issues](https://github.com/KevinZhangNothing/agent-loops/discussions/123)',
+              '- [Good first issue backlog](https://github.com/KevinZhangNothing/agent-loops/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)',
               '',
               marker
             ].join('\n');

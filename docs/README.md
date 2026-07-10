@@ -1,6 +1,6 @@
 # Documentation Index
 
-Central navigation for all loop-engineering documentation.
+Central navigation for all agent-loops documentation.
 
 ## Quick Start
 
@@ -68,7 +68,7 @@ Central navigation for all loop-engineering documentation.
 | Doc | Description |
 |-----|-------------|
 | [CONTRIBUTING.md](../CONTRIBUTING.md) | Contribution ladder and requirements |
-| [adopters.md](./adopters.md) | Projects using loop engineering |
+| [adopters.md](./adopters.md) | Projects using agent loops |
 | [RELEASE.md](./RELEASE.md) | npm publish workflow |
 | [GITHUB_PAGES.md](./GITHUB_PAGES.md) | GitHub Pages deployment |
 
@@ -101,7 +101,7 @@ Central navigation for all loop-engineering documentation.
 
 ## External
 
-- [Interactive Showcase](https://KevinZhangNothing.github.io/loop-engineering/) — Pattern picker + visual index
-- [Loop Engineering Essay](https://KevinZhangNothing.substack.com/p/loop-engineering) — The concept and why
-- [Addy Osmani on Loop Engineering](https://addyosmani.com/blog/loop-engineering/) — Guest post
-- [GitHub Discussions](https://github.com/KevinZhangNothing/loop-engineering/discussions) — Q&A and show-and-tell
+- [Interactive Showcase](https://KevinZhangNothing.github.io/agent-loops/) — Pattern picker + visual index
+- [Agent Loops Essay](https://KevinZhangNothing.substack.com/p/agent-loops) — The concept and why
+- [Addy Osmani on Agent Loops](https://addyosmani.com/blog/agent-loops/) — Guest post
+- [GitHub Discussions](https://github.com/KevinZhangNothing/agent-loops/discussions) — Q&A and show-and-tell

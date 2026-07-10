@@ -1,6 +1,6 @@
 # pi Integration Kit
 
-**Loop Engineering** × **pi coding agent** 完整集成包。
+**Agent Loops** × **pi coding agent** 完整集成包。
 
 > [pi](https://pi.mcp.dev) 是一个强大的 coding agent 框架，支持 Skills、MCP 服务器、Workflows 和 Shortcuts。
 
@@ -11,20 +11,20 @@
 ```
 pi/
 ├── README.md                 # 本文件
-├── mcp.json                  # pi MCP 配置模板
-├── skills/                   # pi 格式的技能定义
-│   ├── loop-audit/
-│   │   ├── SKILL.md          # 技能定义
-│   │   └── eval.yaml         # 评估配置
-│   ├── loop-init/
-│   │   ├── SKILL.md
-│   │   └── eval.yaml
-│   ├── loop-triage/
-│   │   ├── SKILL.md
-│   │   └── eval.yaml
-│   └── loop-cost/
-│       ├── SKILL.md
-│       └── eval.yaml
+├── mcp.json                  # pi MCP 配置模板（1 个 MCP 服务器 + 10 shortcuts）
+├── skills/                   # pi 格式的技能定义（12 个）
+│   ├── loop-audit/           # Loop Readiness Score 审计
+│   ├── loop-budget/          # Token 预算守护
+│   ├── loop-cost/            # Token 花费估算
+│   ├── loop-guard/           # 电路熔断器
+│   ├── loop-init/            # 脚手架生成
+│   ├── loop-sync/            # STATE.md ↔ LOOP.md drift 检测
+│   ├── loop-triage/          # 日常任务分类
+│   ├── loop-verifier/        # 独立验证器
+│   ├── minimal-fix/          # 最小修复
+│   ├── ci-triage/            # CI 失败分类
+│   ├── pr-review-triage/     # PR 状态分类
+│   └── rebase-and-clean/     # PR rebase 与清理
 └── workflows/                # Workflow 定义
     ├── daily-triage.yaml
     ├── pr-babysitter.yaml
@@ -37,12 +37,20 @@ pi/
 
 ### 1. 复制配置到 pi
 
+推荐使用 `install.sh` 一键安装：
+
+```bash
+bash pi/install.sh
+```
+
+或手动复制（注意所有 12 个 skill）：
+
 ```bash
 # 复制 MCP 配置
 cp pi/mcp.json ~/.pi/agent/
 
-# 复制 Skills
-cp -r pi/skills/loop-* ~/.pi/agent/skills/
+# 复制 Skills（使用 . 复制全部内容，含非 loop-* 前缀的 skill）
+cp -r pi/skills/. ~/.pi/agent/skills/
 
 # 复制 Workflows (可选)
 cp -r pi/workflows/ ~/.pi/agent/workflows/
@@ -80,12 +88,20 @@ cp -r pi/workflows/ ~/.pi/agent/workflows/
 
 ## 可用技能
 
-| 技能 | 描述 | 触发词 |
-|------|------|--------|
-| `loop-audit` | Loop 就绪度审计 | "审计项目", "loop 评分" |
-| `loop-init` | 脚手架生成 | "初始化 loop", "创建脚手架" |
-| `loop-triage` | 日常分类 | "日常分类", "triage report" |
-| `loop-cost` | Token 花费估算 | "token 花费", "预算估算" |
+| 技能 | 等级 | 描述 | 触发词 |
+|------|------|------|--------|
+| `loop-audit` | L1 | Loop 就绪度审计 | "审计项目", "loop 评分" |
+| `loop-init` | L1 | 脚手架生成（7 patterns × 4 tools） | "初始化 loop", "创建脚手架" |
+| `loop-triage` | L1 | 日常任务分类 | "日常分类", "triage report" |
+| `loop-cost` | L1 | Token 花费估算（JSON 输出） | "token 花费", "预算估算" |
+| `loop-budget` | L1 | Token 预算守护 | "loop budget", "kill switch" |
+| `loop-sync` | L1 | STATE.md ↔ LOOP.md drift 检测 | "loop drift", "一致性检查" |
+| `loop-verifier` | L2 | 独立验证器 | "verify", "maker/checker" |
+| `minimal-fix` | L2 | 最小修复实现 | "fix this", "minimal patch" |
+| `loop-guard` | L2 | 电路熔断器 | "circuit breaker", "熔断器" |
+| `ci-triage` | L2 | CI 失败分类 | "CI failure", "flake check" |
+| `pr-review-triage` | L2 | PR 状态分类 | "PR status", "review queue" |
+| `rebase-and-clean` | L2 | PR rebase 与清理 | "rebase PR", "clean commits" |
 
 ---
 
@@ -157,11 +173,14 @@ npx -y @kevinzhangnothing/loop-mcp-server
 ### Skills 未加载
 
 ```bash
-# 检查技能目录
-ls ~/.pi/agent/skills/loop-*
+# 检查技能目录（列出全部 12 个）
+ls ~/.pi/agent/skills/
 
-# 重新复制
-cp -r pi/skills/loop-* ~/.pi/agent/skills/
+# 使用 install.sh 重新安装
+bash pi/install.sh
+
+# 或手动重新复制（使用 . 复制全部内容）
+cp -r pi/skills/. ~/.pi/agent/skills/
 ```
 
 ---
@@ -172,7 +191,7 @@ cp -r pi/skills/loop-* ~/.pi/agent/skills/
 
 - 新技能模板：`pi/skills/{name}/SKILL.md`
 - 新 Workflow：`pi/workflows/{name}.yaml`
-- 集成问题：[GitHub Issues](https://github.com/KevinZhangNothing/loop-engineering/issues)
+- 集成问题：[GitHub Issues](https://github.com/KevinZhangNothing/agent-loops/issues)
 
 ---
 

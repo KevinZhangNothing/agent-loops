@@ -4,7 +4,7 @@ Practical, scoped examples for connecting loops to real tools via MCP (or equiva
 
 **Core principle**: Give loops the *minimum* privilege they need. Prefer read + comment over write. Use human gates + worktrees for anything that mutates state.
 
-## Run the loop-engineering MCP server
+## Run the agent-loops MCP server
 
 If you want to try the MCP server without cloning the repo, use the published package:
 
@@ -15,7 +15,7 @@ LOOP_PROJECT_ROOT=. npx @kevinzhangnothing/loop-mcp-server
 Copy the example MCP configuration:
 
 ```bash
-cp examples/mcp/loop-engineering.mcp.json <your-mcp-config-location>
+cp examples/mcp/agent-loops.mcp.json <your-mcp-config-location>
 ```
 
 Then point your MCP client to the command above.
@@ -35,7 +35,7 @@ The local clone/dev path still works if you want to inspect or change the server
 
 See the files in this directory:
 
-- `loop-engineering.mcp.json` — starter config for the published MCP server.
+- `agent-loops.mcp.json` — starter config for the published MCP server.
 - `github-readonly.mcp.json` (existing) — safe starting point for discovery.
 - `github-propose.json` — read + limited write for comments and draft PRs (sign comments as the loop).
 - `linear.json` — example for creating/updating issues from loop state.
@@ -49,7 +49,7 @@ See the files in this directory:
 ```
 
 Always:
-- Declare the bot identity in comments ("🤖 Loop Engineering — Changelog Drafter").
+- Declare the bot identity in comments ("🤖 Agent Loops — Changelog Drafter").
 - Record the MCP action + result in STATE or the pattern-specific state file.
 - Have an explicit denylist in the skill or LOOP.md.
 

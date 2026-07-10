@@ -2,7 +2,7 @@
 # Idempotent backlog bootstrap. Skips issues that already exist by title.
 set -euo pipefail
 
-REPO="KevinZhangNothing/loop-engineering"
+REPO="KevinZhangNothing/agent-loops"
 BODY_DIR="$(cd "$(dirname "$0")/issue-bodies" && pwd)"
 
 create_issue() {
@@ -59,4 +59,4 @@ create_issue "Share your multi-loop failure story" "good first issue,story" "$BO
 create_issue "Add loop-init validation checklist doc" "good first issue,docs" "$BODY_DIR/loop-init-validation-checklist.md"
 
 echo "Done. Open backlog:"
-echo "https://github.com/KevinZhangNothing/loop-engineering/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22"
+echo "https://github.com/KevinZhangNothing/agent-loops/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22"

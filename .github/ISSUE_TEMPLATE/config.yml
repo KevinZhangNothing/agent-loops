@@ -1,16 +1,16 @@
 blank_issues_enabled: false
 contact_links:
   - name: "\u2753 Question or Discussion"
-    url: https://github.com/KevinZhangNothing/loop-engineering/discussions
-    about: "For general questions, ideas, or chat about loop engineering, use Discussions."
+    url: https://github.com/KevinZhangNothing/agent-loops/discussions
+    about: "For general questions, ideas, or chat about agent loops, use Discussions."
   - name: "\ud83d\udc1b Report an issue with the docs site or showcase"
-    url: https://github.com/KevinZhangNothing/loop-engineering/issues/new?labels=docs
+    url: https://github.com/KevinZhangNothing/agent-loops/issues/new?labels=docs
     about: "Use the bug report template for the reference itself."
   - name: "\ud83c\udf10 Add my project to Adopters"
-    url: https://github.com/KevinZhangNothing/loop-engineering/issues/new?template=add-adopter.yml
+    url: https://github.com/KevinZhangNothing/agent-loops/issues/new?template=add-adopter.yml
     about: "List your loop on the showcase adopters wall and docs/adopters.md."
   - name: "\ud83c\udf31 Good first issues (contributor quickstart)"
-    url: https://github.com/KevinZhangNothing/loop-engineering/discussions/123
+    url: https://github.com/KevinZhangNothing/agent-loops/discussions/123
     about: "Scoped ~10 min–1 hr tasks. Comment I'll take this on an issue to get assigned."
 
 labels:

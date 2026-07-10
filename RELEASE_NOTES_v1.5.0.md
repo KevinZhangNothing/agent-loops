@@ -18,7 +18,7 @@ npx @kevinzhangnothing/loop-audit . --suggest
 npx @kevinzhangnothing/loop-sync .
 ```
 
-**New here?** [Quickstart (5 min)](docs/QUICKSTART.md) · [Interactive pattern picker](https://KevinZhangNothing.github.io/loop-engineering/#interactive)
+**New here?** [Quickstart (5 min)](docs/QUICKSTART.md) · [Interactive pattern picker](https://KevinZhangNothing.github.io/agent-loops/#interactive)
 
 ---
 
@@ -32,13 +32,13 @@ Detect configuration drift between `STATE.md`, `LOOP.md`, and skill versions. Ru
 npx @kevinzhangnothing/loop-sync . -v
 ```
 
-Contributed via [#47](https://github.com/KevinZhangNothing/loop-engineering/pull/47) — thanks @community.
+Contributed via [#47](https://github.com/KevinZhangNothing/agent-loops/pull/47) — thanks @community.
 
 ### New: `loop-constraints`
 
 Structured guardrails file + enforcement skill. `loop-init` now scaffolds `loop-constraints.md` and the `loop-constraints` skill on every run. `loop-audit` scores constraints presence (+6 readiness points when file + skill both exist).
 
-Contributed via [#71](https://github.com/KevinZhangNothing/loop-engineering/pull/71).
+Contributed via [#71](https://github.com/KevinZhangNothing/agent-loops/pull/71).
 
 ### New: `loop-mcp-server` (repo v1)
 
@@ -48,14 +48,14 @@ MCP runtime lookup for patterns, skills, and state. Path traversal guards includ
 node tools/mcp-server/dist/index.js
 ```
 
-Contributed via [#72](https://github.com/KevinZhangNothing/loop-engineering/pull/72). npm publish coming soon.
+Contributed via [#72](https://github.com/KevinZhangNothing/agent-loops/pull/72). npm publish coming soon.
 
 ### Updated npm packages
 
 | Package | Version | Highlights |
 |---------|---------|------------|
 | `@kevinzhangnothing/loop-audit` | **1.5.0** | Constraints scoring + recommendations |
-| `@kevinzhangnothing/loop-init` | **1.2.3** | Constraints scaffold; serialized asset bundling fix ([#80](https://github.com/KevinZhangNothing/loop-engineering/pull/80)) |
+| `@kevinzhangnothing/loop-init` | **1.2.3** | Constraints scaffold; serialized asset bundling fix ([#80](https://github.com/KevinZhangNothing/agent-loops/pull/80)) |
 | `@kevinzhangnothing/loop-sync` | **1.0.0** | First npm release |
 
 ### Docs & discoverability
@@ -70,11 +70,11 @@ Contributed via [#72](https://github.com/KevinZhangNothing/loop-engineering/pull
 
 ## Community
 
-This release merges work from 7 community PRs. Read the full story in [Discussion #89](https://github.com/KevinZhangNothing/loop-engineering/discussions/89).
+This release merges work from 7 community PRs. Read the full story in [Discussion #89](https://github.com/KevinZhangNothing/agent-loops/discussions/89).
 
-**Run a loop?** Add yourself to [docs/adopters.md](docs/adopters.md) or [open an Add Adopter issue](https://github.com/KevinZhangNothing/loop-engineering/issues/new?template=add-adopter.yml).
+**Run a loop?** Add yourself to [docs/adopters.md](docs/adopters.md) or [open an Add Adopter issue](https://github.com/KevinZhangNothing/agent-loops/issues/new?template=add-adopter.yml).
 
-**Show & tell:** [Discussions → Show and tell](https://github.com/KevinZhangNothing/loop-engineering/discussions/categories/show-and-tell)
+**Show & tell:** [Discussions → Show and tell](https://github.com/KevinZhangNothing/agent-loops/discussions/categories/show-and-tell)
 
 ---
 
@@ -84,7 +84,7 @@ Loops discover ongoing work. **Goals finish bounded tasks.**
 
 | Layer | Repo | Command |
 |-------|------|---------|
-| Discover (cadence) | [loop-engineering](https://github.com/KevinZhangNothing/loop-engineering) | `npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok` |
+| Discover (cadence) | [agent-loops](https://github.com/KevinZhangNothing/agent-loops) | `npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok` |
 | Finish (run-until-done) | [goal-engineering](https://github.com/KevinZhangNothing/goal-engineering) | `npx @kevinzhangnothing/goal init . --pattern fix-bug --tool grok` |
 
 **Stack cookbook:** [loop → goal → fleet day rhythm](https://github.com/KevinZhangNothing/goal-engineering/blob/main/docs/stack-cookbook.md)

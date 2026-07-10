@@ -1,7 +1,7 @@
 {
   "name": "@kevinzhangnothing/loop-worktree",
   "version": "1.0.0",
-  "description": "Manage isolated git worktrees for loop engineering attempts: create, mark, cleanup, and reconcile one worktree per fix attempt.",
+  "description": "Manage isolated git worktrees for agent loops attempts: create, mark, cleanup, and reconcile one worktree per fix attempt.",
   "type": "module",
   "bin": {
     "loop-worktree": "dist/cli.js"
@@ -20,7 +20,7 @@
     "node": ">=18"
   },
   "keywords": [
-    "loop-engineering",
+    "agent-loops",
     "ai-agents",
     "coding-agents",
     "git-worktree",
@@ -33,12 +33,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KevinZhangNothing/loop-engineering.git",
+    "url": "git+https://github.com/KevinZhangNothing/agent-loops.git",
     "directory": "tools/loop-worktree"
   },
-  "homepage": "https://KevinZhangNothing.github.io/loop-engineering/",
+  "homepage": "https://KevinZhangNothing.github.io/agent-loops/",
   "bugs": {
-    "url": "https://github.com/KevinZhangNothing/loop-engineering/issues"
+    "url": "https://github.com/KevinZhangNothing/agent-loops/issues"
   },
   "publishConfig": {
     "access": "public"

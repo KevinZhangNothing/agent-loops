@@ -1,4 +1,4 @@
-# Loop Constraints — loop-engineering reference
+# Loop Constraints — agent-loops reference
 
 > The `loop-constraints` skill reads this file at the start of every run.
 > Constraints here are **binding** — the agent MUST follow them.

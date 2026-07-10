@@ -63,7 +63,7 @@ jobs:
           LEVEL="${{ steps.audit.outputs.level }}"
           FAILING="${{ steps.workflows.outputs.failing }}"
           cat > STATE.md <<EOF
-          # Loop State — loop-engineering reference
+          # Loop State — agent-loops reference
 
           Last run: ${DATE} (automated daily-triage workflow)
 

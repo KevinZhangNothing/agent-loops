@@ -1,6 +1,6 @@
 # Tools Sync Status
 
-Track npm package versions and release synchronization across all loop-engineering tools.
+Track npm package versions and release synchronization across all agent-loops tools.
 
 *Last sync check: 2026-07-09*
 

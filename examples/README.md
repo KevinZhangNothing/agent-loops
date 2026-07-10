@@ -15,7 +15,7 @@ Same patterns, different tools. Skills and state schemas are shared; only schedu
 | Gemini CLI | [primitives-matrix § Gemini CLI](../docs/primitives-matrix.md#appendix-gemini-cli) — terminal-based loops via `gemini` + external scheduling |
 | GitHub Actions | [github-actions/](./github-actions/) |
 | Aider CLI | [primitives-matrix § Aider](../docs/primitives-matrix.md#appendix-aider-cli) — CLI-first loops via cron + `--read` skills |
-| MCP connectors | [mcp/](./mcp/) — config example, including `loop-engineering.mcp.json`; reference server in [tools/mcp-server/](../tools/mcp-server/) |
+| MCP connectors | [mcp/](./mcp/) — config example, including `agent-loops.mcp.json`; reference server in [tools/mcp-server/](../tools/mcp-server/) |
 
 Start with [primitives-matrix.md](../docs/primitives-matrix.md) to map capabilities.
 

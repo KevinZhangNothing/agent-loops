@@ -1,6 +1,6 @@
-# LOOP.md — Loop Engineering Reference
+# LOOP.md — Agent Loops Reference
 
-This file documents how the **loop-engineering** reference repository is operated with loop engineering patterns.
+This file documents how the **agent-loops** reference repository is operated with agent loops patterns.
 
 The goal of this repo is to be the canonical, copyable, high-signal collection of patterns, starters, and tooling. It eats its own dogfood aggressively.
 

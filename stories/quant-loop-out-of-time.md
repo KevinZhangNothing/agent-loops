@@ -1,9 +1,9 @@
 # Quant Loop, Part II — The Strategy That Passed Research and Still Failed
 
-*Contributed by [@50thycal](https://github.com/50thycal) — adapted from [PR #136](https://github.com/KevinZhangNothing/loop-engineering/pull/136).*
+*Contributed by [@50thycal](https://github.com/50thycal) — adapted from [PR #136](https://github.com/KevinZhangNothing/agent-loops/pull/136).*
 
 A follow-up to [the verifier problem](quant-loop-the-verifier-problem.md). We took
-the [quant research loop](https://github.com/50thycal/loop-engineering/tree/claude/code-review-discussion-9w5pnt/starters/quant-research-loop)
+the [quant research loop](https://github.com/50thycal/agent-loops/tree/claude/code-review-discussion-9w5pnt/starters/quant-research-loop)
 from "reject overfit garbage" to "hunt for a real strategy," built the anti-self-deception guards the
 job demands, then tried to beat them on real BTC. The punchline is the most useful
 thing a research harness can produce: **a strategy that cleared honest research and

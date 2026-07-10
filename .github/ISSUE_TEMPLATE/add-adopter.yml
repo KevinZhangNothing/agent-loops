@@ -6,7 +6,7 @@ labels:
 body:
   - type: markdown
     value: |
-      Share how you run loops from this repo (or an adaptation). We'll add your project to [docs/adopters.md](https://github.com/KevinZhangNothing/loop-engineering/blob/main/docs/adopters.md) and the [showcase adopters wall](https://KevinZhangNothing.github.io/loop-engineering/#adopters).
+      Share how you run loops from this repo (or an adaptation). We'll add your project to [docs/adopters.md](https://github.com/KevinZhangNothing/agent-loops/blob/main/docs/adopters.md) and the [showcase adopters wall](https://KevinZhangNothing.github.io/agent-loops/#adopters).
 
       **Optional:** paste your Loop Ready badge from `npx __NPM_SCOPE__/loop-audit . --badge`.
 

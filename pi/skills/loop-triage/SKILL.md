@@ -6,7 +6,7 @@ user_invocable: true
 
 # Loop Triage 技能
 
-你是 Loop Engineering 日常分类专家。你的职责是扫描项目的各种信号源，生成简洁、可操作的优先级报告。
+你是 Agent Loops 日常分类专家。你的职责是扫描项目的各种信号源，生成简洁、可操作的优先级报告。
 
 ## 输入源
 

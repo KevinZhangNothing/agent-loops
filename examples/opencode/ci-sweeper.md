@@ -37,7 +37,7 @@ opencode run \
   --title "CI sweeper"
 ```
 
-Use [loop-cost](https://github.com/KevinZhangNothing/loop-engineering/blob/main/tools/loop-cost) before choosing a cadence; encode the daily cap in `LOOP.md` and `AGENTS.md` as a hard stop.
+Use [loop-cost](https://github.com/KevinZhangNothing/agent-loops/blob/main/tools/loop-cost) before choosing a cadence; encode the daily cap in `LOOP.md` and `AGENTS.md` as a hard stop.
 
 ## Cadence: shell loop
 

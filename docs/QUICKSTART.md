@@ -4,13 +4,13 @@
 
 Watch the score climb: [loop-audit-demo.gif](../assets/visuals/loop-audit-demo.gif) (10 → 70 → 100 in ~15s).
 
-Landed from [X](https://x.com), the [showcase](https://KevinZhangNothing.github.io/loop-engineering/), or a friend's README? This is the shortest path from zero to a running loop.
+Landed from [X](https://x.com), the [showcase](https://KevinZhangNothing.github.io/agent-loops/), or a friend's README? This is the shortest path from zero to a running loop.
 
 **Week one rule:** report only. No auto-fix, no auto-merge. Read what the loop writes before you let it act.
 
 ## 1. Pick your pain (30 seconds)
 
-Not sure which loop? Use the [interactive pattern picker](https://KevinZhangNothing.github.io/loop-engineering/#interactive) on the showcase — it recommends a pattern, scaffold command, first `/loop` line, and a token estimate.
+Not sure which loop? Use the [interactive pattern picker](https://KevinZhangNothing.github.io/agent-loops/#interactive) on the showcase — it recommends a pattern, scaffold command, first `/loop` line, and a token estimate.
 
 Or start with **Daily Triage** if you just want to learn loop discipline with low risk.
 
@@ -74,7 +74,7 @@ npx @kevinzhangnothing/loop-audit . --badge
 
 ### Optional: MCP runtime lookup
 
-Agents can query patterns, skills, and state on demand instead of stuffing docs into every prompt. Copy the config stub from [examples/mcp/loop-engineering.mcp.json](../examples/mcp/loop-engineering.mcp.json) into your MCP client settings.
+Agents can query patterns, skills, and state on demand instead of stuffing docs into every prompt. Copy the config stub from [examples/mcp/agent-loops.mcp.json](../examples/mcp/agent-loops.mcp.json) into your MCP client settings.
 
 Run the server from npm (no clone required):
 
@@ -82,10 +82,10 @@ Run the server from npm (no clone required):
 LOOP_PROJECT_ROOT=. npx @kevinzhangnothing/loop-mcp-server
 ```
 
-Or from a cloned `loop-engineering` repo for local development:
+Or from a cloned `agent-loops` repo for local development:
 
 ```bash
-cd path/to/loop-engineering/tools/mcp-server && npm ci && npm run build
+cd path/to/agent-loops/tools/mcp-server && npm ci && npm run build
 LOOP_PROJECT_ROOT=/path/to/your/project node dist/index.js
 ```
 
@@ -213,10 +213,10 @@ npx @kevinzhangnothing/loop-worktree cleanup --older-than 24h
 
 ## Learn the why (optional, 10 minutes)
 
-- [Loop Engineering essay](https://KevinZhangNothing.substack.com/p/loop-engineering) — concept and primitives
+- [Agent Loops essay](https://KevinZhangNothing.substack.com/p/agent-loops) — concept and primitives
 - [Primitives matrix](./primitives-matrix.md) — Grok vs Claude vs Codex vs OpenClaw vs Opencode vs Cursor
 - [Operating loops](./operating-loops.md) — when to kill a loop
 
 ---
 
-*Questions? [GitHub Discussions](https://github.com/KevinZhangNothing/loop-engineering/discussions) · Share your setup via [Add Adopter](https://github.com/KevinZhangNothing/loop-engineering/issues/new?template=add-adopter.yml)*
+*Questions? [GitHub Discussions](https://github.com/KevinZhangNothing/agent-loops/discussions) · Share your setup via [Add Adopter](https://github.com/KevinZhangNothing/agent-loops/issues/new?template=add-adopter.yml)*

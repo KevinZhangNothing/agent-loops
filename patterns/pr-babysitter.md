@@ -74,7 +74,7 @@ Example state entry:
 
 **General**:
 - Expose the state file in the repo or a shared doc so the whole team can see what the loop is doing.
-- Make the loop's comments on PRs clearly signed (e.g. "🤖 Loop Engineering — PR Babysitter").
+- Make the loop's comments on PRs clearly signed (e.g. "🤖 Agent Loops — PR Babysitter").
 
 ## Failure Modes & Mitigations
 

@@ -1,6 +1,6 @@
 # Project Health Dashboard
 
-Real-time status of loop-engineering components.
+Real-time status of agent-loops components.
 
 *Last updated: 2026-07-09*
 
@@ -61,7 +61,7 @@ Full log: [loop-run-log.md](./loop-run-log.md)
 
 ### Recent Releases
 
-Check [GitHub Releases](https://github.com/KevinZhangNothing/loop-engineering/releases) for latest.
+Check [GitHub Releases](https://github.com/KevinZhangNothing/agent-loops/releases) for latest.
 
 ## Open Issues Health
 
@@ -72,7 +72,7 @@ Check [GitHub Releases](https://github.com/KevinZhangNothing/loop-engineering/re
 | `enhancement` | ~15 | Feature requests |
 | `bug` | ~3 | Bugs to fix |
 
-[Browse all issues](https://github.com/KevinZhangNothing/loop-engineering/issues)
+[Browse all issues](https://github.com/KevinZhangNothing/agent-loops/issues)
 
 ## Documentation Coverage
 
@@ -88,17 +88,17 @@ Check [GitHub Releases](https://github.com/KevinZhangNothing/loop-engineering/re
 
 | Gap | Priority | Tracking |
 |-----|----------|----------|
-| More Cursor/Windsurf examples | Medium | [#220](https://github.com/KevinZhangNothing/loop-engineering/issues/220) |
+| More Cursor/Windsurf examples | Medium | [#220](https://github.com/KevinZhangNothing/agent-loops/issues/220) |
 | More production stories | Medium | [Stories index](./stories/) |
 | Aider CLI examples | Low | [primitives-matrix.md](./primitives-matrix.md) |
 | Gemini CLI examples | Low | [primitives-matrix.md](./primitives-matrix.md) |
 
 ## How to Help
 
-1. **Add your project**: [Add Adopter issue](https://github.com/KevinZhangNothing/loop-engineering/issues/new?template=add-adopter.yml)
+1. **Add your project**: [Add Adopter issue](https://github.com/KevinZhangNothing/agent-loops/issues/new?template=add-adopter.yml)
 2. **Write a story**: Share what worked or broke in `stories/`
 3. **Add examples**: Tool-specific implementations in `examples/{tool}/`
-4. **Fix bugs**: Browse [`good first issue`](https://github.com/KevinZhangNothing/loop-engineering/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+4. **Fix bugs**: Browse [`good first issue`](https://github.com/KevinZhangNothing/agent-loops/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
 ## Automated Checks
 
