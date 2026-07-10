@@ -54,11 +54,61 @@ npx @kevinzhangnothing/loop-audit . --suggest
 
 ### 架构概览
 
-**📐 交互式图表**（在新标签页中打开）
+```mermaid
+flowchart TB
+    subgraph Inputs["📥 输入源"]
+        GH["🔔 GitHub 事件"]
+        CRON["⏰ Cron 调度"]
+        MANUAL["✋ 手动 /loop"]
+    end
 
-> **查看：** [打开架构图 →](docs/diagrams/agent-loops-architecture.html)
->
-> **特性：** 🌓 深色/浅色主题 · 📥 导出 PNG/SVG（最高 4×）· 🔍 缩放和平移
+    subgraph Core["🔧 核心原语"]
+        SCHED["📅 调度"]
+        STATE[("💾 状态")]
+        SKILLS["🧩 技能"]
+        WT["🌿 工作树"]
+        SUB["👥 子代理"]
+    end
+
+    subgraph MCP["🔌 MCP 集成"]
+        MCP_HUB(("MCP 中心"))
+        GH_MCP["🐙 GitHub"]
+        LIN_MCP["📋 Linear"]
+        SLK_MCP["💬 Slack"]
+    end
+
+    subgraph Outputs["📤 输出动作"]
+        STATE_UPD[("STATE.md")]
+        PR_COM["💬 PR 评论"]
+        FIXES["✅ 修复提交"]
+        REPS["📊 报告"]
+    end
+
+    GH --> SCHED
+    CRON --> SCHED
+    MANUAL --> SCHED
+    SCHED --> STATE
+    SCHED --> SKILLS
+    SKILLS --> WT
+    SKILLS --> SUB
+    SKILLS --> MCP_HUB
+    MCP_HUB --> GH_MCP
+    MCP_HUB --> LIN_MCP
+    MCP_HUB --> SLK_MCP
+    STATE --> STATE_UPD
+    SKILLS --> PR_COM
+    WT --> FIXES
+    SKILLS --> REPS
+
+    classDef input fill:#dbeafe,stroke:#2563eb,stroke-width:2px
+    classDef core fill:#fef3c7,stroke:#d97706,stroke-width:2px
+    classDef mcp fill:#e0e7ff,stroke:#4f46e5,stroke-width:2px
+    classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px
+    class GH,CRON,MANUAL input
+    class SCHED,STATE,SKILLS,WT,SUB core
+    class MCP_HUB,GH_MCP,LIN_MCP,SLK_MCP mcp
+    class STATE_UPD,PR_COM,FIXES,REPS output
+```
 
 | 原语 | 用途 |
 |------|------|

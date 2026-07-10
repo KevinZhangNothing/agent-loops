@@ -54,11 +54,61 @@ npx @kevinzhangnothing/loop-audit . --suggest
 
 ### Architecture Overview
 
-**📐 Interactive Diagram** (opens in new tab)
+```mermaid
+flowchart TB
+    subgraph Inputs["📥 Input Sources"]
+        GH["🔔 GitHub Events"]
+        CRON["⏰ Cron Schedules"]
+        MANUAL["✋ Manual /loop"]
+    end
 
-> **View:** [Open Architecture Diagram →](docs/diagrams/agent-loops-architecture.html)
-> 
-> **Features:** 🌓 Dark/Light theme · 📥 Export PNG/SVG (up to 4×) · 🔍 Zoom & Pan
+    subgraph Core["🔧 Core Primitives"]
+        SCHED["📅 Scheduling"]
+        STATE[("💾 State")]
+        SKILLS["🧩 Skills"]
+        WT["🌿 Worktrees"]
+        SUB["👥 Sub-agents"]
+    end
+
+    subgraph MCP["🔌 MCP Integration"]
+        MCP_HUB(("MCP Hub"))
+        GH_MCP["🐙 GitHub"]
+        LIN_MCP["📋 Linear"]
+        SLK_MCP["💬 Slack"]
+    end
+
+    subgraph Outputs["📤 Output Actions"]
+        STATE_UPD[("STATE.md")]
+        PR_COM["💬 PR Comments"]
+        FIXES["✅ Fix Commits"]
+        REPS["📊 Reports"]
+    end
+
+    GH --> SCHED
+    CRON --> SCHED
+    MANUAL --> SCHED
+    SCHED --> STATE
+    SCHED --> SKILLS
+    SKILLS --> WT
+    SKILLS --> SUB
+    SKILLS --> MCP_HUB
+    MCP_HUB --> GH_MCP
+    MCP_HUB --> LIN_MCP
+    MCP_HUB --> SLK_MCP
+    STATE --> STATE_UPD
+    SKILLS --> PR_COM
+    WT --> FIXES
+    SKILLS --> REPS
+
+    classDef input fill:#dbeafe,stroke:#2563eb,stroke-width:2px
+    classDef core fill:#fef3c7,stroke:#d97706,stroke-width:2px
+    classDef mcp fill:#e0e7ff,stroke:#4f46e5,stroke-width:2px
+    classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px
+    class GH,CRON,MANUAL input
+    class SCHED,STATE,SKILLS,WT,SUB core
+    class MCP_HUB,GH_MCP,LIN_MCP,SLK_MCP mcp
+    class STATE_UPD,PR_COM,FIXES,REPS output
+```
 
 **Key Components:**
 
@@ -68,6 +118,8 @@ npx @kevinzhangnothing/loop-audit . --suggest
 | **Core Primitives** | Scheduling, State, Skills, Worktrees, Sub-agents |
 | **MCP Integration** | GitHub MCP, Linear MCP, Slack MCP |
 | **Output Actions** | STATE.md updates, PR Comments, Fix Commits, Reports |
+
+> **💡 Interactive Version:** For zoomable, exportable diagrams with dark/light theme, see [Diagrams Documentation](docs/DIAGRAMS.md)
 
 | Primitive | Purpose |
 |-----------|---------|
@@ -93,11 +145,36 @@ npx @kevinzhangnothing/loop-audit . --suggest
 
 ### Execution Flow
 
-**🔄 Interactive Diagram** (opens in new tab)
+```mermaid
+stateDiagram-v2
+    [*] --> Triggered
+    Triggered --> BudgetCheck
+    BudgetCheck --> Triage: budget ok
+    BudgetCheck --> EarlyExit: over budget
+    Triage --> Executing
+    Executing --> Verifying: submit
+    Verifying --> Completed: verified
+    Verifying --> Escalated: failed
+    EarlyExit --> [*]
+    Completed --> [*]
+    Escalated --> [*]
 
-> **View:** [Open Lifecycle Diagram →](docs/diagrams/loop-execution-lifecycle.html)
->
-> **Features:** 🌓 Dark/Light theme · 📥 Export PNG/SVG · State machine visualization
+    note right of Verifying
+        loop-guard
+        circuit breaker
+    end note
+
+    classDef start fill:#22c55e,color:#fff
+    classDef active fill:#3b82f6,color:#fff
+    classDef waiting fill:#f59e0b,color:#fff
+    classDef success fill:#22c55e,color:#fff
+    classDef failure fill:#ef4444,color:#fff
+    class Triggered start
+    class BudgetCheck,Triage,Executing active
+    class Verifying waiting
+    class Completed,EarlyExit success
+    class Escalated failure
+```
 
 **Lifecycle States:**
 
@@ -113,11 +190,38 @@ npx @kevinzhangnothing/loop-audit . --suggest
 
 ### Pattern Comparison
 
-**📊 Interactive Diagram** (opens in new tab)
+```mermaid
+flowchart LR
+    subgraph Daily["📅 Daily Triage (L1)"]
+        D1["Cron"] --> D2["Scan"] --> D3["Report"]
+    end
 
-> **View:** [Open Patterns Workflow →](docs/diagrams/loop-patterns-workflow.html)
->
-> **Shows:** Side-by-side comparison of Daily Triage (L1) · PR Babysitter (L2) · CI Sweeper (L2) · Dependency Sweeper (L2)
+    subgraph PR["🔍 PR Babysitter (L2)"]
+        P1["Watch"] --> P2["Check CI"] --> P3["Comment"]
+    end
+
+    subgraph CI["🧹 CI Sweeper (L2)"]
+        C1["Detect"] --> C2["Analyze"] --> C3["Fix PR"]
+    end
+
+    subgraph Dep["📦 Dependency (L2)"]
+        DP1["Scan"] --> DP2["Select"] --> DP3["PR"]
+    end
+
+    classDef l1 fill:#dbeafe,stroke:#2563eb,stroke-width:2px
+    classDef l2 fill:#fef3c7,stroke:#d97706,stroke-width:2px
+    class D1,D2,D3 l1
+    class P1,P2,P3,C1,C2,C3,DP1,DP2,DP3 l2
+```
+
+**Patterns:**
+
+| Pattern | Level | Cadence | Human Gate |
+|---------|-------|---------|------------|
+| **Daily Triage** | L1 | Daily 10:00 UTC | Weekly review |
+| **PR Babysitter** | L2 | On PR events | Human merges |
+| **CI Sweeper** | L2 | On CI failures | Human reviews PR |
+| **Dependency Sweeper** | L2 | Every 6 hours | Allowlist only |
 
 👉 **[All Patterns →](patterns/README.md)** | **[Pattern Picker →](docs/PATTERN_PICKER.md)**
 
