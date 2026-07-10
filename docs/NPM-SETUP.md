@@ -148,17 +148,17 @@ If packages were previously published under different scope (e.g., `@cobusgreyli
 
 ## Package Versions
 
-Current versions ready to publish:
+**✅ Published!** All packages are now available on npm.
 
 | Package | Version | Status |
 |---------|---------|--------|
-| `@kevinzhangnothing/loop-audit` | 1.6.0 | ✅ Ready |
-| `@kevinzhangnothing/loop-init` | 1.3.3 | ✅ Ready |
-| `@kevinzhangnothing/loop-cost` | 1.0.3 | ✅ Ready |
-| `@kevinzhangnothing/loop-sync` | 1.0.0 | ✅ Ready |
-| `@kevinzhangnothing/loop-context` | 1.0.0 | ✅ Ready |
-| `@kevinzhangnothing/loop-worktree` | 1.0.0 | ✅ Ready |
-| `@kevinzhangnothing/loop-mcp-server` | 1.0.0 | ✅ Ready |
+| `@kevinzhangnothing/loop-audit` | 1.6.0 | ✅ Published |
+| `@kevinzhangnothing/loop-init` | 1.3.3 | ✅ Published |
+| `@kevinzhangnothing/loop-cost` | 1.0.3 | ✅ Published |
+| `@kevinzhangnothing/loop-sync` | 1.0.0 | ✅ Published |
+| `@kevinzhangnothing/loop-context` | 1.0.0 | ✅ Published |
+| `@kevinzhangnothing/loop-worktree` | 1.0.0 | ✅ Published |
+| `@kevinzhangnothing/loop-mcp-server` | 1.0.0 | ✅ Published |
 
 ## Update README After Publishing
 
