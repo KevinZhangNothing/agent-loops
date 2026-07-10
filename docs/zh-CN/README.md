@@ -1,5 +1,13 @@
 # 文档索引
 
+<p align="center">
+  <strong>🌐 选择语言：</strong>
+  <a href="../README.md">English</a> ·
+  <a href="./README.md">简体中文</a>
+</p>
+
+---
+
 ## 快速开始
 
 | 文档 | 时间 | 描述 |

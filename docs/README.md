@@ -1,5 +1,13 @@
 # Documentation Index
 
+<p align="center">
+  <strong>🌐 Select Language:</strong>
+  <a href="./README.md">English</a> ·
+  <a href="zh-CN/README.md">简体中文</a>
+</p>
+
+---
+
 ## Getting Started
 
 | Doc | Time | Description |

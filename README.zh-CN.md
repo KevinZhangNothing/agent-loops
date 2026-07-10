@@ -4,6 +4,16 @@
 
 面向使用 Grok、Claude Code、Codex、Cursor 等 AI 编程代理的开发者。
 
+---
+
+<p align="center">
+  <strong>🌐 选择语言：</strong>
+  <a href="README.md">English</a> ·
+  <a href="README.zh-CN.md">简体中文</a>
+</p>
+
+---
+
 ```bash
 npx @kevinzhangnothing/loop-init .
 ```

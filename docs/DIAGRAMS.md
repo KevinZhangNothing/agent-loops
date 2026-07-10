@@ -2,6 +2,14 @@
 
 Interactive architecture and workflow diagrams for understanding Agent Loops.
 
+<p align="center">
+  <strong>🌐 Select Language:</strong>
+  <a href="./DIAGRAMS.md">English</a> ·
+  <a href="zh-CN/DIAGRAMS.md">简体中文</a>
+</p>
+
+---
+
 ## 📐 Architecture Diagram
 
 **Agent Loops System Architecture** — Shows the complete system layout with all core components, external integrations, and data flow.

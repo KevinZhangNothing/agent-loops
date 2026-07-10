@@ -2,6 +2,14 @@
 
 Agent Loops 的交互式架构和工作流图表。
 
+<p align="center">
+  <strong>🌐 选择语言：</strong>
+  <a href="../DIAGRAMS.md">English</a> ·
+  <a href="./DIAGRAMS.md">简体中文</a>
+</p>
+
+---
+
 ## 📐 架构图
 
 **Agent Loops 系统架构** — 展示完整的系统布局，包含所有核心组件、外部集成和数据流。

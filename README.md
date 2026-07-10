@@ -4,6 +4,16 @@
 
 For developers using Grok, Claude Code, Codex, Cursor, and other AI coding agents.
 
+---
+
+<p align="center">
+  <strong>🌐 Select Language:</strong>
+  <a href="README.md">English</a> ·
+  <a href="README.zh-CN.md">简体中文</a>
+</p>
+
+---
+
 ```bash
 npx @kevinzhangnothing/loop-init .
 ```
