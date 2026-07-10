@@ -132,6 +132,7 @@ Share production patterns, tool examples, and failure stories.
 | **[Primitives](docs/PRIMITIVES.md)** | The 5 building blocks + memory |
 | **[Safety](docs/SAFETY.md)** | Denylists, auto-merge policy, MCP scopes |
 | **[Tool Matrix](docs/TOOL_MATRIX.md)** | Cross-tool capability mapping |
+| **[pi Integration](docs/PI-INTEGRATION.md)** | pi coding agent integration (12 skills, 3 workflows) |
 
 ## License
 
