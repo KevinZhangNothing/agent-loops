@@ -49,7 +49,7 @@ async function loadRegistry() {
             /* try next */
         }
     }
-    throw new Error('Pattern registry not found. Run from loop-engineering repo or install @kevinzhangnothing/loop-cost.');
+    throw new Error('Pattern registry not found. Run from agent-loops repo or install @kevinzhangnothing/loop-cost.');
 }
 async function main() {
     const args = parseArgs(process.argv.slice(2));

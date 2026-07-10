@@ -4,7 +4,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { z } from 'zod';
 import { resolveProjectRoot, loadRegistry, loadPatternDoc, listSkills, loadSkill, loadState, listStateFiles, loadLoopConfig, loadBudget, loadRunLog, loadSafetyDoc, listPatternDocs, } from './resolver.js';
 const server = new McpServer({
-    name: 'loop-engineering',
+    name: 'agent-loops',
     version: '1.0.0',
 });
 // ── Resources ──────────────────────────────────────────────────────
@@ -101,7 +101,7 @@ server.resource('state', new ResourceTemplate('loop://state/{stateFile}', { list
     };
 });
 // ── Tools ──────────────────────────────────────────────────────────
-server.tool('loop_list_patterns', 'List all available loop engineering patterns with their goals, cadences, and risk levels', {}, async () => {
+server.tool('loop_list_patterns', 'List all available agent loops patterns with their goals, cadences, and risk levels', {}, async () => {
     const root = await resolveProjectRoot();
     const registry = await loadRegistry(root);
     if (!registry) {

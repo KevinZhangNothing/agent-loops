@@ -66,14 +66,30 @@ npx @kevinzhangnothing/loop-audit . --suggest
 
 ## Tools
 
-| Tool | Command | Description |
-|------|---------|-------------|
-| `loop-init` | `npx @kevinzhangnothing/loop-init .` | Scaffold loop + print readiness score |
-| `loop-audit` | `npx @kevinzhangnothing/loop-audit .` | Score readiness + get next steps |
-| `loop-cost` | `npx @kevinzhangnothing/loop-cost` | Estimate token spend by cadence |
-| `loop-sync` | `npx @kevinzhangnothing/loop-sync .` | Detect STATE.md ↔ LOOP.md drift |
+**Install from npm:**
+```bash
+npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok
+npx @kevinzhangnothing/loop-audit . --suggest
+npx @kevinzhangnothing/loop-cost --pattern daily-triage --level L1
+```
 
-**Note:** npm packages pending publish. Run from source: `cd tools/loop-init && npm ci && node dist/cli.js ..`
+**Run from source (monorepo):**
+```bash
+npm run build:tools  # Build all tools
+node tools/loop-init/dist/cli.js . --pattern daily-triage
+node tools/loop-audit/dist/cli.js . --suggest
+node tools/loop-cost/dist/cli.js --pattern daily-triage --level L1
+```
+
+| Tool | npm Package | Description |
+|------|-------------|-------------|
+| `loop-init` | `@kevinzhangnothing/loop-init` | Scaffold loop + print readiness score |
+| `loop-audit` | `@kevinzhangnothing/loop-audit` | Score readiness + get next steps |
+| `loop-cost` | `@kevinzhangnothing/loop-cost` | Estimate token spend by cadence |
+| `loop-sync` | `@kevinzhangnothing/loop-sync` | Detect STATE.md ↔ LOOP.md drift |
+| `loop-context` | `@kevinzhangnothing/loop-context` | Stateful memory + circuit breaker |
+| `loop-worktree` | `@kevinzhangnothing/loop-worktree` | Isolated git worktrees per fix |
+| `loop-mcp-server` | `@kevinzhangnothing/loop-mcp-server` | MCP runtime lookup |
 
 **[Tools Documentation →](tools/README.md)**
 

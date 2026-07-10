@@ -2,6 +2,15 @@
   "name": "agent-loops",
   "private": true,
   "type": "module",
+  "workspaces": [
+    "tools/loop-audit",
+    "tools/loop-init",
+    "tools/loop-cost",
+    "tools/loop-sync",
+    "tools/loop-context",
+    "tools/loop-worktree",
+    "tools/mcp-server"
+  ],
   "scripts": {
     "validate:registry": "node scripts/validate-registry.mjs",
     "check:loop-init": "node scripts/check-loop-init-sync.mjs",
@@ -15,7 +24,8 @@
     "test:tools": "npm run test:loop-audit && npm run test:loop-init && npm run test:loop-cost && npm run test:loop-sync && npm run test:loop-context && npm run test:mcp-server && npm run test:loop-worktree",
     "build:tools": "cd tools/loop-audit && npm run build && cd ../loop-init && npm run build && cd ../loop-cost && npm run build && cd ../loop-sync && npm run build && cd ../loop-context && npm run build && cd ../mcp-server && npm run build && cd ../loop-worktree && npm run build",
     "contributors:generate": "node scripts/generate-contributors.mjs",
-    "contributors:check": "node scripts/generate-contributors.mjs --check"
+    "contributors:check": "node scripts/generate-contributors.mjs --check",
+    "publish:all": "bash scripts/publish-all.sh"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
