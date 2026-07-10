@@ -33,6 +33,7 @@ See [patterns/README.md](../patterns/README.md) for full pattern documentation.
 
 | Doc | Description |
 |-----|-------------|
+| [Publishing](./NPM-SETUP.md) | Publish @kevinzhangnothing/loop-* to npm |
 | [Adopters](./adopters.md) | Projects using agent loops |
 | [Contributing](../CONTRIBUTING.md) | Contribution ladder and requirements |
 
