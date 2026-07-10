@@ -76,22 +76,32 @@ Agent Loops 的交互式架构和工作流图表。
 
 ---
 
-## 📊 模式特定图表
+## 📊 模式对比工作流
 
-每个模式都有其独特的执行特征：
+**Agent Loop 模式工作流** — 并排对比四种核心模式，展示它们在触发、分析和行动阶段的执行流程。
 
-| 模式 | 关键状态 | 验证 |
-|------|----------|------|
-| **每日分类** | 扫描 → 分类 → 报告 | 无（L1 仅报告） |
-| **PR 保姆** | 监控 → 检查 CI → 评论 | CI 状态验证 |
-| **CI 清洁工** | 检测 → 分析 → 修复 → 验证 | 完整 loop-verifier + 测试 |
-| **依赖清洁工** | 扫描 → 更新 → 测试 | 测试套件验证 |
+### 涵盖的模式
 
-查看单个模式文档获取详细工作流：
-- [每日分类](../patterns/daily-triage.md)
-- [PR 保姆](../patterns/pr-babysitter.md)
-- [CI 清洁工](../patterns/ci-sweeper.md)
-- [依赖清洁工](../patterns/dependency-sweeper.md)
+| 模式 | 等级 | 节奏 | 人工门禁 |
+|------|------|------|----------|
+| **每日分类** | L1 | 每日 10:00 UTC | 每周审查 |
+| **PR 保姆** | L2 | PR 事件触发 | 人工合并 |
+| **CI 清洁工** | L2 | CI 失败触发 | 人工审查 PR |
+| **依赖清洁工** | L2 | 每 6 小时 | 仅白名单 |
+
+### 工作流阶段
+
+1. **触发** — 激活 loop 的因素（cron、webhook、事件监控）
+2. **分析** — loop 处理信息的方式（扫描、检查、分析）
+3. **行动** — loop 产生的输出（报告、评论、修复 PR）
+
+### 执行特征
+
+- **L1 模式** 仅生成报告 — 人工决定行动
+- **L2 模式** 创建 PR — 所有更改需要人工合并
+- **安全门禁** 适用于所有模式：工作树、验证器、熔断器
+
+[**打开模式工作流图 →**](../diagrams/loop-patterns-workflow.html)
 
 ---
 
@@ -108,6 +118,7 @@ Agent Loops 的交互式架构和工作流图表。
 
 - [架构图 JSON](../diagrams/agent-loops-architecture.json)
 - [生命周期图 JSON](../diagrams/loop-execution-lifecycle.json)
+- [模式工作流 JSON](../diagrams/loop-patterns-workflow.json)
 
 ### 重新生成图表
 
@@ -123,6 +134,11 @@ node bin/archify.mjs render architecture \
 node bin/archify.mjs render lifecycle \
   /path/to/agent-loops/docs/diagrams/loop-execution-lifecycle.json \
   /path/to/agent-loops/docs/diagrams/loop-execution-lifecycle.html
+
+# 模式工作流
+node bin/archify.mjs render workflow \
+  /path/to/agent-loops/docs/diagrams/loop-patterns-workflow.json \
+  /path/to/agent-loops/docs/diagrams/loop-patterns-workflow.html
 ```
 
 ---
@@ -132,4 +148,5 @@ node bin/archify.mjs render lifecycle \
 - [核心概念](concepts.md) — 意图债务、理解债务、harness vs loop
 - [原语](PRIMITIVES.md) — 5 个构建块 + 记忆
 - [安全](safety.md) — 拒绝列表、自动合并策略、MCP 范围
-- [快速入门](QUICKSTART.md) — 5 分钟从零到第一个 loop
+- [快速入门](../QUICKSTART.md) — 5 分钟从零到第一个 loop
+- [模式注册表](../patterns/README.md) — 所有可用模式

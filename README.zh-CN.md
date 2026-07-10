@@ -127,7 +127,14 @@ flowchart TB
 ```
 
 <p align="center">
-  <em>打开 <a href="docs/diagrams/agent-loops-architecture.html">交互式架构图</a> 或访问 <a href="docs/zh-CN/DIAGRAMS.md">图表文档</a> 查看详情。</em>
+  <strong>📐 交互式架构图</strong><br>
+  <a href="docs/diagrams/agent-loops-architecture.html" target="_blank">
+    <img src="https://img.shields.io/badge/📐-架构图-blue?style=for-the-badge" alt="架构图">
+  </a>
+</p>
+
+<p align="center">
+  <em>特性：🌓 深色/浅色主题 · 📥 导出 PNG/SVG · 🔍 缩放和平移</em>
 </p>
 
 | 原语 | 用途 |
@@ -154,43 +161,45 @@ flowchart TB
 
 ### 执行流程
 
-```mermaid
-stateDiagram-v2
-    [*] --> Triggered
-    Triggered --> BudgetCheck
-    BudgetCheck --> Triage: 预算正常
-    BudgetCheck --> EarlyExit: 超预算
-    Triage --> Executing
-    Executing --> Verifying: 提交
-    Verifying --> Completed: 已验证
-    Verifying --> Escalated: 失败
-    EarlyExit --> [*]
-    Completed --> [*]
-    Escalated --> [*]
-
-    note right of Verifying
-        loop-guard
-        熔断器
-    end note
-
-    classDef start fill:#22c55e,color:#fff
-    classDef active fill:#3b82f6,color:#fff
-    classDef waiting fill:#f59e0b,color:#fff
-    classDef success fill:#22c55e,color:#fff
-    classDef failure fill:#ef4444,color:#fff
-    
-    class Triggered start
-    class BudgetCheck,Triage,Executing active
-    class Verifying waiting
-    class Completed,EarlyExit success
-    class Escalated failure
-```
-
 <p align="center">
-  <em>打开 <a href="docs/diagrams/loop-execution-lifecycle.html">交互式生命周期图</a> 查看状态转换和验证门禁详情。</em>
+  <strong>🔄 交互式生命周期图</strong><br>
+  <a href="docs/diagrams/loop-execution-lifecycle.html" target="_blank">
+    <img src="https://img.shields.io/badge/🔄-生命周期图-green?style=for-the-badge" alt="生命周期图">
+  </a>
 </p>
 
-👉 **[所有模式 →](patterns/README.md)** | **[模式选择器 →](docs/PATTERN_PICKER.md)**
+<p align="center">
+  <em>特性：🌓 深色/浅色主题 · 📥 导出 PNG/SVG · 状态机可视化</em>
+</p>
+
+**生命周期状态：**
+
+| 状态 | 描述 | 下一步 |
+|------|------|--------|
+| **Triggered** | 循环被 cron/事件激活 | Budget Check |
+| **Budget Check** | Token 上限验证 | Triage 或 Early Exit |
+| **Triage** | 优先级排序 | Executing |
+| **Executing** | 技能执行 | Verification |
+| **Verifying** | loop-verifier + loop-guard | Completed 或 Escalated |
+| **Completed** | 成功，状态已更新 | — |
+| **Escalated** | 验证失败 | 人工审查 |
+
+👉 **[查看完整生命周期图 →](docs/diagrams/loop-execution-lifecycle.html)**
+
+### 模式对比
+
+<p align="center">
+  <strong>📊 交互式模式工作流</strong><br>
+  <a href="docs/diagrams/loop-patterns-workflow.html" target="_blank">
+    <img src="https://img.shields.io/badge/📊-模式工作流-violet?style=for-the-badge" alt="模式工作流">
+  </a>
+</p>
+
+<p align="center">
+  <em>并排对比：每日分类 · PR 保姆 · CI 清扫 · 依赖清扫</em>
+</p>
+
+👉 **[所有模式 →](patterns/README.md)** | **[模式选择器 →](docs/PATTERN_PICKER.md)** | **[查看模式工作流 →](docs/diagrams/loop-patterns-workflow.html)**
 
 ## 工具
 

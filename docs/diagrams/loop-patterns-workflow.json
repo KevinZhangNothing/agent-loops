@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Agent Loop Patterns",
+    "subtitle": "Pattern comparison by cadence, risk, and verification",
+    "output": "loop-patterns-workflow.html"
+  },
+  "lanes": [
+    { "id": "daily", "label": "Daily Triage (L1)" },
+    { "id": "pr", "label": "PR Babysitter (L2)" },
+    { "id": "ci", "label": "CI Sweeper (L2)" },
+    { "id": "dep", "label": "Dependency Sweeper (L2)" }
+  ],
+  "groups": [
+    { "id": "g1", "label": "Trigger", "lane": "daily", "fromCol": 0, "toCol": 1 },
+    { "id": "g2", "label": "Analysis", "lane": "daily", "fromCol": 2, "toCol": 3 },
+    { "id": "g3", "label": "Action", "lane": "daily", "fromCol": 4, "toCol": 5 }
+  ],
+  "mainPath": ["triage-trigger", "triage-scan", "triage-report"],
+  "nodes": [
+    {
+      "id": "triage-trigger",
+      "lane": "daily",
+      "col": 0,
+      "type": "backend",
+      "label": "Cron",
+      "sublabel": "daily 10:00"
+    },
+    {
+      "id": "triage-scan",
+      "lane": "daily",
+      "col": 2,
+      "type": "backend",
+      "label": "Scan",
+      "sublabel": "GH, Linear"
+    },
+    {
+      "id": "triage-report",
+      "lane": "daily",
+      "col": 4,
+      "type": "backend",
+      "label": "Report",
+      "sublabel": "STATE.md"
+    },
+    {
+      "id": "pr-watch",
+      "lane": "pr",
+      "col": 0,
+      "type": "backend",
+      "label": "Watch",
+      "sublabel": "PR list"
+    },
+    {
+      "id": "pr-check",
+      "lane": "pr",
+      "col": 2,
+      "type": "backend",
+      "label": "CI Status",
+      "sublabel": "checks"
+    },
+    {
+      "id": "pr-update",
+      "lane": "pr",
+      "col": 4,
+      "type": "backend",
+      "label": "Comment",
+      "sublabel": "update"
+    },
+    {
+      "id": "ci-detect",
+      "lane": "ci",
+      "col": 0,
+      "type": "backend",
+      "label": "Detect",
+      "sublabel": "CI fail"
+    },
+    {
+      "id": "ci-analyze",
+      "lane": "ci",
+      "col": 2,
+      "type": "backend",
+      "label": "Analyze",
+      "sublabel": "logs"
+    },
+    {
+      "id": "ci-fix",
+      "lane": "ci",
+      "col": 4,
+      "type": "backend",
+      "label": "Fix PR",
+      "sublabel": "worktree"
+    },
+    {
+      "id": "dep-scan",
+      "lane": "dep",
+      "col": 0,
+      "type": "backend",
+      "label": "Scan",
+      "sublabel": "deps"
+    },
+    {
+      "id": "dep-select",
+      "lane": "dep",
+      "col": 2,
+      "type": "backend",
+      "label": "Select",
+      "sublabel": "patch"
+    },
+    {
+      "id": "dep-pr",
+      "lane": "dep",
+      "col": 4,
+      "type": "backend",
+      "label": "PR",
+      "sublabel": "allowlist"
+    }
+  ],
+  "edges": [
+    { "from": "triage-trigger", "to": "triage-scan", "variant": "emphasis" },
+    { "from": "triage-scan", "to": "triage-report", "variant": "emphasis" },
+    { "from": "pr-watch", "to": "pr-check", "variant": "emphasis" },
+    { "from": "pr-check", "to": "pr-update", "variant": "emphasis" },
+    { "from": "ci-detect", "to": "ci-analyze", "variant": "emphasis" },
+    { "from": "ci-analyze", "to": "ci-fix", "variant": "emphasis" },
+    { "from": "dep-scan", "to": "dep-select", "variant": "emphasis" },
+    { "from": "dep-select", "to": "dep-pr", "variant": "emphasis" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "L1 Patterns",
+      "items": ["Report only", "No code changes", "Human decides"]
+    },
+    {
+      "dot": "violet",
+      "title": "L2 Patterns",
+      "items": ["Creates PRs", "Verifier", "Human merges"]
+    },
+    {
+      "dot": "amber",
+      "title": "Safety Gates",
+      "items": ["Worktrees", "loop-verifier", "Circuit breaker"]
+    },
+    {
+      "dot": "emerald",
+      "title": "Token Budget",
+      "items": ["Early exit", "Cost tracking", "Cadence"]
+    }
+  ]
+}

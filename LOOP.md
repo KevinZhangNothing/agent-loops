@@ -58,7 +58,11 @@ See [docs/multi-loop.md](docs/multi-loop.md). Priority: CI Sweeper → PR Babysi
 - Estimate: `npx @kevinzhangnothing/loop-cost --pattern daily-triage`
 - Kill switch: `loop-pause-all` label or flag in `STATE.md`
 
-## Safety & Gates (this repo)
+## State Files
+
+- states: STATE.md — live loop state: loop reads priority queue and watch list here; writes `Last run` timestamp and outcomes
+
+## Safety & Gates
 
 - No auto-merge on main except trivial dependency patches (allowlist + verifier)
 - Denylist: showcase HTML/CSS, core primitives docs, audit scoring logic without human review

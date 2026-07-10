@@ -54,81 +54,27 @@ npx @kevinzhangnothing/loop-audit . --suggest
 
 ### Architecture Overview
 
-```mermaid
-flowchart TB
-    subgraph Inputs["📥 Input Sources"]
-        direction LR
-        GH["🔔 GitHub Events"]
-        CRON["⏰ Cron Schedules"]
-        MANUAL["✋ Manual /loop"]
-    end
-
-    subgraph Core["🔧 Core Primitives"]
-        direction TB
-        subgraph Primitives["5 Building Blocks"]
-            direction LR
-            SCHED["📅 Scheduling"]
-            STATE[("💾 State")]
-            SKILLS["🧩 Skills"]
-            WT["🌿 Worktrees"]
-            SUB["👥 Sub-agents"]
-        end
-    end
-
-    subgraph MCP["🔌 MCP Integration Layer"]
-        direction LR
-        MCP_HUB(("MCP Hub"))
-        GH_MCP["🐙 GitHub"]
-        LIN_MCP["📋 Linear"]
-        SLK_MCP["💬 Slack"]
-    end
-
-    subgraph Outputs["📤 Output Actions"]
-        direction LR
-        STATE_UPD[("STATE.md")]
-        PR_COM["💬 PR Comments"]
-        FIXES["✅ Fix Commits"]
-        REPS["📊 Reports"]
-    end
-
-    %% Input connections
-    GH --> SCHED
-    CRON --> SCHED
-    MANUAL --> SCHED
-    
-    %% Core primitive connections
-    SCHED --> STATE
-    SCHED --> SKILLS
-    SKILLS --> WT
-    SKILLS --> SUB
-    SKILLS --> MCP_HUB
-    
-    %% MCP connections
-    MCP_HUB --> GH_MCP
-    MCP_HUB --> LIN_MCP
-    MCP_HUB --> SLK_MCP
-    
-    %% Output connections
-    STATE --> STATE_UPD
-    SKILLS --> PR_COM
-    SKILLS --> REPS
-    WT --> FIXES
-
-    %% Styling
-    classDef input fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e40af
-    classDef core fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#92400e
-    classDef mcp fill:#e0e7ff,stroke:#4f46e5,stroke-width:2px,color:#3730a3
-    classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#166534
-    
-    class GH,CRON,MANUAL input
-    class SCHED,STATE,SKILLS,WT,SUB core
-    class MCP_HUB,GH_MCP,LIN_MCP,SLK_MCP mcp
-    class STATE_UPD,PR_COM,FIXES,REPS output
-```
+<p align="center">
+  <strong>📐 Interactive Architecture Diagram</strong><br>
+  <a href="docs/diagrams/agent-loops-architecture.html" target="_blank">
+    <img src="https://img.shields.io/badge/📐-Architecture%20Diagram-blue?style=for-the-badge" alt="Architecture Diagram">
+  </a>
+</p>
 
 <p align="center">
-  <em>Open the <a href="docs/diagrams/agent-loops-architecture.html">interactive architecture diagram</a> or visit the <a href="docs/DIAGRAMS.md">Diagrams Documentation</a> for details.</em>
+  <em>Features: 🌓 Dark/Light theme · 📥 Export PNG/SVG · 🔍 Zoom & Pan</em>
 </p>
+
+**Key Components:**
+
+| Layer | Components |
+|-------|------------|
+| **Input Sources** | GitHub Events, Cron Schedules, Manual `/loop` commands |
+| **Core Primitives** | Scheduling, State, Skills, Worktrees, Sub-agents |
+| **MCP Integration** | GitHub MCP, Linear MCP, Slack MCP |
+| **Output Actions** | STATE.md updates, PR Comments, Fix Commits, Reports |
+
+👉 **[Open Full Architecture Diagram →](docs/diagrams/agent-loops-architecture.html)**
 
 | Primitive | Purpose |
 |-----------|---------|
@@ -154,43 +100,45 @@ flowchart TB
 
 ### Execution Flow
 
-```mermaid
-stateDiagram-v2
-    [*] --> Triggered
-    Triggered --> BudgetCheck
-    BudgetCheck --> Triage: budget ok
-    BudgetCheck --> EarlyExit: over budget
-    Triage --> Executing
-    Executing --> Verifying: submit
-    Verifying --> Completed: verified
-    Verifying --> Escalated: failed
-    EarlyExit --> [*]
-    Completed --> [*]
-    Escalated --> [*]
-
-    note right of Verifying
-        loop-guard
-        circuit breaker
-    end note
-
-    classDef start fill:#22c55e,color:#fff
-    classDef active fill:#3b82f6,color:#fff
-    classDef waiting fill:#f59e0b,color:#fff
-    classDef success fill:#22c55e,color:#fff
-    classDef failure fill:#ef4444,color:#fff
-    
-    class Triggered start
-    class BudgetCheck,Triage,Executing active
-    class Verifying waiting
-    class Completed,EarlyExit success
-    class Escalated failure
-```
-
 <p align="center">
-  <em>Open the <a href="docs/diagrams/loop-execution-lifecycle.html">interactive lifecycle diagram</a> or visit the <a href="docs/DIAGRAMS.md">Diagrams Documentation</a> for details.</em>
+  <strong>🔄 Interactive Lifecycle Diagram</strong><br>
+  <a href="docs/diagrams/loop-execution-lifecycle.html" target="_blank">
+    <img src="https://img.shields.io/badge/🔄-Lifecycle%20Diagram-green?style=for-the-badge" alt="Lifecycle Diagram">
+  </a>
 </p>
 
-👉 **[All Patterns →](patterns/README.md)** | **[Pattern Picker →](docs/PATTERN_PICKER.md)**
+<p align="center">
+  <em>Features: 🌓 Dark/Light theme · 📥 Export PNG/SVG · State machine visualization</em>
+</p>
+
+**Lifecycle States:**
+
+| State | Description | Next |
+|-------|-------------|------|
+| **Triggered** | Loop activated by cron/event | Budget Check |
+| **Budget Check** | Token cap validation | Triage or Early Exit |
+| **Triage** | Prioritization | Executing |
+| **Executing** | Skill execution | Verification |
+| **Verifying** | loop-verifier + loop-guard | Completed or Escalated |
+| **Completed** | Success, state updated | — |
+| **Escalated** | Failed verification | Human review |
+
+👉 **[Open Full Lifecycle Diagram →](docs/diagrams/loop-execution-lifecycle.html)**
+
+### Pattern Comparison
+
+<p align="center">
+  <strong>📊 Interactive Patterns Workflow</strong><br>
+  <a href="docs/diagrams/loop-patterns-workflow.html" target="_blank">
+    <img src="https://img.shields.io/badge/📊-Patterns%20Workflow-violet?style=for-the-badge" alt="Patterns Workflow">
+  </a>
+</p>
+
+<p align="center">
+  <em>Side-by-side comparison: Daily Triage · PR Babysitter · CI Sweeper · Dependency Sweeper</em>
+</p>
+
+👉 **[All Patterns →](patterns/README.md)** | **[Pattern Picker →](docs/PATTERN_PICKER.md)** | **[Open Patterns Workflow →](docs/diagrams/loop-patterns-workflow.html)**
 
 ## Tools
 

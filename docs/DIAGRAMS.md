@@ -76,22 +76,32 @@ Interactive architecture and workflow diagrams for understanding Agent Loops.
 
 ---
 
-## 📊 Pattern-Specific Diagrams
+## 📊 Pattern Comparison Workflow
 
-Each pattern has its own execution characteristics:
+**Agent Loop Patterns Workflow** — Side-by-side comparison of the four core patterns, showing their execution flow across trigger, analysis, and action phases.
 
-| Pattern | Key States | Verification |
-|---------|------------|--------------|
-| **Daily Triage** | Scan → Classify → Report | None (L1 report-only) |
-| **PR Babysitter** | Watch → Check CI → Comment | CI status validation |
-| **CI Sweeper** | Detect → Analyze → Fix → Verify | Full loop-verifier + tests |
-| **Dependency Sweeper** | Scan → Update → Test | Test suite validation |
+### Patterns Covered
 
-See individual pattern documentation for detailed workflows:
-- [Daily Triage](../patterns/daily-triage.md)
-- [PR Babysitter](../patterns/pr-babysitter.md)
-- [CI Sweeper](../patterns/ci-sweeper.md)
-- [Dependency Sweeper](../patterns/dependency-sweeper.md)
+| Pattern | Level | Cadence | Human Gate |
+|---------|-------|---------|------------|
+| **Daily Triage** | L1 | Daily 10:00 UTC | Weekly review |
+| **PR Babysitter** | L2 | On PR events | Human merges |
+| **CI Sweeper** | L2 | On CI failures | Human reviews PR |
+| **Dependency Sweeper** | L2 | Every 6 hours | Allowlist only |
+
+### Workflow Phases
+
+1. **Trigger** — What activates the loop (cron, webhook, event watch)
+2. **Analysis** — How the loop processes information (scan, check, analyze)
+3. **Action** — What the loop produces (report, comment, fix PR)
+
+### Execution Characteristics
+
+- **L1 patterns** produce reports only — humans decide actions
+- **L2 patterns** create PRs — all changes require human merge
+- **Safety gates** apply to all patterns: worktrees, verifier, circuit breaker
+
+[**Open Patterns Workflow →**](diagrams/loop-patterns-workflow.html)
 
 ---
 
@@ -108,6 +118,7 @@ These diagrams were generated using [archify](https://github.com/tt-a1i/archify)
 
 - [Architecture Diagram JSON](diagrams/agent-loops-architecture.json)
 - [Lifecycle Diagram JSON](diagrams/loop-execution-lifecycle.json)
+- [Patterns Workflow JSON](diagrams/loop-patterns-workflow.json)
 
 ### Regenerate Diagrams
 
@@ -123,6 +134,11 @@ node bin/archify.mjs render architecture \
 node bin/archify.mjs render lifecycle \
   /path/to/agent-loops/docs/diagrams/loop-execution-lifecycle.json \
   /path/to/agent-loops/docs/diagrams/loop-execution-lifecycle.html
+
+# Patterns workflow
+node bin/archify.mjs render workflow \
+  /path/to/agent-loops/docs/diagrams/loop-patterns-workflow.json \
+  /path/to/agent-loops/docs/diagrams/loop-patterns-workflow.html
 ```
 
 ---
@@ -133,3 +149,4 @@ node bin/archify.mjs render lifecycle \
 - [Primitives](PRIMITIVES.md) — The 5 building blocks + memory
 - [Safety](SAFETY.md) — Denylists, auto-merge policy, MCP scopes
 - [Quickstart](QUICKSTART.md) — 5-minute path from zero to first loop
+- [Patterns Registry](../patterns/README.md) — All available patterns
