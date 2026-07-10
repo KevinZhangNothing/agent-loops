@@ -56,40 +56,74 @@ npx @kevinzhangnothing/loop-audit . --suggest
 
 ```mermaid
 flowchart TB
-    subgraph Inputs["Input Sources"]
-        GH[GitHub Events]
-        CRON[Cron Schedules]
-        MANUAL[Manual /loop]
+    subgraph Inputs["📥 Input Sources"]
+        direction LR
+        GH["🔔 GitHub Events"]
+        CRON["⏰ Cron Schedules"]
+        MANUAL["✋ Manual /loop"]
     end
 
-    subgraph Primitives["Core Primitives"]
-        SCHED[Scheduling]
-        STATE[State MD]
-        SKILLS[Skills]
-        WT[Worktrees]
-        SUB[Sub-agents]
+    subgraph Core["🔧 Core Primitives"]
+        direction TB
+        subgraph Primitives["5 Building Blocks"]
+            direction LR
+            SCHED["📅 Scheduling"]
+            STATE[("💾 State")]
+            SKILLS["🧩 Skills"]
+            WT["🌿 Worktrees"]
+            SUB["👥 Sub-agents"]
+        end
     end
 
-    subgraph MCP["MCP Integration"]
-        GH_MCP[GitHub]
-        LIN_MCP[Linear]
-        SLK_MCP[Slack]
+    subgraph MCP["🔌 MCP Integration Layer"]
+        direction LR
+        MCP_HUB(("MCP Hub"))
+        GH_MCP["🐙 GitHub"]
+        LIN_MCP["📋 Linear"]
+        SLK_MCP["💬 Slack"]
     end
 
-    subgraph Outputs["Output Actions"]
-        STATE_UPD[STATE.md]
-        PR_COM[PR Comments]
-        FIXES[Fix Commits]
-        REPS[Reports]
+    subgraph Outputs["📤 Output Actions"]
+        direction LR
+        STATE_UPD[("STATE.md")]
+        PR_COM["💬 PR Comments"]
+        FIXES["✅ Fix Commits"]
+        REPS["📊 Reports"]
     end
 
-    GH & CRON & MANUAL --> SCHED
-    SCHED --> STATE & SKILLS
-    SKILLS --> WT & SUB & MCP
-    MCP --> GH_MCP & LIN_MCP & SLK_MCP
+    %% Input connections
+    GH --> SCHED
+    CRON --> SCHED
+    MANUAL --> SCHED
+    
+    %% Core primitive connections
+    SCHED --> STATE
+    SCHED --> SKILLS
+    SKILLS --> WT
+    SKILLS --> SUB
+    SKILLS --> MCP_HUB
+    
+    %% MCP connections
+    MCP_HUB --> GH_MCP
+    MCP_HUB --> LIN_MCP
+    MCP_HUB --> SLK_MCP
+    
+    %% Output connections
     STATE --> STATE_UPD
-    SKILLS --> PR_COM & REPS
+    SKILLS --> PR_COM
+    SKILLS --> REPS
     WT --> FIXES
+
+    %% Styling
+    classDef input fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e40af
+    classDef core fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#92400e
+    classDef mcp fill:#e0e7ff,stroke:#4f46e5,stroke-width:2px,color:#3730a3
+    classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#166534
+    
+    class GH,CRON,MANUAL input
+    class SCHED,STATE,SKILLS,WT,SUB core
+    class MCP_HUB,GH_MCP,LIN_MCP,SLK_MCP mcp
+    class STATE_UPD,PR_COM,FIXES,REPS output
 ```
 
 <p align="center">
