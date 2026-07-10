@@ -14,6 +14,7 @@
 |------|------|------|
 | [QUICKSTART](../QUICKSTART.md) | 5 分钟 | 第一个 loop：脚手架 → 审计 → 运行 |
 | [PATTERN_PICKER](../PATTERN_PICKER.md) | 3 分钟 | 选择第一个运行的 loop |
+| **[PI-TUTORIAL](./PI-TUTORIAL.md)** | **15 分钟** | **pi 完整使用教程（推荐）** |
 | [DIAGRAMS](./DIAGRAMS.md) | 5 分钟 | 交互式架构和生命周期图表 |
 | [SAFETY](../safety.md) | 5 分钟 | 启用自动修复前阅读 |
 | [PI INTEGRATION](../PI-INTEGRATION.md) | 10 分钟 | pi 编程代理集成 |

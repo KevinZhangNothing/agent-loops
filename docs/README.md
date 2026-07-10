@@ -14,6 +14,7 @@
 |-----|------|-------------|
 | [QUICKSTART](./QUICKSTART.md) | 5 min | First loop: scaffold → audit → run |
 | [PATTERN_PICKER](./PATTERN_PICKER.md) | 3 min | Which loop to run first |
+| **[PI-TUTORIAL](./PI-TUTORIAL.md)** | **15 min** | **Complete pi usage tutorial (Recommended)** |
 | [DIAGRAMS](./DIAGRAMS.md) | 5 min | Interactive architecture and lifecycle diagrams |
 | [SAFETY](./SAFETY.md) | 5 min | Read before enabling auto-fixes |
 | [PI INTEGRATION](./PI-INTEGRATION.md) | 10 min | pi coding agent integration |
