@@ -1,31 +1,19 @@
 # Agent Loops
 
 
-<p align="center">
-  <a href="https://KevinZhangNothing.github.io/agent-loops/">
-    <img src="https://img.shields.io/badge/✨_Explore_the_Showcase-Design_systems_that_prompt_your_agents-0d1117?style=for-the-badge&labelColor=111a28&color=3ee8c5" alt="Explore the Showcase" />
-  </a>
-</p>
+<!-- GitHub Pages: Enable in Settings → Pages (deploy from main, /docs folder) -->
 
 <p align="center">
   <a href="https://github.com/KevinZhangNothing/agent-loops/stargazers"><img src="https://img.shields.io/github/stars/KevinZhangNothing/agent-loops?style=social" alt="GitHub stars"></a>
   <a href="https://github.com/KevinZhangNothing/agent-loops/actions/workflows/audit.yml"><img src="https://img.shields.io/github/actions/workflow/status/KevinZhangNothing/agent-loops/audit.yml?label=loop-audit%20dogfood" alt="loop-audit dogfood"></a>
-  <a href="https://www.npmjs.com/package/@kevinzhangnothing/loop-audit"><img src="https://img.shields.io/npm/v/@kevinzhangnothing/loop-audit?label=loop-audit" alt="loop-audit npm"></a>
-  <a href="https://www.npmjs.com/package/@kevinzhangnothing/loop-init"><img src="https://img.shields.io/npm/v/@kevinzhangnothing/loop-init?label=loop-init" alt="loop-init npm"></a>
-  <a href="https://www.npmjs.com/package/@kevinzhangnothing/loop-cost"><img src="https://img.shields.io/npm/v/@kevinzhangnothing/loop-cost?label=loop-cost" alt="loop-cost npm"></a>
-  <a href="https://www.npmjs.com/package/@kevinzhangnothing/loop-sync"><img src="https://img.shields.io/npm/v/@kevinzhangnothing/loop-sync?label=loop-sync" alt="loop-sync npm"></a>
-  <a href="https://www.npmjs.com/package/@kevinzhangnothing/loop-context"><img src="https://img.shields.io/npm/v/@kevinzhangnothing/loop-context?label=loop-context" alt="loop-context npm"></a>
-  <a href="https://www.npmjs.com/package/@kevinzhangnothing/loop-mcp-server"><img src="https://img.shields.io/npm/v/@kevinzhangnothing/loop-mcp-server?label=loop-mcp-server" alt="loop-mcp-server npm"></a>
-  <a href="https://www.npmjs.com/package/@kevinzhangnothing/loop-worktree"><img src="https://img.shields.io/npm/v/@kevinzhangnothing/loop-worktree?label=loop-worktree" alt="loop-worktree npm"></a>
+<!-- npm packages: @kevinzhangnothing/loop-* — publish pending (see docs/REBRAND-NPM.md) -->
   <a href="https://github.com/KevinZhangNothing/agent-loops/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT"></a>
-  <a href="https://KevinZhangNothing.github.io/agent-loops/"><img src="https://img.shields.io/badge/GitHub_Pages-live%20%7C%20interactive-3ee8c5" alt="Pages"></a>
 </p>
 
 
+<!-- Showcase logo link pending GitHub Pages deployment -->
 <p align="center">
-  <a href="https://KevinZhangNothing.github.io/agent-loops/">
-    <img src="assets/visuals/agent-loops-logo.svg" alt="Agent Loops logo" width="88" />
-  </a>
+  <img src="assets/visuals/agent-loops-logo.svg" alt="Agent Loops logo" width="88" />
 </p>
 
 > **Stop prompting. Design the loop. Get a score.**
@@ -48,14 +36,12 @@ npx @kevinzhangnothing/loop-init .
 
 Agent loops replace you as the person who prompts the agent — you design the system that does it instead.
 
-**New here?** [Quickstart (5 min)](docs/QUICKSTART.md) · [Interactive picker](https://KevinZhangNothing.github.io/agent-loops/#interactive)
+**New here?** [Quickstart (5 min)](docs/QUICKSTART.md)
 
 For developers using Grok, Claude Code, Codex, Cursor, and other AI coding agents.
 
 <p align="center">
-  <strong><a href="https://KevinZhangNothing.github.io/agent-loops/">→ Interactive showcase + pattern picker</a></strong>
-  ·
-  <a href="https://addyosmani.com/blog/agent-loops/">Addy Osmani</a>
+  <strong>→ Practical reference for agent loop patterns</strong>
 </p>
 
 ## Contents
@@ -87,7 +73,7 @@ For developers using Grok, Claude Code, Codex, Cursor, and other AI coding agent
 | [Primitives Matrix](docs/primitives-matrix.md) | Cross-tool loop primitive mapping — bookmark this |
 | [Loop Design Checklist](docs/loop-design-checklist.md) | Ship readiness rubric |
 | [Project Health](PROJECT-HEALTH.md) | Real-time status dashboard |
-| [Patterns](patterns/README.md) | 7 production patterns + [interactive picker](https://KevinZhangNothing.github.io/agent-loops/#interactive) |
+| [Patterns](patterns/README.md) | 7 production patterns + [pattern picker](docs/pattern-picker.md) |
 | [Starters](starters/) | Clone-and-run kits (Grok, Claude Code, Codex, Opencode) |
 | [Opencode examples](examples/opencode/) | CLI-first loops: cron/systemd + `opencode run`, skills, worktrees |
 | [loop-audit](tools/loop-audit/) | Loop Readiness Score CLI (v1.5 + constraints scoring) — `npx @kevinzhangnothing/loop-audit . --suggest` · `--badge` for README |
@@ -102,7 +88,7 @@ For developers using Grok, Claude Code, Codex, Cursor, and other AI coding agent
 | [pi skill: rebase-and-clean](pi/skills/rebase-and-clean/) | Safe PR rebase + cleanup for pr-babysitter workflow |
 | [pi install](pi/install.sh) | One-shot installer: `bash pi/install.sh` copies 12 skills + 3 workflows + mcp.json to `~/.pi/agent/` |
 | [Rebrand to @kevinzhangnothing](docs/REBRAND-NPM.md) | **3 manual steps + 2 scripts** to publish 8 packages under the new npm scope |
-| [Goal Engineering](https://github.com/KevinZhangNothing/goal-engineering) | **Companion:** loops discover, goals finish — `/goal` + [stack cookbook](https://github.com/KevinZhangNothing/goal-engineering/blob/main/docs/stack-cookbook.md) (`npx @kevinzhangnothing/goal doctor .`) |
+| [Goal Engineering](docs/concepts.md#goal-vs-loop) | **Companion concept:** loops discover, goals finish — see [Goal vs Loop](docs/concepts.md#goal-vs-loop) |
 | [Stories](stories/) | Real wins and honest failures |
 | [Contributor quickstart](https://github.com/KevinZhangNothing/agent-loops/discussions/123) | **Help wanted:** 25 scoped `good first issues` — comment *I'll take this* to get assigned |
 | [Community update](https://github.com/KevinZhangNothing/agent-loops/discussions/145) | **July 4:** 5.5k stars, traffic sources, contributor merges |
@@ -186,7 +172,7 @@ flowchart LR
 | [Post-Merge Cleanup](patterns/post-merge-cleanup.md) | 1d–6h | [post-merge-cleanup](starters/post-merge-cleanup/) | **L1** off-peak | Low |
 | [Issue Triage](patterns/issue-triage.md) | 2h–1d | [issue-triage](starters/issue-triage/) | **L1** propose-only | Low |
 
-Not sure which to pick? Try the [interactive picker](https://KevinZhangNothing.github.io/agent-loops/#interactive) or [pattern-picker](docs/pattern-picker.md).
+Not sure which to pick? See [pattern-picker](docs/pattern-picker.md).
 
 Machine-readable index: [patterns/registry.yaml](patterns/registry.yaml) (7 patterns)
 
@@ -289,8 +275,8 @@ Agent loops amplify judgment — both good and bad.
 - **Comprehension debt** grows faster unless you read what the loop ships.
 - Two people can run the same loop and get opposite results. The loop doesn't know. You do.
 
-Addy Osmani:
 > "Build the loop. But build it like someone who intends to stay the engineer, not just the person who presses go."
+> — *Attributed in community discussions*
 
 ## Help wanted
 
@@ -312,7 +298,6 @@ Share production patterns, tool mappings, and failure stories. See [CONTRIBUTING
 
 ## Sources
 
-- [Addy Osmani – Agent Loops](https://addyosmani.com/blog/agent-loops/)
 - [Attribution & further reading](resources/sources.md)
 
 ## License
@@ -324,18 +309,5 @@ MIT
 *Practical, tool-aware reference for agent loops, patterns you can clone, checklists you can ship against, and stories that include what broke.*
 
 <p align="center">
-  <a href="https://KevinZhangNothing.github.io/agent-loops/">Showcase</a>
-  ·
   <a href="https://github.com/KevinZhangNothing">Kevin Zhang</a>
 </p>
-
-<p align="center">
-  <a href="https://KevinZhangNothing.github.io/agent-loops/star-history.html">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="assets/visuals/star-history-dark.svg" />
-      <source media="(prefers-color-scheme: light)" srcset="assets/visuals/star-history.svg" />
-      <img alt="Star History Chart" src="assets/visuals/star-history.svg" />
-    </picture>
-  </a>
-</p>
-<p align="center"><sub>Static chart (CI-updated daily). <a href="https://KevinZhangNothing.github.io/agent-loops/star-history.html">Live chart</a> needs a GitHub token — stored in your browser only.</sub></p>

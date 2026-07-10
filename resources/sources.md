@@ -7,10 +7,9 @@ This repository exists because of public discussion and practice by experienced 
 - **Kevin Zhang** — [Agent Loops](https://KevinZhangNothing.substack.com/p/agent-loops) (June 2026)
   Companion essay for this repository: context engineering vs harness engineering vs agent loops, the five primitives + memory, Grok mapping, and production realities.
 
-- **Addy Osmani** — [Agent Loops](https://addyosmani.com/blog/agent-loops/) (June 2026)
-  The most complete written synthesis of the concept, including the five primitives + memory table and the concrete daily loop example.
-
-- The originating X thread: https://x.com/addyosmani/status/2064127981161959567
+- **Addy Osmani** — Agent Loops concept (June 2026)
+  Public discussion on X (Twitter) highlighting loop engineering as a shift from prompting to designing control systems.
+  Note: Originally attributed blog post URL is no longer available; see community discussions for context.
 
 ## Anthropic / Claude Code Perspective
 

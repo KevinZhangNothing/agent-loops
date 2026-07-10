@@ -45,14 +45,14 @@ Central navigation for all agent-loops documentation.
 
 | Tool | npm | Description |
 |------|-----|-------------|
-| [loop-audit](../tools/loop-audit/) | `@kevinzhangnothing/loop-audit` | Loop Readiness Score CLI |
-| [loop-init](../tools/loop-init/) | `@kevinzhangnothing/loop-init` | Scaffold starters |
-| [loop-cost](../tools/loop-cost/) | `@kevinzhangnothing/loop-cost` | Token spend estimator |
-| [loop-sync](../tools/loop-sync/) | `@kevinzhangnothing/loop-sync` | STATE.md ↔ LOOP.md drift detection |
-| [loop-context](../tools/loop-context/) | `@kevinzhangnothing/loop-context` | Stateful memory + circuit breaker |
-| [loop-mcp-server](../tools/mcp-server/) | `@kevinzhangnothing/loop-mcp-server` | MCP runtime lookup |
-| [loop-worktree](../tools/loop-worktree/) | `@kevinzhangnothing/loop-worktree` | Isolated git worktrees per fix |
-| [goal-audit](../tools/goal-audit/) | `@kevinzhangnothing/goal-audit` | Companion goal engineering |
+| [loop-audit](../tools/loop-audit/) | `@kevinzhangnothing/loop-audit` (pending) | Loop Readiness Score CLI |
+| [loop-init](../tools/loop-init/) | `@kevinzhangnothing/loop-init` (pending) | Scaffold starters |
+| [loop-cost](../tools/loop-cost/) | `@kevinzhangnothing/loop-cost` (pending) | Token spend estimator |
+| [loop-sync](../tools/loop-sync/) | `@kevinzhangnothing/loop-sync` (pending) | STATE.md ↔ LOOP.md drift detection |
+| [loop-context](../tools/loop-context/) | `@kevinzhangnothing/loop-context` (pending) | Stateful memory + circuit breaker |
+| [loop-mcp-server](../tools/mcp-server/) | `@kevinzhangnothing/loop-mcp-server` (pending) | MCP runtime lookup |
+| [loop-worktree](../tools/loop-worktree/) | `@kevinzhangnothing/loop-worktree` (pending) | Isolated git worktrees per fix |
+| [goal-audit](../tools/goal-audit/) | `@kevinzhangnothing/goal-audit` (pending) | Companion goal engineering |
 
 ## Examples & Starters
 
@@ -101,7 +101,5 @@ Central navigation for all agent-loops documentation.
 
 ## External
 
-- [Interactive Showcase](https://KevinZhangNothing.github.io/agent-loops/) — Pattern picker + visual index
-- [Agent Loops Essay](https://KevinZhangNothing.substack.com/p/agent-loops) — The concept and why
-- [Addy Osmani on Agent Loops](https://addyosmani.com/blog/agent-loops/) — Guest post
 - [GitHub Discussions](https://github.com/KevinZhangNothing/agent-loops/discussions) — Q&A and show-and-tell
+- [GitHub Repository](https://github.com/KevinZhangNothing/agent-loops) — Source code and issues

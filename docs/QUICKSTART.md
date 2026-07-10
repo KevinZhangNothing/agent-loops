@@ -4,13 +4,13 @@
 
 Watch the score climb: [loop-audit-demo.gif](../assets/visuals/loop-audit-demo.gif) (10 → 70 → 100 in ~15s).
 
-Landed from [X](https://x.com), the [showcase](https://KevinZhangNothing.github.io/agent-loops/), or a friend's README? This is the shortest path from zero to a running loop.
+Landed from [X](https://x.com), [GitHub](https://github.com/KevinZhangNothing/agent-loops), or a friend's README? This is the shortest path from zero to a running loop.
 
 **Week one rule:** report only. No auto-fix, no auto-merge. Read what the loop writes before you let it act.
 
 ## 1. Pick your pain (30 seconds)
 
-Not sure which loop? Use the [interactive pattern picker](https://KevinZhangNothing.github.io/agent-loops/#interactive) on the showcase — it recommends a pattern, scaffold command, first `/loop` line, and a token estimate.
+Not sure which loop? See [pattern-picker.md](./pattern-picker.md) — it recommends a pattern, scaffold command, first `/loop` line, and a token estimate.
 
 Or start with **Daily Triage** if you just want to learn loop discipline with low risk.
 

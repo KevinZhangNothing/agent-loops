@@ -18,7 +18,7 @@ npx @kevinzhangnothing/loop-audit . --suggest
 npx @kevinzhangnothing/loop-sync .
 ```
 
-**New here?** [Quickstart (5 min)](docs/QUICKSTART.md) · [Interactive pattern picker](https://KevinZhangNothing.github.io/agent-loops/#interactive)
+**New here?** [Quickstart (5 min)](docs/QUICKSTART.md) · [Pattern picker](docs/pattern-picker.md)
 
 ---
 
@@ -82,12 +82,10 @@ This release merges work from 7 community PRs. Read the full story in [Discussio
 
 Loops discover ongoing work. **Goals finish bounded tasks.**
 
-| Layer | Repo | Command |
-|-------|------|---------|
-| Discover (cadence) | [agent-loops](https://github.com/KevinZhangNothing/agent-loops) | `npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok` |
-| Finish (run-until-done) | [goal-engineering](https://github.com/KevinZhangNothing/goal-engineering) | `npx @kevinzhangnothing/goal init . --pattern fix-bug --tool grok` |
-
-**Stack cookbook:** [loop → goal → fleet day rhythm](https://github.com/KevinZhangNothing/goal-engineering/blob/main/docs/stack-cookbook.md)
+| Layer | Concept | Command |
+|-------|---------|---------|  
+| Discover (cadence) | [agent-loops patterns](../patterns/README.md) | `npx @kevinzhangnothing/loop-init . --pattern daily-triage --tool grok` |
+| Finish (run-until-done) | [Goal Engineering concept](docs/concepts.md#goal-vs-loop) | See [concepts.md](docs/concepts.md#goal-vs-loop) |
 
 ```
 /goal Read STATE.md top priority. Done when verifier PASS. goal-verifier before completed: true.

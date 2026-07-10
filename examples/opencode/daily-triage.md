@@ -55,7 +55,7 @@ The verifier sees only the diff; the implementer works only inside the worktree.
 
 ## Goal Mode Alternative
 
-For a one-shot "get main green" session, drive opencode with the [Goal Engineering](https://github.com/KevinZhangNothing/goal-engineering) `/goal` skill. opencode is goal-friendly: hand it the goal, the stop condition, and the verifier prompt and let the verifier decide when to stop.
+For a one-shot "get main green" session, drive opencode with the [Goal Engineering](#goals-run-until-done) `/goal` skill. opencode is goal-friendly: hand it the goal, the stop condition, and the verifier prompt and let the verifier decide when to stop.
 
 ```bash
 opencode run "Goal: all tests on main pass and lint is clean. Stop when tests pass and write the evidence."

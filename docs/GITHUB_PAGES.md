@@ -3,7 +3,7 @@
 1. Repo **Settings** → **Pages**
 2. **Source**: Deploy from branch `main`
 3. **Folder**: `/docs`
-4. Save — showcase at `https://KevinZhangNothing.github.io/agent-loops/`
+4. Save — showcase will be at `https://YOUR_GITHUB_USERNAME.github.io/agent-loops/` (pending deployment)
 
 The homepage (`docs/index.html`) is the full interactive showcase with patterns, primitives, quick-start, and an anatomy diagram.
 
