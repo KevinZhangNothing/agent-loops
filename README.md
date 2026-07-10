@@ -125,6 +125,8 @@ Share production patterns, tool examples, and failure stories.
 
 ## Documentation
 
+### Core
+
 | Doc | Description |
 |-----|-------------|
 | **[Quickstart](docs/QUICKSTART.md)** | 5-minute path from zero to first loop |
@@ -132,7 +134,20 @@ Share production patterns, tool examples, and failure stories.
 | **[Primitives](docs/PRIMITIVES.md)** | The 5 building blocks + memory |
 | **[Safety](docs/SAFETY.md)** | Denylists, auto-merge policy, MCP scopes |
 | **[Tool Matrix](docs/TOOL_MATRIX.md)** | Cross-tool capability mapping |
+
+### Integration
+
+| Doc | Description |
+|-----|-------------|
 | **[pi Integration](docs/PI-INTEGRATION.md)** | pi coding agent integration (12 skills, 3 workflows) |
+| **[Publishing](docs/PUBLISH.md)** | npm package publishing guide |
+
+### Community
+
+| Doc | Description |
+|-----|-------------|
+| **[Adopters](docs/adopters.md)** | Projects using agent loops |
+| **[Contributing](CONTRIBUTING.md)** | Contribution guidelines |
 
 ## License
 

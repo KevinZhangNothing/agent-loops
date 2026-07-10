@@ -11,6 +11,7 @@ This repo is a **practical engineering reference**, not a hype collection. We we
 | Production story | `stories/` | ~30 min |
 | Tool example | `examples/{tool}/` | ~1 hr |
 | New pattern | `patterns/` + `patterns/registry.yaml` | Half day |
+| npm package fix | `tools/loop-*` | 1-2 hrs |
 
 **Start here:** [`good first issues`](https://github.com/KevinZhangNothing/agent-loops/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
@@ -45,12 +46,28 @@ Also add an entry to `patterns/registry.yaml`.
 - [ ] `STATE.md` examples use `.example` suffix (live state is gitignored)
 - [ ] Safety-sensitive patterns reference [docs/SAFETY.md](docs/SAFETY.md)
 
+**For npm package changes:**
+- [ ] Tests pass (`npm test` in tool directory)
+- [ ] Version bumped (semver)
+- [ ] Changelog updated (if applicable)
+
 ## Code of Conduct
 
 - **Engineering over hype** — substance over marketing
 - **Failures are first-class** — post-mortems welcome
 - **Tool-agnostic by default** — tool-specific in labeled sections
 - **No performative agreement** — technical rigor over politeness
+
+## npm Package Development
+
+For contributing to npm packages (`@kevinzhangnothing/loop-*`):
+
+1. **Make changes** in `tools/loop-*/src/`
+2. **Build & test:** `cd tools/loop-audit && npm run build && npm test`
+3. **Bump version:** `npm version patch` (or minor/major)
+4. **Publish:** `npm run publish:all` from repo root
+
+See [docs/PUBLISH.md](docs/PUBLISH.md) for detailed publishing instructions.
 
 ## Maintainer Response
 
