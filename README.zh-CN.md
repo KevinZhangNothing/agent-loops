@@ -122,19 +122,19 @@ flowchart TB
 
 ```mermaid
 stateDiagram-v2
-    [*] --> 已触发
-    已触发 --> 预算检查
-    预算检查 --> 分类：预算正常
-    预算检查 --> 提前退出：超预算
-    分类 --> 执行中
-    执行中 --> 验证：提交
-    验证 --> 完成：已验证
-    验证 --> 升级：失败
-    提前退出 --> [*]
-    完成 --> [*]
-    升级 --> [*]
+    [*] --> Triggered
+    Triggered --> BudgetCheck
+    BudgetCheck --> Triage: 预算正常
+    BudgetCheck --> EarlyExit: 超预算
+    Triage --> Executing
+    Executing --> Verifying: 提交
+    Verifying --> Completed: 已验证
+    Verifying --> Escalated: 失败
+    EarlyExit --> [*]
+    Completed --> [*]
+    Escalated --> [*]
 
-    note right of 验证
+    note right of Verifying
         loop-guard
         熔断器
     end note
@@ -145,11 +145,11 @@ stateDiagram-v2
     classDef success fill:#22c55e,color:#fff
     classDef failure fill:#ef4444,color:#fff
     
-    class 已触发 start
-    class 预算检查，分类，执行中 active
-    class 验证 waiting
-    class 完成，提前退出 success
-    class 升级 failure
+    class Triggered start
+    class BudgetCheck,Triage,Executing active
+    class Verifying waiting
+    class Completed,EarlyExit success
+    class Escalated failure
 ```
 
 <p align="center">
