@@ -147,7 +147,7 @@ install_skills() {
                 log_warning "Backing up existing skill $skill_name to $backup"
                 mv "$dst_dir/$skill_name" "$backup"
             fi
-            cp -r "$skill" "$dst_dir/"
+            cp -r "$skill" "$dst_dir/$skill_name/"
             log_success "Installed skill: $skill_name"
         fi
     done
