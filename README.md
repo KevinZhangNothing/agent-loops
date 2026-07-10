@@ -54,16 +54,11 @@ npx @kevinzhangnothing/loop-audit . --suggest
 
 ### Architecture Overview
 
-<p align="center">
-  <strong>📐 Interactive Architecture Diagram</strong><br>
-  <a href="docs/diagrams/agent-loops-architecture.html" target="_blank">
-    <img src="https://img.shields.io/badge/📐-Architecture%20Diagram-blue?style=for-the-badge" alt="Architecture Diagram">
-  </a>
-</p>
+**📐 Interactive Diagram** (opens in new tab)
 
-<p align="center">
-  <em>Features: 🌓 Dark/Light theme · 📥 Export PNG/SVG · 🔍 Zoom & Pan</em>
-</p>
+> **View:** [Open Architecture Diagram →](docs/diagrams/agent-loops-architecture.html)
+> 
+> **Features:** 🌓 Dark/Light theme · 📥 Export PNG/SVG (up to 4×) · 🔍 Zoom & Pan
 
 **Key Components:**
 
@@ -73,8 +68,6 @@ npx @kevinzhangnothing/loop-audit . --suggest
 | **Core Primitives** | Scheduling, State, Skills, Worktrees, Sub-agents |
 | **MCP Integration** | GitHub MCP, Linear MCP, Slack MCP |
 | **Output Actions** | STATE.md updates, PR Comments, Fix Commits, Reports |
-
-👉 **[Open Full Architecture Diagram →](docs/diagrams/agent-loops-architecture.html)**
 
 | Primitive | Purpose |
 |-----------|---------|
@@ -100,16 +93,11 @@ npx @kevinzhangnothing/loop-audit . --suggest
 
 ### Execution Flow
 
-<p align="center">
-  <strong>🔄 Interactive Lifecycle Diagram</strong><br>
-  <a href="docs/diagrams/loop-execution-lifecycle.html" target="_blank">
-    <img src="https://img.shields.io/badge/🔄-Lifecycle%20Diagram-green?style=for-the-badge" alt="Lifecycle Diagram">
-  </a>
-</p>
+**🔄 Interactive Diagram** (opens in new tab)
 
-<p align="center">
-  <em>Features: 🌓 Dark/Light theme · 📥 Export PNG/SVG · State machine visualization</em>
-</p>
+> **View:** [Open Lifecycle Diagram →](docs/diagrams/loop-execution-lifecycle.html)
+>
+> **Features:** 🌓 Dark/Light theme · 📥 Export PNG/SVG · State machine visualization
 
 **Lifecycle States:**
 
@@ -123,22 +111,15 @@ npx @kevinzhangnothing/loop-audit . --suggest
 | **Completed** | Success, state updated | — |
 | **Escalated** | Failed verification | Human review |
 
-👉 **[Open Full Lifecycle Diagram →](docs/diagrams/loop-execution-lifecycle.html)**
-
 ### Pattern Comparison
 
-<p align="center">
-  <strong>📊 Interactive Patterns Workflow</strong><br>
-  <a href="docs/diagrams/loop-patterns-workflow.html" target="_blank">
-    <img src="https://img.shields.io/badge/📊-Patterns%20Workflow-violet?style=for-the-badge" alt="Patterns Workflow">
-  </a>
-</p>
+**📊 Interactive Diagram** (opens in new tab)
 
-<p align="center">
-  <em>Side-by-side comparison: Daily Triage · PR Babysitter · CI Sweeper · Dependency Sweeper</em>
-</p>
+> **View:** [Open Patterns Workflow →](docs/diagrams/loop-patterns-workflow.html)
+>
+> **Shows:** Side-by-side comparison of Daily Triage (L1) · PR Babysitter (L2) · CI Sweeper (L2) · Dependency Sweeper (L2)
 
-👉 **[All Patterns →](patterns/README.md)** | **[Pattern Picker →](docs/PATTERN_PICKER.md)** | **[Open Patterns Workflow →](docs/diagrams/loop-patterns-workflow.html)**
+👉 **[All Patterns →](patterns/README.md)** | **[Pattern Picker →](docs/PATTERN_PICKER.md)**
 
 ## Tools
 

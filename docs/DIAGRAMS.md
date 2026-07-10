@@ -2,6 +2,8 @@
 
 Interactive architecture and workflow diagrams for understanding Agent Loops.
 
+> **📖 How to view:** These are interactive HTML diagrams. Click any link to open in a new browser tab. Each HTML file is self-contained with embedded SVG, theme toggle, and export features.
+
 <p align="center">
   <strong>🌐 Select Language:</strong>
   <a href="./DIAGRAMS.md">English</a> ·
@@ -13,6 +15,8 @@ Interactive architecture and workflow diagrams for understanding Agent Loops.
 ## 📐 Architecture Diagram
 
 **Agent Loops System Architecture** — Shows the complete system layout with all core components, external integrations, and data flow.
+
+**[→ Open Architecture Diagram](diagrams/agent-loops-architecture.html)** *(opens in new tab)*
 
 ### Key Components
 
@@ -27,19 +31,19 @@ Interactive architecture and workflow diagrams for understanding Agent Loops.
 - **External Tools** (Bottom): GitHub, Linear, Slack MCP servers
 - **Output Actions** (Bottom): State updates, PR comments, fix commits, reports
 
-### Interactive Features
+### Features
 
-- 🌓 **Dark/Light theme toggle** — Click the theme button in the diagram
-- 📥 **Export options** — Download as PNG (up to 4× resolution), JPEG, WebP, or SVG
+- 🌓 **Dark/Light theme toggle** — Click the theme button (persists in localStorage)
+- 📥 **Export menu** — Download PNG (up to 4×), JPEG, WebP, or dual-theme SVG
 - 🔍 **Zoom & Pan** — Explore detailed component relationships
-
-[**Open Architecture Diagram →**](diagrams/agent-loops-architecture.html)
 
 ---
 
 ## 🔄 Execution Lifecycle
 
 **Agent Loop Execution Lifecycle** — State machine showing the complete execution flow from trigger to completion, including verification gates and error handling.
+
+**[→ Open Lifecycle Diagram](diagrams/loop-execution-lifecycle.html)** *(opens in new tab)*
 
 ### States
 
@@ -72,13 +76,13 @@ Interactive architecture and workflow diagrams for understanding Agent Loops.
 - **Circuit Breaker**: `loop-guard` tracks consecutive failures and escalates to human
 - **Verification**: `loop-verifier` independently validates all changes before merge
 
-[**Open Lifecycle Diagram →**](diagrams/loop-execution-lifecycle.html)
-
 ---
 
 ## 📊 Pattern Comparison Workflow
 
 **Agent Loop Patterns Workflow** — Side-by-side comparison of the four core patterns, showing their execution flow across trigger, analysis, and action phases.
+
+**[→ Open Patterns Workflow](diagrams/loop-patterns-workflow.html)** *(opens in new tab)*
 
 ### Patterns Covered
 
@@ -100,8 +104,6 @@ Interactive architecture and workflow diagrams for understanding Agent Loops.
 - **L1 patterns** produce reports only — humans decide actions
 - **L2 patterns** create PRs — all changes require human merge
 - **Safety gates** apply to all patterns: worktrees, verifier, circuit breaker
-
-[**Open Patterns Workflow →**](diagrams/loop-patterns-workflow.html)
 
 ---
 

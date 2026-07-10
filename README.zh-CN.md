@@ -54,88 +54,11 @@ npx @kevinzhangnothing/loop-audit . --suggest
 
 ### 架构概览
 
-```mermaid
-flowchart TB
-    subgraph Inputs["📥 输入源"]
-        direction LR
-        GH["🔔 GitHub 事件"]
-        CRON["⏰ Cron 调度"]
-        MANUAL["✋ 手动 /loop"]
-    end
+**📐 交互式图表**（在新标签页中打开）
 
-    subgraph Core["🔧 核心原语"]
-        direction TB
-        subgraph Primitives["5 个构建块"]
-            direction LR
-            SCHED["📅 调度"]
-            STATE[("💾 状态")]
-            SKILLS["🧩 技能"]
-            WT["🌿 工作树"]
-            SUB["👥 子代理"]
-        end
-    end
-
-    subgraph MCP["🔌 MCP 集成层"]
-        direction LR
-        MCP_HUB(("MCP 中心"))
-        GH_MCP["🐙 GitHub"]
-        LIN_MCP["📋 Linear"]
-        SLK_MCP["💬 Slack"]
-    end
-
-    subgraph Outputs["📤 输出动作"]
-        direction LR
-        STATE_UPD[("STATE.md")]
-        PR_COM["💬 PR 评论"]
-        FIXES["✅ 修复提交"]
-        REPS["📊 报告"]
-    end
-
-    %% 输入连接
-    GH --> SCHED
-    CRON --> SCHED
-    MANUAL --> SCHED
-    
-    %% 核心原语连接
-    SCHED --> STATE
-    SCHED --> SKILLS
-    SKILLS --> WT
-    SKILLS --> SUB
-    SKILLS --> MCP_HUB
-    
-    %% MCP 连接
-    MCP_HUB --> GH_MCP
-    MCP_HUB --> LIN_MCP
-    MCP_HUB --> SLK_MCP
-    
-    %% 输出连接
-    STATE --> STATE_UPD
-    SKILLS --> PR_COM
-    SKILLS --> REPS
-    WT --> FIXES
-
-    %% 样式定义
-    classDef input fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e40af
-    classDef core fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#92400e
-    classDef mcp fill:#e0e7ff,stroke:#4f46e5,stroke-width:2px,color:#3730a3
-    classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#166534
-    
-    class GH,CRON,MANUAL input
-    class SCHED,STATE,SKILLS,WT,SUB core
-    class MCP_HUB,GH_MCP,LIN_MCP,SLK_MCP mcp
-    class STATE_UPD,PR_COM,FIXES,REPS output
-```
-
-<p align="center">
-  <strong>📐 交互式架构图</strong><br>
-  <a href="docs/diagrams/agent-loops-architecture.html" target="_blank">
-    <img src="https://img.shields.io/badge/📐-架构图-blue?style=for-the-badge" alt="架构图">
-  </a>
-</p>
-
-<p align="center">
-  <em>特性：🌓 深色/浅色主题 · 📥 导出 PNG/SVG · 🔍 缩放和平移</em>
-</p>
+> **查看：** [打开架构图 →](docs/diagrams/agent-loops-architecture.html)
+>
+> **特性：** 🌓 深色/浅色主题 · 📥 导出 PNG/SVG（最高 4×）· 🔍 缩放和平移
 
 | 原语 | 用途 |
 |------|------|
@@ -161,16 +84,11 @@ flowchart TB
 
 ### 执行流程
 
-<p align="center">
-  <strong>🔄 交互式生命周期图</strong><br>
-  <a href="docs/diagrams/loop-execution-lifecycle.html" target="_blank">
-    <img src="https://img.shields.io/badge/🔄-生命周期图-green?style=for-the-badge" alt="生命周期图">
-  </a>
-</p>
+**🔄 交互式图表**（在新标签页中打开）
 
-<p align="center">
-  <em>特性：🌓 深色/浅色主题 · 📥 导出 PNG/SVG · 状态机可视化</em>
-</p>
+> **查看：** [打开生命周期图 →](docs/diagrams/loop-execution-lifecycle.html)
+>
+> **特性：** 🌓 深色/浅色主题 · 📥 导出 PNG/SVG · 状态机可视化
 
 **生命周期状态：**
 
@@ -184,22 +102,15 @@ flowchart TB
 | **Completed** | 成功，状态已更新 | — |
 | **Escalated** | 验证失败 | 人工审查 |
 
-👉 **[查看完整生命周期图 →](docs/diagrams/loop-execution-lifecycle.html)**
-
 ### 模式对比
 
-<p align="center">
-  <strong>📊 交互式模式工作流</strong><br>
-  <a href="docs/diagrams/loop-patterns-workflow.html" target="_blank">
-    <img src="https://img.shields.io/badge/📊-模式工作流-violet?style=for-the-badge" alt="模式工作流">
-  </a>
-</p>
+**📊 交互式图表**（在新标签页中打开）
 
-<p align="center">
-  <em>并排对比：每日分类 · PR 保姆 · CI 清扫 · 依赖清扫</em>
-</p>
+> **查看：** [打开模式工作流 →](docs/diagrams/loop-patterns-workflow.html)
+>
+> **显示：** 并排对比 每日分类 (L1) · PR 保姆 (L2) · CI 清洁工 (L2) · 依赖清洁工 (L2)
 
-👉 **[所有模式 →](patterns/README.md)** | **[模式选择器 →](docs/PATTERN_PICKER.md)** | **[查看模式工作流 →](docs/diagrams/loop-patterns-workflow.html)**
+👉 **[所有模式 →](patterns/README.md)** | **[模式选择器 →](docs/PATTERN_PICKER.md)**
 
 ## 工具
 

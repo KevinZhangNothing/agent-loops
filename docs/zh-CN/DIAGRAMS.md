@@ -2,6 +2,8 @@
 
 Agent Loops 的交互式架构和工作流图表。
 
+> **📖 如何查看：** 这些是交互式 HTML 图表。点击任意链接在新浏览器标签页中打开。每个 HTML 文件都是独立的，包含内嵌 SVG、主题切换和导出功能。
+
 <p align="center">
   <strong>🌐 选择语言：</strong>
   <a href="../DIAGRAMS.md">English</a> ·
@@ -13,6 +15,8 @@ Agent Loops 的交互式架构和工作流图表。
 ## 📐 架构图
 
 **Agent Loops 系统架构** — 展示完整的系统布局，包含所有核心组件、外部集成和数据流。
+
+**[→ 打开架构图](../diagrams/agent-loops-architecture.html)** *(在新标签页中打开)*
 
 ### 核心组件
 
@@ -27,19 +31,19 @@ Agent Loops 的交互式架构和工作流图表。
 - **外部工具**（底部）：GitHub、Linear、Slack MCP 服务器
 - **输出动作**（底部）：状态更新、PR 评论、修复提交、报告
 
-### 交互功能
+### 功能特性
 
-- 🌓 **深色/浅色主题切换** — 点击图表中的主题按钮
-- 📥 **导出选项** — 下载 PNG（最高 4× 分辨率）、JPEG、WebP 或 SVG
+- 🌓 **深色/浅色主题切换** — 点击图表中的主题按钮（localStorage 持久化）
+- 📥 **导出菜单** — 下载 PNG（最高 4×）、JPEG、WebP 或双主题 SVG
 - 🔍 **缩放和平移** — 探索详细的组件关系
-
-[**打开架构图 →**](../diagrams/agent-loops-architecture.html)
 
 ---
 
 ## 🔄 执行生命周期
 
 **Agent Loop 执行生命周期** — 状态机展示从触发到完成的完整执行流程，包括验证门禁和错误处理。
+
+**[→ 打开生命周期图](../diagrams/loop-execution-lifecycle.html)** *(在新标签页中打开)*
 
 ### 状态说明
 
@@ -72,13 +76,13 @@ Agent Loops 的交互式架构和工作流图表。
 - **熔断器**：`loop-guard` 跟踪连续失败并在达到阈值时升级给人工
 - **验证**：`loop-verifier` 在合并前独立验证所有更改
 
-[**打开生命周期图 →**](../diagrams/loop-execution-lifecycle.html)
-
 ---
 
 ## 📊 模式对比工作流
 
 **Agent Loop 模式工作流** — 并排对比四种核心模式，展示它们在触发、分析和行动阶段的执行流程。
+
+**[→ 打开模式工作流图](../diagrams/loop-patterns-workflow.html)** *(在新标签页中打开)*
 
 ### 涵盖的模式
 
@@ -100,8 +104,6 @@ Agent Loops 的交互式架构和工作流图表。
 - **L1 模式** 仅生成报告 — 人工决定行动
 - **L2 模式** 创建 PR — 所有更改需要人工合并
 - **安全门禁** 适用于所有模式：工作树、验证器、熔断器
-
-[**打开模式工作流图 →**](../diagrams/loop-patterns-workflow.html)
 
 ---
 
