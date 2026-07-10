@@ -134,11 +134,36 @@ flowchart TB
 
 ### 执行流程
 
-**🔄 交互式图表**（在新标签页中打开）
+```mermaid
+stateDiagram-v2
+    [*] --> Triggered
+    Triggered --> BudgetCheck
+    BudgetCheck --> Triage: 预算正常
+    BudgetCheck --> EarlyExit: 超预算
+    Triage --> Executing
+    Executing --> Verifying: 提交
+    Verifying --> Completed: 已验证
+    Verifying --> Escalated: 失败
+    EarlyExit --> [*]
+    Completed --> [*]
+    Escalated --> [*]
 
-> **查看：** [打开生命周期图 →](docs/diagrams/loop-execution-lifecycle.html)
->
-> **特性：** 🌓 深色/浅色主题 · 📥 导出 PNG/SVG · 状态机可视化
+    note right of Verifying
+        loop-guard
+        熔断器
+    end note
+
+    classDef start fill:#22c55e,color:#fff
+    classDef active fill:#3b82f6,color:#fff
+    classDef waiting fill:#f59e0b,color:#fff
+    classDef success fill:#22c55e,color:#fff
+    classDef failure fill:#ef4444,color:#fff
+    class Triggered start
+    class BudgetCheck,Triage,Executing active
+    class Verifying waiting
+    class Completed,EarlyExit success
+    class Escalated failure
+```
 
 **生命周期状态：**
 
@@ -154,11 +179,38 @@ flowchart TB
 
 ### 模式对比
 
-**📊 交互式图表**（在新标签页中打开）
+```mermaid
+flowchart LR
+    subgraph Daily["📅 每日分类 (L1)"]
+        D1["Cron"] --> D2["扫描"] --> D3["报告"]
+    end
 
-> **查看：** [打开模式工作流 →](docs/diagrams/loop-patterns-workflow.html)
->
-> **显示：** 并排对比 每日分类 (L1) · PR 保姆 (L2) · CI 清洁工 (L2) · 依赖清洁工 (L2)
+    subgraph PR["🔍 PR 保姆 (L2)"]
+        P1["监控"] --> P2["检查 CI"] --> P3["评论"]
+    end
+
+    subgraph CI["🧹 CI 清洁工 (L2)"]
+        C1["检测"] --> C2["分析"] --> C3["修复 PR"]
+    end
+
+    subgraph Dep["📦 依赖清洁工 (L2)"]
+        DP1["扫描"] --> DP2["选择"] --> DP3["PR"]
+    end
+
+    classDef l1 fill:#dbeafe,stroke:#2563eb,stroke-width:2px
+    classDef l2 fill:#fef3c7,stroke:#d97706,stroke-width:2px
+    class D1,D2,D3 l1
+    class P1,P2,P3,C1,C2,C3,DP1,DP2,DP3 l2
+```
+
+**模式对比：**
+
+| 模式 | 等级 | 节奏 | 人工门禁 |
+|------|------|------|----------|
+| **每日分类** | L1 | 每日 10:00 UTC | 每周审查 |
+| **PR 保姆** | L2 | PR 事件触发 | 人工合并 |
+| **CI 清洁工** | L2 | CI 失败触发 | 人工审查 PR |
+| **依赖清洁工** | L2 | 每 6 小时 | 仅白名单 |
 
 👉 **[所有模式 →](patterns/README.md)** | **[模式选择器 →](docs/PATTERN_PICKER.md)**
 
