@@ -13,7 +13,7 @@ jobs:
   draft:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -27,7 +27,7 @@ jobs:
           git log --oneline "${LAST_TAG}..HEAD" 2>/dev/null | head -30 || git log --oneline -15
 
       - name: Open or update release-prep issue (L1 — human drafts notes)
-        uses: actions/github-script@v9
+        uses: actions/github-script@v7
         with:
           script: |
             const title = `Release prep — week of ${new Date().toISOString().slice(0, 10)}`;

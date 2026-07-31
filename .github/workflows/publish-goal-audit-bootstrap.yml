@@ -1,6 +1,6 @@
 name: Publish goal-audit (bootstrap)
 
-# One-time bootstrap: publishes __NPM_SCOPE__/goal-audit from goal-engineering
+# One-time bootstrap: publishes @kevinzhangnothing/goal-audit from goal-engineering
 # using this repo's NPM_TOKEN. After first publish, use goal-engineering's
 # release-goal-audit.yml tag workflow (copy NPM_TOKEN to that repo).
 
@@ -15,12 +15,12 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
         with:
           repository: KevinZhangNothing/goal-engineering
           ref: main
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
           registry-url: 'https://registry.npmjs.org'

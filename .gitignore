@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build output
+tools/*/dist/
+
+# loop-init generated content (bundled at publish time)
+tools/loop-init/starters/
+tools/loop-init/templates/
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Env
+.env
+.env.local

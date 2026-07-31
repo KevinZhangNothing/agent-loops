@@ -15,13 +15,13 @@ jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
 
       - name: Record run start
         id: timing
         run: echo "started_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: 'npm'
@@ -191,7 +191,7 @@ jobs:
 
       - name: Post required commit statuses for branch protection
         if: steps.pr.outputs.opened == 'true'
-        uses: actions/github-script@v9
+        uses: actions/github-script@v7
         with:
           script: |
             const sha = '${{ steps.pr.outputs.head_sha }}';

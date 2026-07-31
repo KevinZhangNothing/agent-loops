@@ -14,7 +14,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
 
       - name: Generate static star-history SVGs
         env:
@@ -87,7 +87,7 @@ jobs:
 
       - name: Post required commit statuses for branch protection
         if: steps.pr.outputs.opened == 'true'
-        uses: actions/github-script@v9
+        uses: actions/github-script@v7
         with:
           script: |
             const sha = '${{ steps.pr.outputs.head_sha }}';
