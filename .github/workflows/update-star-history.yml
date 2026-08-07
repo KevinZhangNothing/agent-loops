@@ -87,7 +87,7 @@ jobs:
 
       - name: Post required commit statuses for branch protection
         if: steps.pr.outputs.opened == 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const sha = '${{ steps.pr.outputs.head_sha }}';
